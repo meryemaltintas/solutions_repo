@@ -210,16 +210,6 @@ Relate the forced damped pendulum to analogous systems in other fields, such as 
 Utilize software tools like Python for simulations and visualizations.
 This task bridges theoretical analysis with computational exploration, fostering a deeper understanding of forced and damped oscillatory phenomena and their implications in both physics and engineering.
 
-text
-
-Daralt
-
-Metni gizle
-
-Kopyala
-
----
-
 ### Step 4: Copy the Python Script into `forced_damped_pendulum.py`
 
 Copy the Python code block from the Markdown document (the section between the triple backticks ```python and ```) into `forced_damped_pendulum.py`. For convenience, here it is again:
