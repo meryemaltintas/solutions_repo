@@ -307,3 +307,5 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
+
+        ![alt text](image-3.png)
