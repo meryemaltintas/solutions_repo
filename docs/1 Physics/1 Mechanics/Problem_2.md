@@ -1,10 +1,9 @@
 # Problem 2
-
 ## 1. Theoretical Foundation
 
 ### Differential Equation of the Forced Damped Pendulum
 
-The motion of a forced damped pendulum is governed by the following nonlinear differential equation, as provided in the screenshot:
+The motion of a forced damped pendulum is governed by the following nonlinear differential equation:
 
 \[
 \frac{d^2 \theta}{dt^2} + b \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = A \cos(\omega t)
@@ -34,7 +33,7 @@ Thus, the equation can be rewritten as:
 
 ### Small-Angle Approximation
 
-For small angles (\(\theta \ll 1\)), we can approximate \(\sin\theta \approx \theta\), as suggested in the hints. This linearizes the equation:
+For small angles (\(\theta \ll 1\)), we can approximate \(\sin\theta \approx \theta\). This linearizes the equation:
 
 \[
 \ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \theta = f \cos(\omega t)
@@ -195,31 +194,126 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
-```
+5. Discussion
+Limitations
+The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.
+Nonlinear damping (e.g., velocity-squared damping) is not considered.
+The simulation uses a fixed time step, which may introduce numerical errors for highly chaotic regimes.
+Extensions
+Nonlinear Damping: Introduce terms like (-\beta \dot{\theta}^2) to model air resistance more realistically.
+Non-Periodic Driving: Use a stochastic or aperiodic driving force to study more complex dynamics.
+Bifurcation Analysis: Vary (f) or (\omega) systematically to plot a bifurcation diagram, showing the transition to chaos.
+Hints and Resources
+For small angles, approximate (\sin \theta \approx \theta) to simplify the differential equation.
+Employ numerical techniques (e.g., Runge-Kutta methods) for exploring the dynamics beyond the small-angle approximation.
+Relate the forced damped pendulum to analogous systems in other fields, such as electrical circuits (driven RLC circuits) or biomechanics (human gait).
+Utilize software tools like Python for simulations and visualizations.
+This task bridges theoretical analysis with computational exploration, fostering a deeper understanding of forced and damped oscillatory phenomena and their implications in both physics and engineering.
 
-### Outputs
-1. **Time Series**: Shows \(\theta(t)\) over time for different \(\beta\) and \(f\), illustrating how damping and driving amplitude affect the motion.
-2. **Phase Portrait**: Plots \(\dot{\theta}\) vs. \(\theta\), revealing the system’s trajectory in phase space. For small \(f\), the trajectory may be periodic; for larger \(f\), it becomes chaotic.
-3. **Poincaré Section**: Samples the state at each driving period, showing a cross-section of the dynamics. Chaotic behavior is visible as a scattered pattern, while periodic motion appears as distinct points.
+text
 
-## 5. Discussion
+Daralt
 
-### Limitations
-- The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.
-- Nonlinear damping (e.g., velocity-squared damping) is not considered.
-- The simulation uses a fixed time step, which may introduce numerical errors for highly chaotic regimes.
+Metni gizle
 
-### Extensions
-- **Nonlinear Damping**: Introduce terms like \(-\beta \dot{\theta}^2\) to model air resistance more realistically.
-- **Non-Periodic Driving**: Use a stochastic or aperiodic driving force to study more complex dynamics.
-- **Bifurcation Analysis**: Vary \(f\) or \(\omega\) systematically to plot a bifurcation diagram, showing the transition to chaos.
-
-This analysis and simulation provide a deep understanding of the forced damped pendulum, bridging theoretical physics with computational exploration and real-world applications.
+Kopyala
 
 ---
 
-### Notes
-- **Bifurcation Diagrams**: The script does not include bifurcation diagrams due to complexity, but they can be added by varying \(f\) over a range and plotting the resulting \(\theta\) values at specific times.
-- **Running the Code**: Ensure `numpy` and `matplotlib` are installed (`pip install numpy matplotlib`). Run the script in a Python environment to generate the plots.
+### Step 4: Copy the Python Script into `forced_damped_pendulum.py`
 
-This document fulfills all deliverables: a Markdown document with a Python script, theoretical derivations, graphical representations (time series, phase portraits, Poincaré sections), and a discussion on limitations and extensions. Let me know if you’d like further refinements!
+Copy the Python code block from the Markdown document (the section between the triple backticks ```python and ```) into `forced_damped_pendulum.py`. For convenience, here it is again:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+g = 9.8  # m/s^2
+L = 1.0  # m
+omega_0 = np.sqrt(g / L)  # Natural frequency
+beta_values = [0.1, 0.5, 1.0]  # Damping coefficients (s^-1)
+f_values = [0.5, 1.2, 2.0]  # Driving amplitudes (rad/s^2)
+omega = 2/3 * omega_0  # Driving frequency (rad/s)
+
+# Time array
+t_max = 100  # Total time (s)
+dt = 0.01  # Time step (s)
+t = np.arange(0, t_max, dt)
+N = len(t)
+
+# Initial conditions
+theta0 = 0.2  # Initial angle (rad)
+theta_dot0 = 0.0  # Initial angular velocity (rad/s)
+
+# Function to compute derivatives
+def pendulum_derivs(state, t, beta, f, omega, omega_0):
+    theta, theta_dot = state
+    dtheta_dt = theta_dot
+    dtheta_dot_dt = -beta * theta_dot - omega_0**2 * np.sin(theta) + f * np.cos(omega * t)
+    return [dtheta_dt, dtheta_dot_dt]
+
+# Simulate for different parameters
+for beta in beta_values:
+    for f in f_values:
+        # Arrays to store solution
+        theta = np.zeros(N)
+        theta_dot = np.zeros(N)
+        theta[0] = theta0
+        theta_dot[0] = theta_dot0
+
+        # RK4 integration
+        for i in range(N-1):
+            state = [theta[i], theta_dot[i]]
+            k1 = pendulum_derivs(state, t[i], beta, f, omega, omega_0)
+            
+            state_k2 = [theta[i] + 0.5 * dt * k1[0], theta_dot[i] + 0.5 * dt * k1[1]]
+            k2 = pendulum_derivs(state_k2, t[i] + 0.5 * dt, beta, f, omega, omega_0)
+            
+            state_k3 = [theta[i] + 0.5 * dt * k2[0], theta_dot[i] + 0.5 * dt * k2[1]]
+            k3 = pendulum_derivs(state_k3, t[i] + 0.5 * dt, beta, f, omega, omega_0)
+            
+            state_k4 = [theta[i] + dt * k3[0], theta_dot[i] + dt * k3[1]]
+            k4 = pendulum_derivs(state_k4, t[i] + dt, beta, f, omega, omega_0)
+            
+            theta[i+1] = theta[i] + (dt/6) * (k1[0] + 2*k2[0] + 2*k3[0] + k4[0])
+            theta_dot[i+1] = theta_dot[i] + (dt/6) * (k1[1] + 2*k2[1] + 2*k3[1] + k4[1])
+
+        # Plotting
+        # 1. Time series of theta
+        plt.figure(figsize=(10, 4))
+        plt.plot(t, theta, label=f'β={beta}, f={f}')
+        plt.xlabel('Time (s)')
+        plt.ylabel('Angle (rad)')
+        plt.title(f'Forced Damped Pendulum: Angle vs Time (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+        # 2. Phase portrait
+        plt.figure(figsize=(10, 6))
+        plt.plot(theta, theta_dot, label=f'β={beta}, f={f}')
+        plt.xlabel('Angle (rad)')
+        plt.ylabel('Angular Velocity (rad/s)')
+        plt.title(f'Phase Portrait (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+        # 3. Poincaré section
+        poincare_theta = []
+        poincare_theta_dot = []
+        period = 2 * np.pi / omega  # Period of driving force
+        for i in range(N):
+            if abs(t[i] % period) < dt / 2:  # Sample at each driving period
+                poincare_theta.append(theta[i])
+                poincare_theta_dot.append(theta_dot[i])
+
+        plt.figure(figsize=(10, 6))
+        plt.scatter(poincare_theta, poincare_theta_dot, s=1, color='red', label=f'β={beta}, f={f}')
+        plt.xlabel('Angle (rad)')
+        plt.ylabel('Angular Velocity (rad/s)')
+        plt.title(f'Poincaré Section (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
