@@ -77,9 +77,11 @@ Set \(y(t) = 0\):
 t \left( v_0 \sin\theta - \frac{1}{2} g t \right) = 0
 \]
 Solutions: \(t = 0\) (launch) or \(t = \frac{2 v_0 \sin\theta}{g}\) (landing). Substitute into \(x(t)\):
-\[
+
+$$
 R = x\left(\frac{2 v_0 \sin\theta}{g}\right) = (v_0 \cos\theta) \cdot \frac{2 v_0 \sin\theta}{g} = \frac{2 v_0^2 \sin\theta \cos\theta}{g}
-\]
+$$
+
 Using \(2 \sin\theta \cos\theta = \sin 2\theta\):
 \[
 R = \frac{v_0^2 \sin 2\theta}{g}
