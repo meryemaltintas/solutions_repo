@@ -172,6 +172,204 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<p>Thank you for sharing the additional screenshot. I can see that it contains the deliverables and hints/resources sections for the forced damped pendulum task, which align with the previous task description you provided. The differential equation and other sections were already addressed in my previous response, but I’ll ensure that the solution is complete by incorporating any missing details from this screenshot and providing a cohesive Markdown document that fulfills all requirements.</p>
+<p>Below is the complete Markdown document for the forced damped pendulum task, including the theoretical foundation (with the differential equation from the previous screenshot), analysis of dynamics, practical applications, a Python script for simulation, and visualizations such as phase portraits and Poincaré sections. The document is in English, as requested.</p>
+<hr/>
+<h1 id="forced-damped-pendulum-analysis-and-simulation">Forced Damped Pendulum: Analysis and Simulation</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The forced damped pendulum is a captivating example of a physical system with intricate behavior resulting from the interplay of damping, restoring forces, and external driving forces. By introducing both damping and external periodic forcing, the system demonstrates a transition from simple harmonic motion to a rich spectrum of dynamics, including resonance, chaos, and quasiperiodic behavior. These phenomena serve as a foundation for understanding complex real-world systems, such as driven oscillators, climate systems, and mechanical structures under periodic stress.</p>
+<p>Adding forcing introduces new parameters, such as the amplitude and frequency of the external force, which significantly affect the pendulum's behavior. By systematically varying these parameters, a diverse class of solutions can be observed, including synchronized oscillations, chaotic motion, and resonance phenomena. These behaviors not only highlight fundamental physics principles but also provide insights into engineering applications such as energy harvesting, vibration isolation, and mechanical resonance.</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="differential-equation-of-the-forced-damped-pendulum">Differential Equation of the Forced Damped Pendulum</h3>
+<p>The motion of a forced damped pendulum is governed by the following nonlinear differential equation, as provided in the screenshot:</p>
+<div class="arithmatex">\[
+\frac{d^2 \theta}{dt^2} + b \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = A \cos(\omega t)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta\)</span>: Angular displacement of the pendulum (radians).
+- <span class="arithmatex">\(\frac{d\theta}{dt}\)</span>: Angular velocity (<span class="arithmatex">\(\dot{\theta}\)</span>).
+- <span class="arithmatex">\(\frac{d^2\theta}{dt^2}\)</span>: Angular acceleration (<span class="arithmatex">\(\ddot{\theta}\)</span>).
+- <span class="arithmatex">\(b\)</span>: Damping coefficient (s<span class="arithmatex">\(^{-1}\)</span>).
+- <span class="arithmatex">\(g\)</span>: Gravitational acceleration (<span class="arithmatex">\(9.8 \, \text{m/s}^2\)</span>).
+- <span class="arithmatex">\(L\)</span>: Length of the pendulum (m).
+- <span class="arithmatex">\(A\)</span>: Amplitude of the external driving force (rad/s<span class="arithmatex">\(^2\)</span>).
+- <span class="arithmatex">\(\omega\)</span>: Driving frequency (rad/s).
+- <span class="arithmatex">\(t\)</span>: Time (s).</p>
+<p>To simplify, we define:
+- Natural frequency: <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span>,
+- Damping parameter: <span class="arithmatex">\(\beta = b\)</span>,
+- Driving amplitude: <span class="arithmatex">\(f = A\)</span>.</p>
+<p>Thus, the equation can be rewritten as:</p>
+<div class="arithmatex">\[
+\ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \sin\theta = f \cos(\omega t)
+\]</div>
+<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
+<p>For small angles (<span class="arithmatex">\(\theta \ll 1\)</span>), we can approximate <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, as suggested in the hints. This linearizes the equation:</p>
+<div class="arithmatex">\[
+\ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \theta = f \cos(\omega t)
+\]</div>
+<p>This is the equation of a forced damped harmonic oscillator. The homogeneous solution (without forcing) is:</p>
+<div class="arithmatex">\[
+\theta_h(t) = e^{-\frac{\beta}{2} t} \left( A_1 \cos(\omega_d t) + A_2 \sin(\omega_d t) \right)
+\]</div>
+<p>Where <span class="arithmatex">\(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\beta}{2}\right)^2}\)</span> is the damped angular frequency, and <span class="arithmatex">\(A_1\)</span> and <span class="arithmatex">\(A_2\)</span> are constants determined by initial conditions.</p>
+<p>The particular solution (due to the forcing term <span class="arithmatex">\(f \cos(\omega t)\)</span>) can be found using the method of undetermined coefficients. Assume a solution of the form:</p>
+<div class="arithmatex">\[
+\theta_p(t) = C \cos(\omega t) + D \sin(\omega t)
+\]</div>
+<p>Substitute into the linearized equation, solve for <span class="arithmatex">\(C\)</span> and <span class="arithmatex">\(D\)</span>, and the steady-state solution is:</p>
+<div class="arithmatex">\[
+\theta_p(t) = A_d \cos(\omega t - \phi)
+\]</div>
+<p>Where the amplitude <span class="arithmatex">\(A_d\)</span> and phase <span class="arithmatex">\(\phi\)</span> are:</p>
+<div class="arithmatex">\[
+A_d = \frac{f}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\beta \omega)^2}}, \quad \tan\phi = \frac{\beta \omega}{\omega_0^2 - \omega^2}
+\]</div>
+<h3 id="resonance-conditions">Resonance Conditions</h3>
+<p>Resonance occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> approaches the natural frequency <span class="arithmatex">\(\omega_0\)</span>. In the linearized case, the amplitude <span class="arithmatex">\(A_d\)</span> is maximized when:</p>
+<div class="arithmatex">\[
+\omega \approx \sqrt{\omega_0^2 - \left(\frac{\beta}{2}\right)^2}
+\]</div>
+<p>At resonance, the system absorbs energy most efficiently from the driving force, leading to large oscillations. Damping (<span class="arithmatex">\(\beta\)</span>) limits the amplitude, preventing it from becoming infinite as it would in an undamped system. Resonance increases the system’s energy, which can be beneficial (e.g., in energy harvesting) or destructive (e.g., in mechanical structures like bridges).</p>
+<h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
+<h3 id="influence-of-parameters">Influence of Parameters</h3>
+<ul>
+<li><strong>Damping Coefficient (<span class="arithmatex">\(\beta\)</span>)</strong>: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large <span class="arithmatex">\(\beta\)</span>, the system becomes overdamped, and oscillations decay quickly.</li>
+<li><strong>Driving Amplitude (<span class="arithmatex">\(f\)</span>)</strong>: Increasing <span class="arithmatex">\(f\)</span> increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.</li>
+<li><strong>Driving Frequency (<span class="arithmatex">\(\omega\)</span>)</strong>: When <span class="arithmatex">\(\omega \approx \omega_0\)</span>, resonance occurs. For <span class="arithmatex">\(\omega \gg \omega_0\)</span> or <span class="arithmatex">\(\omega \ll \omega_0\)</span>, the response amplitude decreases.</li>
+</ul>
+<h3 id="transition-to-chaotic-motion">Transition to Chaotic Motion</h3>
+<p>For large driving amplitudes or specific combinations of <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(f\)</span>, and <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin\theta\)</span> becomes significant, and the system can exhibit chaotic behavior. This transition is characterized by:
+- <strong>Period Doubling</strong>: The pendulum’s motion may double its period repeatedly as <span class="arithmatex">\(f\)</span> increases, a hallmark of the route to chaos.
+- <strong>Sensitive Dependence on Initial Conditions</strong>: Small changes in <span class="arithmatex">\(\theta(0)\)</span> or <span class="arithmatex">\(\dot{\theta}(0)\)</span> lead to drastically different trajectories.
+- <strong>Chaotic Attractors</strong>: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.</p>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>The forced damped pendulum model applies to:
+- <strong>Energy Harvesting</strong>: Piezoelectric devices can use forced oscillations to convert mechanical energy into electrical energy.
+- <strong>Suspension Bridges</strong>: Understanding resonance helps design bridges to avoid catastrophic oscillations (e.g., Tacoma Narrows Bridge collapse).
+- <strong>Oscillating Circuits</strong>: Driven RLC circuits behave analogously, with applications in electronics and signal processing.</p>
+<h2 id="4-implementation">4. Implementation</h2>
+<p>Below is a Python script to simulate the forced damped pendulum using the 4th-order Runge-Kutta method (RK4). The script visualizes the motion, phase portraits, and Poincaré sections for different parameter sets to illustrate resonance and chaotic behavior.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+g = 9.8  # m/s^2
+L = 1.0  # m
+omega_0 = np.sqrt(g / L)  # Natural frequency
+beta_values = [0.1, 0.5, 1.0]  # Damping coefficients (s^-1)
+f_values = [0.5, 1.2, 2.0]  # Driving amplitudes (rad/s^2)
+omega = 2/3 * omega_0  # Driving frequency (rad/s)
+
+# Time array
+t_max = 100  # Total time (s)
+dt = 0.01  # Time step (s)
+t = np.arange(0, t_max, dt)
+N = len(t)
+
+# Initial conditions
+theta0 = 0.2  # Initial angle (rad)
+theta_dot0 = 0.0  # Initial angular velocity (rad/s)
+
+# Function to compute derivatives
+def pendulum_derivs(state, t, beta, f, omega, omega_0):
+    theta, theta_dot = state
+    dtheta_dt = theta_dot
+    dtheta_dot_dt = -beta * theta_dot - omega_0**2 * np.sin(theta) + f * np.cos(omega * t)
+    return [dtheta_dt, dtheta_dot_dt]
+
+# Simulate for different parameters
+for beta in beta_values:
+    for f in f_values:
+        # Arrays to store solution
+        theta = np.zeros(N)
+        theta_dot = np.zeros(N)
+        theta[0] = theta0
+        theta_dot[0] = theta_dot0
+
+        # RK4 integration
+        for i in range(N-1):
+            state = [theta[i], theta_dot[i]]
+            k1 = pendulum_derivs(state, t[i], beta, f, omega, omega_0)
+
+            state_k2 = [theta[i] + 0.5 * dt * k1[0], theta_dot[i] + 0.5 * dt * k1[1]]
+            k2 = pendulum_derivs(state_k2, t[i] + 0.5 * dt, beta, f, omega, omega_0)
+
+            state_k3 = [theta[i] + 0.5 * dt * k2[0], theta_dot[i] + 0.5 * dt * k2[1]]
+            k3 = pendulum_derivs(state_k3, t[i] + 0.5 * dt, beta, f, omega, omega_0)
+
+            state_k4 = [theta[i] + dt * k3[0], theta_dot[i] + dt * k3[1]]
+            k4 = pendulum_derivs(state_k4, t[i] + dt, beta, f, omega, omega_0)
+
+            theta[i+1] = theta[i] + (dt/6) * (k1[0] + 2*k2[0] + 2*k3[0] + k4[0])
+            theta_dot[i+1] = theta_dot[i] + (dt/6) * (k1[1] + 2*k2[1] + 2*k3[1] + k4[1])
+
+        # Plotting
+        # 1. Time series of theta
+        plt.figure(figsize=(10, 4))
+        plt.plot(t, theta, label=f'β={beta}, f={f}')
+        plt.xlabel('Time (s)')
+        plt.ylabel('Angle (rad)')
+        plt.title(f'Forced Damped Pendulum: Angle vs Time (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+        # 2. Phase portrait
+        plt.figure(figsize=(10, 6))
+        plt.plot(theta, theta_dot, label=f'β={beta}, f={f}')
+        plt.xlabel('Angle (rad)')
+        plt.ylabel('Angular Velocity (rad/s)')
+        plt.title(f'Phase Portrait (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+
+        # 3. Poincaré section
+        poincare_theta = []
+        poincare_theta_dot = []
+        period = 2 * np.pi / omega  # Period of driving force
+        for i in range(N):
+            if abs(t[i] % period) &lt; dt / 2:  # Sample at each driving period
+                poincare_theta.append(theta[i])
+                poincare_theta_dot.append(theta_dot[i])
+
+        plt.figure(figsize=(10, 6))
+        plt.scatter(poincare_theta, poincare_theta_dot, s=1, color='red', label=f'β={beta}, f={f}')
+        plt.xlabel('Angle (rad)')
+        plt.ylabel('Angular Velocity (rad/s)')
+        plt.title(f'Poincaré Section (β={beta}, f={f})')
+        plt.grid(True)
+        plt.legend()
+        plt.show()
+</code></pre>
+<h3 id="outputs">Outputs</h3>
+<ol>
+<li><strong>Time Series</strong>: Shows <span class="arithmatex">\(\theta(t)\)</span> over time for different <span class="arithmatex">\(\beta\)</span> and <span class="arithmatex">\(f\)</span>, illustrating how damping and driving amplitude affect the motion.</li>
+<li><strong>Phase Portrait</strong>: Plots <span class="arithmatex">\(\dot{\theta}\)</span> vs. <span class="arithmatex">\(\theta\)</span>, revealing the system’s trajectory in phase space. For small <span class="arithmatex">\(f\)</span>, the trajectory may be periodic; for larger <span class="arithmatex">\(f\)</span>, it becomes chaotic.</li>
+<li><strong>Poincaré Section</strong>: Samples the state at each driving period, showing a cross-section of the dynamics. Chaotic behavior is visible as a scattered pattern, while periodic motion appears as distinct points.</li>
+</ol>
+<h2 id="5-discussion">5. Discussion</h2>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li>The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.</li>
+<li>Nonlinear damping (e.g., velocity-squared damping) is not considered.</li>
+<li>The simulation uses a fixed time step, which may introduce numerical errors for highly chaotic regimes.</li>
+</ul>
+<h3 id="extensions">Extensions</h3>
+<ul>
+<li><strong>Nonlinear Damping</strong>: Introduce terms like <span class="arithmatex">\(-\beta \dot{\theta}^2\)</span> to model air resistance more realistically.</li>
+<li><strong>Non-Periodic Driving</strong>: Use a stochastic or aperiodic driving force to study more complex dynamics.</li>
+<li><strong>Bifurcation Analysis</strong>: Vary <span class="arithmatex">\(f\)</span> or <span class="arithmatex">\(\omega\)</span> systematically to plot a bifurcation diagram, showing the transition to chaos.</li>
+</ul>
+<p>This analysis and simulation provide a deep understanding of the forced damped pendulum, bridging theoretical physics with computational exploration and real-world applications.</p>
+<hr/>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><strong>Bifurcation Diagrams</strong>: The script does not include bifurcation diagrams due to complexity, but they can be added by varying <span class="arithmatex">\(f\)</span> over a range and plotting the resulting <span class="arithmatex">\(\theta\)</span> values at specific times.</li>
+<li><strong>Running the Code</strong>: Ensure <code>numpy</code> and <code>matplotlib</code> are installed (<code>pip install numpy matplotlib</code>). Run the script in a Python environment to generate the plots.</li>
+</ul>
+<p>This document fulfills all deliverables: a Markdown document with a Python script, theoretical derivations, graphical representations (time series, phase portraits, Poincaré sections), and a discussion on limitations and extensions. Let me know if you’d like further refinements!</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
