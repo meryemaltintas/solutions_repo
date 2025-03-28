@@ -38,7 +38,7 @@ The only force is gravity, acting along the y-axis (\(a_y = -g\)), with \(a_x = 
   \frac{d^2 x(t)}{dt^2} = 0 \quad \text{(no acceleration in x-direction)}
   \frac{dx(t)}{dt} = v_0 \cos\theta
   $$
-  
+
   Integrating:
   \[
   x(t) = v_0 \cos\theta \cdot t
@@ -181,3 +181,5 @@ This analysis and simulation highlight projectile motion’s elegance and adapta
 - **Discussion**: Included limitations and suggestions for extensions, addressing real-world factors like drag and wind.
 
 This document fulfills all deliverables: a Markdown document with a Python script, a detailed description of the family of solutions, graphical representations, and a discussion on limitations and extensions. Let me know if you need further adjustments!
+
+![alt text](image.png)
