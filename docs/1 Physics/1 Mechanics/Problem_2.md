@@ -309,3 +309,4 @@ for beta in beta_values:
         plt.show()
 
         ![alt text](image-4.png)
+        ![alt text](image-5.png)
