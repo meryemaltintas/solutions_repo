@@ -182,4 +182,4 @@ This analysis and simulation highlight projectile motion’s elegance and adapta
 
 This document fulfills all deliverables: a Markdown document with a Python script, a detailed description of the family of solutions, graphical representations, and a discussion on limitations and extensions. Let me know if you need further adjustments!
 
-![alt text](image-1.png)
+![alt text](image-2.png)
