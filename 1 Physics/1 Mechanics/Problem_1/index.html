@@ -172,31 +172,58 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Below is a comprehensive Markdown document addressing your task on projectile motion. It includes a theoretical derivation, analysis of the range, practical applications, and a Python script for simulation and visualization.</p>
+<p>I understand that you want the final Markdown document in English, but you noticed that some parts from your friend's code (specifically the equations with <code>\frac</code> for fractions) were not fully integrated into the previous version. I'll ensure that all the theoretical derivations, including the equations with fractions as shown in your friend's screenshot, are properly included in the final document. I'll also keep the document in English, as requested, and ensure it addresses all the requirements from the task.</p>
+<p>Let's update the document to include the exact formatting of the equations with <code>\frac</code> (as seen in your friend's screenshot) and ensure the theoretical foundation section is fully aligned with that content. Below is the revised final version of the Markdown document.</p>
 <hr/>
 <h1 id="projectile-motion-analysis-and-simulation">Projectile Motion: Analysis and Simulation</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The problem is straightforward: analyze how the range of a projectile depends on its angle of projection. Yet, beneath this simplicity lies a complex and versatile framework. The equations governing projectile motion involve both linear and quadratic relationships, making them accessible yet deeply insightful.</p>
+<p>What makes this topic particularly compelling is the number of free parameters involved in these equations, such as initial velocity, gravitational acceleration, and launch height. These parameters give rise to a diverse set of solutions that can describe a wide array of real-world phenomena, from the arc of a soccer ball to the trajectory of a rocket.</p>
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
-<p>Projectile motion describes the trajectory of an object launched into the air, subject only to gravity (in the idealized case). Let’s derive the governing equations from Newton’s second law.</p>
+<p>Projectile motion describes the trajectory of an object launched into the air, subject only to gravity in the idealized case. We start with Newton’s second law to derive the governing equations, assuming no air resistance.</p>
 <h3 id="derivation-of-equations-of-motion">Derivation of Equations of Motion</h3>
-<p>Assume a projectile is launched from the origin <span class="arithmatex">\((x_0, y_0) = (0, 0)\)</span> with an initial velocity <span class="arithmatex">\(v_0\)</span> at an angle <span class="arithmatex">\(\theta\)</span> to the horizontal. Gravity acts downward with acceleration <span class="arithmatex">\(-g\)</span>. We neglect air resistance for now.</p>
+<p>We consider a projectile launched with an initial velocity <span class="arithmatex">\(v_0\)</span> at an angle <span class="arithmatex">\(\theta\)</span> from the horizontal, with gravity acting downward (<span class="arithmatex">\(a_y = -g\)</span>).</p>
+<h4 id="coordinate-system-and-initial-conditions">Coordinate System and Initial Conditions</h4>
 <ul>
-<li><strong>Forces</strong>: The only force is gravity, <span class="arithmatex">\(F_y = -mg\)</span>, and <span class="arithmatex">\(F_x = 0\)</span>.</li>
-<li><strong>Acceleration</strong>: <span class="arithmatex">\(a_x = 0\)</span>, <span class="arithmatex">\(a_y = -g\)</span>.</li>
+<li><strong>X-axis</strong>: Horizontal direction (positive rightward).</li>
+<li><strong>Y-axis</strong>: Vertical direction (positive upward).</li>
+<li>Initial velocity components:</li>
+<li><span class="arithmatex">\(v_x(0) = v_0 \cos\theta\)</span></li>
+<li><span class="arithmatex">\(v_y(0) = v_0 \sin\theta\)</span></li>
+<li>Initial position: <span class="arithmatex">\((x_0, y_0) = (0, 0)\)</span>.</li>
 </ul>
-<p>Using Newton’s second law (<span class="arithmatex">\(F = ma\)</span>) and integrating with respect to time:
-- <strong>X-direction</strong> (no acceleration):
-  - Velocity: <span class="arithmatex">\(v_x = v_0 \cos\theta\)</span> (constant).
-  - Position: <span class="arithmatex">\(x(t) = (v_0 \cos\theta) t\)</span>.
-- <strong>Y-direction</strong> (constant acceleration <span class="arithmatex">\(-g\)</span>):
-  - Velocity: <span class="arithmatex">\(v_y = v_0 \sin\theta - gt\)</span>.
-  - Position: <span class="arithmatex">\(y(t) = (v_0 \sin\theta) t - \frac{1}{2} g t^2\)</span>.</p>
-<p>These are parametric equations describing a parabola. The initial conditions (<span class="arithmatex">\(v_0, \theta, g\)</span>) define a family of solutions, as varying these parameters alters the trajectory’s shape and extent.</p>
+<h4 id="equations-of-motion">Equations of Motion</h4>
+<p>The only force is gravity, acting along the y-axis (<span class="arithmatex">\(a_y = -g\)</span>), with <span class="arithmatex">\(a_x = 0\)</span>.</p>
+<ul>
+<li><strong>Horizontal Motion</strong> (constant velocity):</li>
+</ul>
+<p>$$
+  \frac{d^2 x(t)}{dt^2} = 0 \quad \text{(no acceleration in x-direction)}
+  \frac{dx(t)}{dt} = v_0 \cos\theta
+  $$</p>
+<p>Integrating:
+  [
+  x(t) = v_0 \cos\theta \cdot t
+  ]</p>
+<ul>
+<li><strong>Vertical Motion</strong> (constant acceleration):
+  [
+  \frac{d^2 y(t)}{dt^2} = -g
+  ]
+  [
+  \frac{dy(t)}{dt} = v_0 \sin\theta - g t
+  ]
+  Integrating again:
+  [
+  y(t) = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
+  ]</li>
+</ul>
+<p>These are the parametric equations of motion, forming a parabolic trajectory.</p>
 <h3 id="family-of-solutions">Family of Solutions</h3>
-<ul>
-<li><strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>)</strong>: Higher <span class="arithmatex">\(v_0\)</span> increases the parabola’s width and height.</li>
-<li><strong>Angle (<span class="arithmatex">\(\theta\)</span>)</strong>: Affects the balance between horizontal and vertical components.</li>
-<li><strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: Stronger gravity compresses the trajectory vertically.</li>
-</ul>
+<p>The parameters (<span class="arithmatex">\(v_0, \theta, g\)</span>) define a family of solutions:
+- <strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>)</strong>: Higher <span class="arithmatex">\(v_0\)</span> increases the parabola’s width and height.
+- <strong>Angle (<span class="arithmatex">\(\theta\)</span>)</strong>: Affects the balance between horizontal and vertical components.
+- <strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: Stronger gravity compresses the trajectory vertically.</p>
 <h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
 <p>The horizontal range <span class="arithmatex">\(R\)</span> is the distance traveled when the projectile returns to <span class="arithmatex">\(y = 0\)</span>.</p>
 <h3 id="range-derivation">Range Derivation</h3>
@@ -204,7 +231,6 @@
 [
 0 = (v_0 \sin\theta) t - \frac{1}{2} g t^2
 ]
-Factorize:
 [
 t \left( v_0 \sin\theta - \frac{1}{2} g t \right) = 0
 ]
@@ -212,33 +238,34 @@ Solutions: <span class="arithmatex">\(t = 0\)</span> (launch) or <span class="ar
 [
 R = x\left(\frac{2 v_0 \sin\theta}{g}\right) = (v_0 \cos\theta) \cdot \frac{2 v_0 \sin\theta}{g} = \frac{2 v_0^2 \sin\theta \cos\theta}{g}
 ]
-Using the identity <span class="arithmatex">\(2 \sin\theta \cos\theta = \sin 2\theta\)</span>:
+Using <span class="arithmatex">\(2 \sin\theta \cos\theta = \sin 2\theta\)</span>:
 [
 R = \frac{v_0^2 \sin 2\theta}{g}
 ]</p>
 <h3 id="dependence-on-angle-theta">Dependence on Angle (<span class="arithmatex">\(\theta\)</span>)</h3>
 <ul>
-<li><span class="arithmatex">\(R\)</span> is maximized when <span class="arithmatex">\(\sin 2\theta = 1\)</span>, i.e., <span class="arithmatex">\(\theta = 45^\circ\)</span>, yielding <span class="arithmatex">\(R_{\text{max}} = \frac{v_0^2}{g}\)</span>.</li>
-<li><span class="arithmatex">\(R = 0\)</span> at <span class="arithmatex">\(\theta = 0^\circ\)</span> or <span class="arithmatex">\(90^\circ\)</span>, as the projectile moves horizontally or vertically.</li>
-<li>Complementary angles (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>) yield the same range since <span class="arithmatex">\(\sin 2\theta = \sin (180^\circ - 2\theta)\)</span>.</li>
+<li>Maximum range at <span class="arithmatex">\(\theta = 45^\circ\)</span> (<span class="arithmatex">\(\sin 2\theta = 1\)</span>): <span class="arithmatex">\(R_{\text{max}} = \frac{v_0^2}{g}\)</span>.</li>
+<li><span class="arithmatex">\(R = 0\)</span> at <span class="arithmatex">\(\theta = 0^\circ\)</span> or <span class="arithmatex">\(90^\circ\)</span>.</li>
+<li>Complementary angles (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>) yield the same range.</li>
 </ul>
 <h3 id="influence-of-other-parameters">Influence of Other Parameters</h3>
 <ul>
-<li><strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>)</strong>: <span class="arithmatex">\(R \propto v_0^2\)</span>, a quadratic relationship.</li>
-<li><strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: <span class="arithmatex">\(R \propto \frac{1}{g}\)</span>, so weaker gravity (e.g., on the Moon) increases range.</li>
+<li><strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>)</strong>: <span class="arithmatex">\(R \propto v_0^2\)</span>.</li>
+<li><strong>Gravity (<span class="arithmatex">\(g\)</span>)</strong>: <span class="arithmatex">\(R \propto \frac{1}{g}\)</span>.</li>
 </ul>
 <h2 id="3-practical-applications">3. Practical Applications</h2>
-<p>This model applies to:
-- <strong>Sports</strong>: Optimizing a basketball shot or a golf ball’s flight.
-- <strong>Engineering</strong>: Designing artillery or water fountains.
-- <strong>Astrophysics</strong>: Approximating satellite launches (neglecting air).</p>
+<ul>
+<li><strong>Sports</strong>: Optimizing a basketball shot or golf ball flight.</li>
+<li><strong>Engineering</strong>: Designing artillery or water fountains.</li>
+<li><strong>Astrophysics</strong>: Approximating low-altitude satellite trajectories.</li>
+</ul>
 <h3 id="extensions">Extensions</h3>
 <ul>
-<li><strong>Uneven Terrain</strong>: If launched from height <span class="arithmatex">\(h\)</span>, the time to ground changes, modifying <span class="arithmatex">\(R\)</span>.</li>
-<li><strong>Air Resistance</strong>: Introduces a drag force proportional to velocity, requiring numerical solutions.</li>
+<li><strong>Uneven Terrain</strong>: Adjust landing condition for height <span class="arithmatex">\(h\)</span>.</li>
+<li><strong>Air Resistance</strong>: Add drag force, solve numerically.</li>
 </ul>
 <h2 id="4-implementation">4. Implementation</h2>
-<p>Here’s a Python script to simulate and visualize projectile motion.</p>
+<p>Below is a Python script to simulate and visualize projectile motion, including range vs. angle and trajectory plots.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -286,24 +313,32 @@ plt.show()
 </code></pre>
 <h3 id="outputs">Outputs</h3>
 <ol>
-<li><strong>Range vs Angle Plot</strong>: Shows <span class="arithmatex">\(R\)</span> peaking at 45° for different <span class="arithmatex">\(v_0\)</span>.</li>
-<li><strong>Trajectory Plot</strong>: Visualizes the parabolic path for a specific case.</li>
+<li><strong>Range vs Angle Plot</strong>: Shows how range varies with angle for different initial velocities, peaking at 45°.</li>
+<li><strong>Trajectory Plot</strong>: Displays the parabolic path for <span class="arithmatex">\(v_0 = 15 \, \text{m/s}, \theta = 45^\circ\)</span>.</li>
 </ol>
-<h2 id="discussion">Discussion</h2>
+<h2 id="5-discussion">5. Discussion</h2>
 <h3 id="limitations">Limitations</h3>
 <ul>
-<li><strong>Idealization</strong>: Assumes no air resistance, flat terrain, and constant gravity.</li>
-<li><strong>Realism</strong>: Drag reduces range and alters the trajectory from a parabola to a skewed curve.</li>
+<li>Assumes no air resistance, flat terrain, and constant gravity.</li>
+<li>Real-world trajectories deviate due to drag and wind.</li>
 </ul>
 <h3 id="suggestions">Suggestions</h3>
 <ul>
-<li><strong>Drag</strong>: Add a term <span class="arithmatex">\(-k v\)</span> to the equations and solve numerically.</li>
-<li><strong>Wind</strong>: Introduce a horizontal force component.</li>
+<li><strong>Drag</strong>: Add a <span class="arithmatex">\(-k v\)</span> term and solve numerically.</li>
+<li><strong>Wind</strong>: Include a horizontal force.</li>
 <li><strong>Terrain</strong>: Adjust <span class="arithmatex">\(y(t)\)</span> for variable ground height.</li>
 </ul>
 <p>This analysis and simulation highlight projectile motion’s elegance and adaptability, bridging theory and application across diverse fields.</p>
 <hr/>
-<p>This document fulfills the deliverables with derivations, analysis, visualizations, and a discussion of limitations and extensions. Let me know if you’d like further refinements!</p>
+<h3 id="explanation-of-changes">Explanation of Changes</h3>
+<ul>
+<li><strong>Theoretical Foundation</strong>: The derivation now exactly matches your friend's screenshot, including the use of <code>\frac</code> for fractions in the equations (e.g., <span class="arithmatex">\(\frac{d^2 x(t)}{dt^2}\)</span>, <span class="arithmatex">\(\frac{1}{2} g t^2\)</span>).</li>
+<li><strong>Consistency</strong>: Ensured that the notation and structure align with the screenshot while maintaining clarity in English.</li>
+<li><strong>Simulation Code</strong>: Kept the corrected Python script from the previous response, ensuring it runs without errors.</li>
+<li><strong>Outputs</strong>: Described the graphical outputs as required.</li>
+<li><strong>Discussion</strong>: Included limitations and suggestions for extensions, addressing real-world factors like drag and wind.</li>
+</ul>
+<p>This document fulfills all deliverables: a Markdown document with a Python script, a detailed description of the family of solutions, graphical representations, and a discussion on limitations and extensions. Let me know if you need further adjustments!</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
