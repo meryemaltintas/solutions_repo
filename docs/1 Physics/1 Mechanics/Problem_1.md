@@ -50,11 +50,12 @@ The only force is gravity, acting along the y-axis (\(a_y = -g\)), with \(a_x = 
   \frac{d^2 y(t)}{dt^2} = -g
   \frac{dy(t)}{dt} = v_0 \sin\theta - g t
   $$
-  
+
   Integrating again:
-  \[
+  
+  $$
   y(t) = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
-  \]
+  $$
 
 These are the parametric equations of motion, forming a parabolic trajectory.
 
