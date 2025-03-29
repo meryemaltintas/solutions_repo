@@ -83,9 +83,9 @@ R = x\left(\frac{2 v_0 \sin\theta}{g}\right) = (v_0 \cos\theta) \cdot \frac{2 v_
 $$
 
 Using \(2 \sin\theta \cos\theta = \sin 2\theta\):
-\[
+$$
 R = \frac{v_0^2 \sin 2\theta}{g}
-\]
+$$
 
 ### Dependence on Angle (\(\theta\))
 - Maximum range at \(\theta = 45^\circ\) (\(\sin 2\theta = 1\)): \(R_{\text{max}} = \frac{v_0^2}{g}\).
