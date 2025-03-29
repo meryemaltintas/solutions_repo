@@ -1,9 +1,4 @@
 # Problem 1
-I understand that you want the final Markdown document in English, but you noticed that some parts from your friend's code (specifically the equations with `\frac` for fractions) were not fully integrated into the previous version. I'll ensure that all the theoretical derivations, including the equations with fractions as shown in your friend's screenshot, are properly included in the final document. I'll also keep the document in English, as requested, and ensure it addresses all the requirements from the task.
-
-Let's update the document to include the exact formatting of the equations with `\frac` (as seen in your friend's screenshot) and ensure the theoretical foundation section is fully aligned with that content. Below is the revised final version of the Markdown document.
-
----
 
 # Projectile Motion: Analysis and Simulation
 
