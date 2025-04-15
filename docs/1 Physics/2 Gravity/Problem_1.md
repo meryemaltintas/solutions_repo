@@ -162,3 +162,5 @@ Extension to Elliptical Orbits
 For elliptical orbits, Kepler’s Third Law is modified to use the semi-major axis (a) instead of the radius (r):[T^2 = \frac{4\pi^2 a^3}{G M}]This holds because the semi-major axis represents the average distance in an elliptical orbit. The law applies to all bound orbits (circular or elliptical) and is used to study comets, asteroids, and exoplanets. For highly eccentric orbits, the period still depends on the semi-major axis, but the dynamics are more complex due to varying orbital speeds.
 Discussion
 Kepler’s Third Law connects fundamental physics to observable phenomena, enabling precise calculations of masses and distances in the Solar System and beyond. Its application to elliptical orbits broadens its utility, covering diverse celestial bodies. The computational model confirms the law’s predictions, and graphical representations provide intuitive insights into orbital mechanics.
+
+![alt text](image.png)
