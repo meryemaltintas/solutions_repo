@@ -102,16 +102,15 @@ This allows us to calculate the mass of the Earth or verify the Moon’s orbital
 To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. The relationship 
 
 For example, the Python code could look like this:
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
 G = 6.67430e-11  # Gravitational constant in m^3 kg^-1 s^-2
-M = 5.972e24  # Mass of Earth in kg
+M = 5.972e24      # Mass of Earth in kg
 
-# Different orbital radii in meters
+# Define orbital radii (in meters)
 radii = np.linspace(1e7, 1e8, 100)
 
 # Calculate orbital period squared (T^2 = 4π^2 * r^3 / GM)
@@ -121,8 +120,9 @@ T_squared = (4 * np.pi**2 * radii**3) / (G * M)
 plt.plot(radii**3, T_squared)
 plt.xlabel('r^3 (m^3)')
 plt.ylabel('T^2 (s^2)')
-plt.title('Kepler’s Third Law: T^2 vs r^3')
+plt.title('Kepler’s Third Law: T^2 vs r^3 for Circular Orbits')
 plt.grid(True)
-plt.show() 
+plt.show()
+
 
 ![alt text](image-2.png)
