@@ -5,9 +5,9 @@
 
 The motion of a forced damped pendulum is governed by the following nonlinear differential equation:
 
-\[
+$$
 \frac{d^2 \theta}{dt^2} + b \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = A \cos(\omega t)
-\]
+$$
 
 Where:
 - \(\theta\): Angular displacement of the pendulum (radians).
@@ -27,51 +27,51 @@ To simplify, we define:
 
 Thus, the equation can be rewritten as:
 
-\[
+$$
 \ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \sin\theta = f \cos(\omega t)
-\]
+$$
 
 ### Small-Angle Approximation
 
 For small angles (\(\theta \ll 1\)), we can approximate \(\sin\theta \approx \theta\). This linearizes the equation:
 
-\[
+$$
 \ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \theta = f \cos(\omega t)
-\]
+$$
 
 This is the equation of a forced damped harmonic oscillator. The homogeneous solution (without forcing) is:
 
-\[
+$$
 \theta_h(t) = e^{-\frac{\beta}{2} t} \left( A_1 \cos(\omega_d t) + A_2 \sin(\omega_d t) \right)
-\]
+$$
 
 Where \(\omega_d = \sqrt{\omega_0^2 - \left(\frac{\beta}{2}\right)^2}\) is the damped angular frequency, and \(A_1\) and \(A_2\) are constants determined by initial conditions.
 
 The particular solution (due to the forcing term \(f \cos(\omega t)\)) can be found using the method of undetermined coefficients. Assume a solution of the form:
 
-\[
+$$
 \theta_p(t) = C \cos(\omega t) + D \sin(\omega t)
-\]
+$$
 
 Substitute into the linearized equation, solve for \(C\) and \(D\), and the steady-state solution is:
 
-\[
+$$
 \theta_p(t) = A_d \cos(\omega t - \phi)
-\]
+$$
 
 Where the amplitude \(A_d\) and phase \(\phi\) are:
 
-\[
+$$
 A_d = \frac{f}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\beta \omega)^2}}, \quad \tan\phi = \frac{\beta \omega}{\omega_0^2 - \omega^2}
-\]
+$$
 
 ### Resonance Conditions
 
 Resonance occurs when the driving frequency \(\omega\) approaches the natural frequency \(\omega_0\). In the linearized case, the amplitude \(A_d\) is maximized when:
 
-\[
+$$
 \omega \approx \sqrt{\omega_0^2 - \left(\frac{\beta}{2}\right)^2}
-\]
+$$
 
 At resonance, the system absorbs energy most efficiently from the driving force, leading to large oscillations. Damping (\(\beta\)) limits the amplitude, preventing it from becoming infinite as it would in an undamped system. Resonance increases the system’s energy, which can be beneficial (e.g., in energy harvesting) or destructive (e.g., in mechanical structures like bridges).
 
@@ -308,5 +308,4 @@ for beta in beta_values:
         plt.legend()
         plt.show()
 
-        ![alt text](image-4.png)
-        ![alt text](image-5.png)
+       
