@@ -6,11 +6,11 @@ Derivation of Kepler's Third Law for Circular Orbits
 For a body in a circular orbit, the gravitational force provides the necessary centripetal force to maintain the orbit. Let’s derive the relationship step-by-step:
 
 Gravitational Force: The gravitational force between the central body (mass (M)) and the orbiting body (mass (m)) is given by Newton’s law of gravitation:[F_g = \frac{G M m}{r^2}]where (G) is the gravitational constant, and (r) is the orbital radius.
-
+$$
 Centripetal Force: For a circular orbit, the centripetal force required to keep the body moving in a circle with velocity (v) is:[F_c = \frac{m v^2}{r}]
 
 Equating Forces: Since the gravitational force provides the centripetal force:[\frac{G M m}{r^2} = \frac{m v^2}{r}]Simplifying by canceling (m) (assuming (m \neq 0)) and multiplying both sides by (r):
-$$
+
 [\frac{G M}{r} = v^2]
 
 Orbital Velocity: The orbital period (T) is the time taken to complete one full orbit. For a circular orbit, the circumference is (2\pi r), and the velocity is:[v = \frac{2\pi r}{T}]Squaring the velocity:[v^2 = \frac{4\pi^2 r^2}{T^2}]
