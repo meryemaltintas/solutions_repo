@@ -103,8 +103,10 @@ To simulate circular orbits and verify the relationship between orbital period a
 
 
 ```python
+pip install numpy matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 # Constants
 G = 6.67430e-11  # Gravitational constant in m^3 kg^-1 s^-2
