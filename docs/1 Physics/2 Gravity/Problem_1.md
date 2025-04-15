@@ -99,8 +99,7 @@ T^2 = \frac{4\pi^2}{GM} \cdot r^3
 $$
 This allows us to calculate the mass of the Earth or verify the Moon’s orbital parameters.
 💻 Simulation and Visualization
-To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. The relationship 
-
+To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. 
 For example, the Python code could look like this:
 ```python
 import numpy as np
@@ -123,6 +122,5 @@ plt.ylabel('T^2 (s^2)')
 plt.title('Kepler’s Third Law: T^2 vs r^3 for Circular Orbits')
 plt.grid(True)
 plt.show()
-
 
 ![alt text](image-2.png)
