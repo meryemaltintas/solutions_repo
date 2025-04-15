@@ -164,3 +164,4 @@ Discussion
 Kepler’s Third Law connects fundamental physics to observable phenomena, enabling precise calculations of masses and distances in the Solar System and beyond. Its application to elliptical orbits broadens its utility, covering diverse celestial bodies. The computational model confirms the law’s predictions, and graphical representations provide intuitive insights into orbital mechanics.
 
 ![alt text](image.png)
+![alt text](image-1.png)
