@@ -9,12 +9,14 @@ Gravitational Force: The gravitational force between the central body (mass (M))
 
 Centripetal Force: For a circular orbit, the centripetal force required to keep the body moving in a circle with velocity (v) is:[F_c = \frac{m v^2}{r}]
 
-Equating Forces: Since the gravitational force provides the centripetal force:[\frac{G M m}{r^2} = \frac{m v^2}{r}]Simplifying by canceling (m) (assuming (m \neq 0)) and multiplying both sides by (r):[\frac{G M}{r} = v^2]
+Equating Forces: Since the gravitational force provides the centripetal force:[\frac{G M m}{r^2} = \frac{m v^2}{r}]Simplifying by canceling (m) (assuming (m \neq 0)) and multiplying both sides by (r):
+$$
+[\frac{G M}{r} = v^2]
 
 Orbital Velocity: The orbital period (T) is the time taken to complete one full orbit. For a circular orbit, the circumference is (2\pi r), and the velocity is:[v = \frac{2\pi r}{T}]Squaring the velocity:[v^2 = \frac{4\pi^2 r^2}{T^2}]
 
 Substitute Velocity: Substitute (v^2) into the force balance equation:[\frac{G M}{r} = \frac{4\pi^2 r^2}{T^2}]Multiply both sides by (T^2) and divide by (r):[\frac{G M T^2}{r} = 4\pi^2 r^2]Rearrange:[T^2 = \frac{4\pi^2 r^3}{G M}]This is Kepler’s Third Law for circular orbits, showing:[T^2 \propto r^3]The constant of proportionality is (\frac{4\pi^2}{G M}), which depends on the mass of the central body.
-
+$$
 
 Implications for Astronomy
 Kepler’s Third Law has profound implications in astronomy:
@@ -27,20 +29,20 @@ Satellite Orbits: It aids in designing orbits for artificial satellites, ensurin
 Real-World Examples
 
 Moon’s Orbit Around Earth:
-
+$$
 Orbital radius: (r \approx 384,400 , \text{km} = 3.844 \times 10^8 , \text{m})
 Orbital period: (T \approx 27.32 , \text{days} = 2.36 \times 10^6 , \text{s})
 Earth’s mass: (M \approx 5.972 \times 10^{24} , \text{kg})
 Gravitational constant: (G = 6.674 \times 10^{-11} , \text{m}^3 \text{kg}^{-1} \text{s}^{-2})
 Using Kepler’s Third Law:[T^2 = \frac{4\pi^2 r^3}{G M}]Compute the right-hand side:[r^3 = (3.844 \times 10^8)^3 = 5.678 \times 10^{25} , \text{m}^3][G M = 6.674 \times 10^{-11} \times 5.972 \times 10^{24} = 3.987 \times 10^{14} , \text{m}^3 \text{s}^{-2}][\frac{4\pi^2 r^3}{G M} = \frac{4 \times (3.1416)^2 \times 5.678 \times 10^{25}}{3.987 \times 10^{14}} \approx 5.614 \times 10^{12} , \text{s}^2][T = \sqrt{5.614 \times 10^{12}} \approx 2.37 \times 10^6 , \text{s} \approx 27.43 , \text{days}]This closely matches the observed period, verifying the law.
 
-
+$$
 Planets in the Solar System:
-
+$$
 For planets orbiting the Sun, the constant (\frac{4\pi^2}{G M_{\text{Sun}}}) is the same. The law allows us to compare orbital radii and periods across planets, confirming the (T^2 \propto r^3) relationship.
 
 
-
+$$
 Computational Model
 Below is a Python script that simulates circular orbits and verifies Kepler’s Third Law by plotting (T^2) versus (r^3). The script also visualizes a circular orbit.
 ```python
