@@ -178,6 +178,5 @@ This analysis and simulation highlight projectile motion’s elegance and adapta
 - **Outputs**: Described the graphical outputs as required.
 - **Discussion**: Included limitations and suggestions for extensions, addressing real-world factors like drag and wind.
 
-This document fulfills all deliverables: a Markdown document with a Python script, a detailed description of the family of solutions, graphical representations, and a discussion on limitations and extensions. Let me know if you need further adjustments!
 
 ![alt text](image-2.png)
