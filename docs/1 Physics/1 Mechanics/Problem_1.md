@@ -66,12 +66,12 @@ The horizontal range \(R\) is the distance traveled when the projectile returns 
 
 ### Range Derivation
 Set \(y(t) = 0\):
-\[
+$$
 0 = (v_0 \sin\theta) t - \frac{1}{2} g t^2
-\]
-\[
+$$
+$$
 t \left( v_0 \sin\theta - \frac{1}{2} g t \right) = 0
-\]
+$$
 Solutions: \(t = 0\) (launch) or \(t = \frac{2 v_0 \sin\theta}{g}\) (landing). Substitute into \(x(t)\):
 
 $$
