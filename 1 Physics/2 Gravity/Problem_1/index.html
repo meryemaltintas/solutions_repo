@@ -263,14 +263,14 @@ $$
 This allows us to calculate the mass of the Earth or verify the Moon’s orbital parameters.
 💻 Simulation and Visualization
 To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. The relationship </p>
-<p>For example, the Python code could look like this:</p>
-<p>```python
+<p>For example, the Python code could look like this:
+```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
 <h1 id="constants">Constants</h1>
 <p>G = 6.67430e-11  # Gravitational constant in m^3 kg^-1 s^-2
-M = 5.972e24  # Mass of Earth in kg</p>
-<h1 id="different-orbital-radii-in-meters">Different orbital radii in meters</h1>
+M = 5.972e24      # Mass of Earth in kg</p>
+<h1 id="define-orbital-radii-in-meters">Define orbital radii (in meters)</h1>
 <p>radii = np.linspace(1e7, 1e8, 100)</p>
 <h1 id="calculate-orbital-period-squared-t2-42-r3-gm">Calculate orbital period squared (T^2 = 4π^2 * r^3 / GM)</h1>
 <p>T_squared = (4 * np.pi<strong>2 * radii</strong>3) / (G * M)</p>
@@ -278,9 +278,9 @@ M = 5.972e24  # Mass of Earth in kg</p>
 <p>plt.plot(radii**3, T_squared)
 plt.xlabel('r^3 (m^3)')
 plt.ylabel('T^2 (s^2)')
-plt.title('Kepler’s Third Law: T^2 vs r^3')
+plt.title('Kepler’s Third Law: T^2 vs r^3 for Circular Orbits')
 plt.grid(True)
-plt.show() </p>
+plt.show()</p>
 <p><img alt="alt text" src="../image-2.png"/></p>
 </div>
 </div><footer>
