@@ -125,3 +125,4 @@ plt.title('Kepler’s Third Law: T^2 vs r^3')
 plt.grid(True)
 plt.show() 
 
+![alt text](image-2.png)
