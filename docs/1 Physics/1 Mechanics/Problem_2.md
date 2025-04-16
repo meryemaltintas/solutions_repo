@@ -194,6 +194,7 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
+        ```
 5. Discussion
 Limitations
 The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.
