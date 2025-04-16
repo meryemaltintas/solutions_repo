@@ -13,52 +13,30 @@ $$
 $$
 where:
 
-𝜂
-(
-𝑥
-,
-𝑦
-,
-𝑡
-)
-η(x,y,t) is the displacement of the water surface at point 
-(
-𝑥
-,
-𝑦
-)
-(x,y) and time 
-𝑡
-t,
+$$
+\eta(x, y, t) \quad \text{is the displacement of the water surface at point} \ (x, y) \ \text{and time} \ t,
+$$
 
-𝐴
-A is the amplitude of the wave,
+$$
+A \quad \text{is the amplitude of the wave},
+$$
 
-𝑘
-=
-2
-𝜋
-𝜆
-k= 
-λ
-2π
-​
-  is the wave number, related to the wavelength 
-𝜆
-λ,
+$$
+k = \frac{2\pi}{\lambda} \quad \text{is the wave number, related to the wavelength} \ \lambda,
+$$
 
-𝜔
-=
-2
-𝜋
-𝑓
-ω=2πf is the angular frequency, related to the frequency 
-𝑓f,𝑟=(𝑥−𝑥0)2+(𝑦−𝑦0)
-2r= (x−x0) 2 +(y−y0) 
-2 is the distance from the source to the point 
-(𝑥,𝑦)(x,y)
-𝜙
-ϕ is the initial phase.
+$$
+\omega = 2\pi f \quad \text{is the angular frequency, related to the frequency} \ f,
+$$
+
+$$
+r = \sqrt{(x - x_0)^2 + (y - y_0)^2} \quad \text{is the distance from the source to the point} \ (x, y),
+$$
+
+$$
+\phi \quad \text{is the initial phase.}
+$$
+
 STEPS TO FOLLOW:
 SELECT A REGULAR POLYGON: Choose a regular polygon (e.g., equilateral triangle, square, regular pentagon).
 
@@ -70,36 +48,22 @@ SUPERPOSITION OF WAVES: Apply the principle of superposition by summing the wave
 $$
 \eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
 $$
-where 
-𝑁
-N is the number of sources (vertices of the polygon).
+where
 
-ANALYZE INTERFERENCE PATTERNS: Examine the resulting displacement 
-𝜂
-sum
-(
-𝑥
-,
-𝑦
-,
-𝑡
-)
-η 
-sum
-​
- (x,y,t) as a function of position 
-(
-𝑥
-,
-𝑦
-)
-(x,y) and time 
-𝑡
-t. Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).
+$$
+N \quad \text{is the number of sources (vertices of the polygon).}
+$$
+
+\textbf{ANALYZE INTERFERENCE PATTERNS:} Examine the resulting displacement
+
+$$
+\eta_{\text{sum}}(x, y, t) \quad \text{as a function of position} \ (x, y) \ \text{and time} \ t. \quad \text{Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).}
+$$
 
 VISUALIZATION: Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
 
 CONSIDERATIONS:
+
 Assume all sources emit waves with the same amplitude 
 𝐴
 A, wavelength 
@@ -110,7 +74,9 @@ f.
 
 The waves are coherent, maintaining a constant phase difference.
 
-You may use simulation and visualization tools such as Python (with libraries like Matplotlib), or other graphical software to aid in your analysis.
+For analysis and visualization, you may use simulation and graphical tools such as Python with libraries like Matplotlib, or other software tools capable of plotting wave patterns and interference.
+
+Ensure that the visualization highlights the interference regions of constructive and destructive interference, showing wave amplification and cancellation effects clearly.
 
 DELIVERABLES:
 A Markdown document with Python script or notebook implementing the simulations.
