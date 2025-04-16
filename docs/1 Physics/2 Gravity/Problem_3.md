@@ -1,5 +1,7 @@
 # Problem 3
 🛰️ Trajectories of a Freely Released Payload Near Earth
+
+
 📌 Motivation
 When a payload is released from a rocket near Earth, its path depends on its initial velocity and position, and the only acting force is typically Earth's gravity. Understanding these trajectories is essential for:
 
@@ -70,7 +72,8 @@ General Specific Energy:
 $$
 \epsilon = \frac{v^2}{2} - \frac{G M}{r}
 $$
-🧮 Python Simulation Code
+
+ Python Simulation Code
 
 ```python
 import numpy as np
@@ -141,10 +144,10 @@ plt.xlabel("x (m)")
 plt.ylabel("y (m)")
 plt.legend()
 plt.show()
-
+```
 
 📊 Sample Velocity Outcomes
-
+$$
 Initial Velocity (m/s) | Outcome | Energy (\epsilon)
 < 7500 | Sub-orbital (falls) | \epsilon < 0
 ~7500 - 7900 | Elliptical orbit | \epsilon < 0
