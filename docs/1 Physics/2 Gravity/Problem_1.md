@@ -103,7 +103,6 @@ To simulate circular orbits and verify the relationship between orbital period a
 
 
 ```python
-pip install numpy matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -125,5 +124,6 @@ plt.ylabel('T^2 (s^2)')
 plt.title('Kepler’s Third Law: T^2 vs r^3 for Circular Orbits')
 plt.grid(True)
 plt.show()
+```
 
 ![alt text](image-2.png)
