@@ -166,6 +166,7 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
+         ```
 
         # 2. Phase portrait
         plt.figure(figsize=(10, 6))
@@ -176,6 +177,7 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
+         ```
 
         # 3. Poincaré section
         poincare_theta = []
