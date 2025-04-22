@@ -6,8 +6,11 @@
 When a payload is released from a rocket near Earth, its path depends on its initial velocity and position, and the only acting force is typically Earth's gravity. Understanding these trajectories is essential for:
 
 1-Orbital insertion,
+
 2-Re-entry capsules,
+
 3-Space debris tracking,
+
 4-Interplanetary mission planning.
 
 🎯 Objective
@@ -32,10 +35,9 @@ G = 6.674 \times 10^{-11} \ \text{Nm}^2/\text{kg}^2
 $$
 
 M: Mass of Earth
-
 m: Mass of payload
-
 r: Distance from Earth's center
+
 
 2️⃣ Total Mechanical Energy
 
@@ -49,6 +51,7 @@ Where:
 v: Speed of the payload
 
 r: Distance from Earth's center
+
 
 <table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Arial, sans-serif;">
   <caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Velocity and Trajectory Types</caption>
