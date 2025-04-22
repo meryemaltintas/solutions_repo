@@ -175,18 +175,18 @@
 <p>🛰️ Trajectories of a Freely Released Payload Near Earth</p>
 <p>📌 Motivation
 When a payload is released from a rocket near Earth, its path depends on its initial velocity and position, and the only acting force is typically Earth's gravity. Understanding these trajectories is essential for:</p>
-<p>Orbital insertion,</p>
-<p>Re-entry capsules,</p>
-<p>Space debris tracking,</p>
-<p>Interplanetary mission planning.</p>
-<p>🎯 Objective
-Identify types of trajectories: elliptical, parabolic, hyperbolic, sub-orbital.</p>
-<p>Simulate motion based on initial velocity and altitude.</p>
-<p>Classify outcomes (orbit, escape, re-entry).</p>
-<p>Visualize trajectories using Python.</p>
-<p>🧠 Physics and Equations
-1️⃣ Newton's Law of Universal Gravitation
-The gravitational force acting on the payload:
+<p>1-Orbital insertion,
+2-Re-entry capsules,
+3-Space debris tracking,
+4-Interplanetary mission planning.</p>
+<p>🎯 Objective</p>
+<p>Identify types of trajectories: elliptical, parabolic, hyperbolic, sub-orbital.
+Simulate motion based on initial velocity and altitude.
+Classify outcomes (orbit, escape, re-entry).
+Visualize trajectories using Python.</p>
+<p>🧠 Physics and Equations</p>
+<p>1️⃣ Newton's Law of Universal Gravitation</p>
+<p>The gravitational force acting on the payload:
 $$
 F = G \cdot \frac{M \cdot m}{r^2}
 $$
@@ -197,20 +197,48 @@ $$</p>
 <p>M: Mass of Earth</p>
 <p>m: Mass of payload</p>
 <p>r: Distance from Earth's center</p>
-<p>2️⃣ Total Mechanical Energy
-Total specific mechanical energy (per unit mass):
+<p>2️⃣ Total Mechanical Energy</p>
+<p>Total specific mechanical energy (per unit mass):
 $$
 \epsilon = \frac{v^2}{2} - \frac{G M}{r}
-$$
-Where:</p>
+$$</p>
+<p>Where:</p>
 <p>v: Speed of the payload</p>
 <p>r: Distance from Earth's center</p>
-<p>Trajectory types:</p>
-<p>\epsilon &lt; 0 → elliptical orbit</p>
-<p>\epsilon = 0 → parabolic escape</p>
-<p>\epsilon &gt; 0 → hyperbolic escape</p>
-<p>3️⃣ Orbital Velocities
-First Cosmic Velocity:
+<table style="border-collapse: collapse; width: 70%; margin: 20px auto; font-family: Arial, sans-serif;">
+<caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Velocity and Trajectory Types</caption>
+<thead>
+<tr style="background-color: #f2f2f2;">
+<th style="border: 1px solid #ccc; padding: 8px;">Speed (v) [m/s]</th>
+<th style="border: 1px solid #ccc; padding: 8px;">Trajectory Type</th>
+<th style="border: 1px solid #ccc; padding: 8px;">Energy (ε)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">&lt; 7500</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Elliptical orbit (ε &lt; 0)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Energy is negative (sub-orbital motion)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">~7500 - 7900</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Elliptical orbit (ε &lt; 0)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Energy is negative (sub-orbital motion)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">11180</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Parabolic escape (ε = 0)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Energy is zero (just escaping the planet)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">&gt; 11200</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Hyperbolic escape (ε &gt; 0)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Energy is positive (escaping with excess energy)</td>
+</tr>
+</tbody>
+</table>
+<p>3️⃣ Orbital Velocities</p>
+<p>First Cosmic Velocity:
 $$
 v_1 = \sqrt{\frac{G M}{R}}
 $$</p>
@@ -292,15 +320,39 @@ plt.ylabel("y (m)")
 plt.legend()
 plt.show()
 </code></pre>
-<p>📊 Sample Velocity Outcomes
-$$
-Initial Velocity (m/s) | Outcome | Energy (\epsilon)
-&lt; 7500 | Sub-orbital (falls) | \epsilon &lt; 0
-~7500 - 7900 | Elliptical orbit | \epsilon &lt; 0
-11180 | Escape (parabolic) | \epsilon = 0</p>
-<blockquote>
-<p>11200 | Hyperbolic escape | \epsilon &gt; 0</p>
-</blockquote>
+<p>📊 Sample Velocity Outcomes</p>
+<table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Arial, sans-serif;">
+<caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Sample Velocity Outcomes</caption>
+<thead>
+<tr style="background-color: #f2f2f2;">
+<th style="border: 1px solid #ccc; padding: 8px;">Initial Velocity (m/s)</th>
+<th style="border: 1px solid #ccc; padding: 8px;">Outcome</th>
+<th style="border: 1px solid #ccc; padding: 8px;">Energy (ε)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">&lt; 7500</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Sub-orbital (falls)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">ε &lt; 0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">~7500 - 7900</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Elliptical orbit</td>
+<td style="border: 1px solid #ccc; padding: 8px;">ε &lt; 0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">11180</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Escape (parabolic)</td>
+<td style="border: 1px solid #ccc; padding: 8px;">ε = 0</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">&gt; 11200</td>
+<td style="border: 1px solid #ccc; padding: 8px;">Hyperbolic escape</td>
+<td style="border: 1px solid #ccc; padding: 8px;">ε &gt; 0</td>
+</tr>
+</tbody>
+</table>
 <p>🚀 Real-World Applications
 Satellite deployment → adjust v_0 for desired orbit.</p>
 <p>Controlled re-entry → reduce v_0.</p>
