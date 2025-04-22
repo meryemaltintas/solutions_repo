@@ -337,14 +337,6 @@ plt.show()
 </html>
 
 
-Satellite deployment → adjust v_0 for desired orbit.
-
-Controlled re-entry → reduce v_0.
-
-Interplanetary probes → increase to escape velocity.
-
-Debris tracking → analyze trajectories for safety.
-
 ✅ Conclusion
 
 Using \frac{}-based formulas and Newtonian mechanics, we can:
