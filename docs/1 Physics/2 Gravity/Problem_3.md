@@ -209,10 +209,140 @@ plt.show()
 </table>
 
 🚀 Real-World Applications
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-World Applications - Space Velocities</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-top: 20px;
+    }
+    /* Table Styles */
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
+    /* Container for the Real-World Applications */
+    .container {
+      padding: 20px;
+    }
+    .application {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .application h3 {
+      color: #4CAF50;
+    }
+    .application p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Real-World Applications of Space Velocities</h1>
+
+  <div class="container">
+    <div class="application">
+      <h3>1. Satellite Deployment</h3>
+      <p>To deploy satellites in specific orbits, the <strong>initial velocity (v₀)</strong> must be adjusted according to the desired orbital path (e.g., low Earth orbit, geostationary orbit). This ensures the satellite reaches and maintains its intended orbit.</p>
+    </div>
+
+    <div class="application">
+      <h3>2. Controlled Re-entry</h3>
+      <p>During controlled re-entry, spacecraft need to reduce their <strong>initial velocity (v₀)</strong>. By slowing down, they can safely re-enter Earth's atmosphere and land without burning up. This is crucial for crewed missions and cargo returns.</p>
+    </div>
+
+    <div class="application">
+      <h3>3. Interplanetary Probes</h3>
+      <p>To send spacecraft to other planets, their <strong>initial velocity (v₀)</strong> must be increased to reach escape velocity. This allows the probe to break free from Earth's gravitational pull and travel to its target destination, such as Mars or beyond.</p>
+    </div>
+
+    <div class="application">
+      <h3>4. Debris Tracking</h3>
+      <p>Analyzing the trajectories of space debris involves calculating and monitoring their <strong>velocities</strong> to predict possible collisions with satellites or spacecraft. By understanding these trajectories, safety measures can be taken to avoid potential damage.</p>
+    </div>
+  </div>
+
+  <h2>📊 Sample Velocity Outcomes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Speed (v) [m/s]</th>
+        <th>Trajectory Type</th>
+        <th>Energy (ε)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>&lt; 7500</td>
+        <td>Elliptical orbit (ε &lt; 0)</td>
+        <td>Energy is negative (sub-orbital motion)</td>
+      </tr>
+      <tr>
+        <td>~7500 - 7900</td>
+        <td>Elliptical orbit (ε &lt; 0)</td>
+        <td>Energy is negative (sub-orbital motion)</td>
+      </tr>
+      <tr>
+        <td>11180</td>
+        <td>Parabolic escape (ε = 0)</td>
+        <td>Energy is zero (just escaping the planet)</td>
+      </tr>
+      <tr>
+        <td>&gt; 11200</td>
+        <td>Hyperbolic escape (ε &gt; 0)</td>
+        <td>Energy is positive (escaping with excess energy)</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+
 
 Satellite deployment → adjust v_0 for desired orbit.
+
 Controlled re-entry → reduce v_0.
+
 Interplanetary probes → increase to escape velocity.
+
 Debris tracking → analyze trajectories for safety.
 
 ✅ Conclusion
