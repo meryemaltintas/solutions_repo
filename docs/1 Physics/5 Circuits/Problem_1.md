@@ -106,11 +106,14 @@ Two resistors in **series**:
 **Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω**
 
 ⚙️ Efficiency & Improvements
-Suitable for small/medium circuits.
+The current algorithm is suitable for small to medium-sized circuits, especially those composed of clear series and parallel combinations.
 
-For large graphs, consider:
+For larger and more complex graphs, consider the following enhancements:
 
-Union-Find for disjoint sets
+Union-Find (Disjoint Set Union - DSU):
+Useful for efficiently identifying and merging connected components during simplification, especially when analyzing multiple parallel branches.
 
-Laplacian matrix + Kirchhoff’s laws (for advanced cases)
+Laplacian Matrix + Kirchhoff’s Laws:
+For arbitrary and highly connected networks, applying Kirchhoff’s Current and Voltage Laws using the graph Laplacian enables precise analysis through linear algebra. This method scales better and is ideal for automated circuit solvers and simulations.
 
+These improvements enable more robust and scalable solutions, especially when dealing with real-world electrical networks or integrating circuit analysis into larger computational systems.
