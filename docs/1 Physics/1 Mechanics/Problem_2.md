@@ -10,22 +10,30 @@ $$
 $$
 
 Where:
-$$
+
 - \(\theta\): Angular displacement of the pendulum (radians).
+
 - \(\frac{d\theta}{dt}\): Angular velocity (\(\dot{\theta}\)).
+
 - \(\frac{d^2\theta}{dt^2}\): Angular acceleration (\(\ddot{\theta}\)).
+
 - \(b\): Damping coefficient (s\(^{-1}\)).
+
 - \(g\): Gravitational acceleration (\(9.8 \, \text{m/s}^2\)).
+
 - \(L\): Length of the pendulum (m).
+
 - \(A\): Amplitude of the external driving force (rad/s\(^2\)).
+
 - \(\omega\): Driving frequency (rad/s).
+
 - \(t\): Time (s).
 
 To simplify, we define:
 - Natural frequency: \(\omega_0 = \sqrt{\frac{g}{L}}\),
 - Damping parameter: \(\beta = b\),
 - Driving amplitude: \(f = A\).
-$$
+
 Thus, the equation can be rewritten as:
 
 $$
