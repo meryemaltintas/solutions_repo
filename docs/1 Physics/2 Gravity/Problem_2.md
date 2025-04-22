@@ -127,14 +127,37 @@ Moon and Mars missions need at least $v_2$
 Voyager-style interstellar probes require $v_3$
 
 ![alt text](image-3.png)
+$$
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; margin: 20px auto; font-family: sans-serif;">
+  <caption style="font-weight: bold; margin-bottom: 10px;">📊 Cosmic Velocity Table</caption>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th>Planet</th>
+      <th>v₁ (m/s)</th>
+      <th>v₂ (m/s)</th>
+      <th>v₃ (m/s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Earth</td>
+      <td>7909.68</td>
+      <td>11185.98</td>
+      <td>16778.97</td>
+    </tr>
+    <tr>
+      <td>Mars</td>
+      <td>3554.68</td>
+      <td>5027.08</td>
+      <td>7540.62</td>
+    </tr>
+    <tr>
+      <td>Jupiter</td>
+      <td>42567.51</td>
+      <td>60199.54</td>
+      <td>90299.32</td>
+    </tr>
+  </tbody>
+</table>
 
-
-print("\n📊 Cosmic Velocity Table")
-print(f"{'Planet':<10} | {'v₁ (m/s)':>12} | {'v₂ (m/s)':>12} | {'v₃ (m/s)':>12}")
-print("-" * 52)
-
-
-print(f"{'Earth':<10} | {7909.68:>12.2f} | {11185.98:>12.2f} | {16778.97:>12.2f}")
-print(f"{'Mars':<10}  | {3554.68:>12.2f} | {5027.08:>12.2f} | {7540.62:>12.2f}")
-print(f"{'Jupiter':<10} | {42567.51:>12.2f} | {60199.54:>12.2f} | {90299.32:>12.2f}")
 
