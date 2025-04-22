@@ -247,15 +247,38 @@ plt.tight_layout()
 plt.show()
 </code></pre>
 <h1 id="print-results">Print results</h1>
-<p>$$
-print("\n📊 Sample Results")
-print(f"{'Planet':&lt;10} | {'v₁ (m/s)':&gt;10} | {'v₂ (m/s)':&gt;10} | {'v₃ (m/s)':&gt;10}")
-print("-" * 48)</p>
-<p>for body in labels:
-    v1 = f"{results[body]['v1']:.0f}"
-    v2 = f"{results[body]['v2']:.0f}"
-    v3 = f"{results[body]['v3']:.0f}"
-    print(f"{body:&lt;10} | {v1:&gt;10} | {v2:&gt;10} | {v3:&gt;10}")</p>
+<p>$$</p>
+<table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Arial, sans-serif;">
+<caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Cosmic Velocity Table</caption>
+<thead>
+<tr style="background-color: #eee;">
+<th style="border: 1px solid #ccc; padding: 8px;">Planet</th>
+<th style="border: 1px solid #ccc; padding: 8px;">v₁ (m/s)</th>
+<th style="border: 1px solid #ccc; padding: 8px;">v₂ (m/s)</th>
+<th style="border: 1px solid #ccc; padding: 8px;">v₃ (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">Earth</td>
+<td style="border: 1px solid #ccc; padding: 8px;">7909.68</td>
+<td style="border: 1px solid #ccc; padding: 8px;">11185.98</td>
+<td style="border: 1px solid #ccc; padding: 8px;">16778.97</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">Mars</td>
+<td style="border: 1px solid #ccc; padding: 8px;">3554.68</td>
+<td style="border: 1px solid #ccc; padding: 8px;">5027.08</td>
+<td style="border: 1px solid #ccc; padding: 8px;">7540.62</td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 8px;">Jupiter</td>
+<td style="border: 1px solid #ccc; padding: 8px;">42567.51</td>
+<td style="border: 1px solid #ccc; padding: 8px;">60199.54</td>
+<td style="border: 1px solid #ccc; padding: 8px;">90299.32</td>
+</tr>
+</tbody>
+</table>
 <p>🚀 Relevance in Space Exploration
 Mission Type | Required Velocity
 Orbital Satellite | <span class="arithmatex">\(v_1\)</span>
@@ -266,8 +289,8 @@ The cosmic velocities define the energy requirements to transition between gravi
 <p>Low Earth orbit needs <span class="arithmatex">\(v_1\)</span></p>
 <p>Moon and Mars missions need at least <span class="arithmatex">\(v_2\)</span></p>
 <p>Voyager-style interstellar probes require <span class="arithmatex">\(v_3\)</span></p>
-<p><img alt="alt text" src="../image-3.png"/>
-$$</p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p>$$</p>
 <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; margin: 20px auto; font-family: sans-serif;">
 <caption style="font-weight: bold; margin-bottom: 10px;">📊 Cosmic Velocity Table</caption>
 <thead>
