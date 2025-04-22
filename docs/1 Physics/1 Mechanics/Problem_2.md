@@ -98,9 +98,6 @@ The forced damped pendulum model applies to:
 - **Oscillating Circuits**: Driven RLC circuits behave analogously, with applications in electronics and signal processing.
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-
 #4 Simulate for different parameters
 for beta in beta_values:
     for f in f_values:
