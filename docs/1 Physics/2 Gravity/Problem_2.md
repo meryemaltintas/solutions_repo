@@ -134,10 +134,15 @@ plt.show()
 
 
 🚀 Relevance in Space Exploration
-Mission Type | Required Velocity
+Mission Type | Required 
+
 Orbital Satellite | $v_1$
+
 Planetary Escape Missions | $v_2$
+
 Interstellar Missions | $v_3$
+
+
 ✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:
 
