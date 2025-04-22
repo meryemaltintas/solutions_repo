@@ -42,87 +42,71 @@ Describe an algorithm that calculates the equivalent resistance using graph simp
 
 ---
 
-### 🧑‍💻 Option 2: Advanced Task – Full Implementation (Python + NetworkX)
+### 🧑‍💻 Implementation (Python)
 
-Below is a Python implementation using NetworkX:
+Below is a Python implementation.
 
 ```python
 import networkx as nx
 
+import networkx as nx
+
 def reduce_circuit(G, start, end):
+    """
+    Reduces a resistor circuit graph by combining series and parallel resistors.
+    Returns the equivalent resistance between the start and end nodes.
+    
+    Parameters:
+        G (networkx.Graph): The circuit graph with 'resistance' as edge attribute.
+        start (hashable): The starting node of the circuit.
+        end (hashable): The ending node of the circuit.
+    
+    Returns:
+        float: The equivalent resistance between start and end nodes.
+    """
     changed = True
     while changed:
         changed = False
+
+        # Handle series connections
         for node in list(G.nodes()):
-            # Handle series
-            if node != start and node != end and G.degree[node] == 2:
+            if node not in (start, end) and G.degree[node] == 2:
                 neighbors = list(G.neighbors(node))
-                r1 = G[node][neighbors[0]]['resistance']
-                r2 = G[node][neighbors[1]]['resistance']
-                R_eq = r1 + r2
-                G.add_edge(neighbors[0], neighbors[1], resistance=R_eq)
-                G.remove_node(node)
-                changed = True
-                break
-        # Handle parallel
-        to_merge = {}
+                if G.has_edge(node, neighbors[0]) and G.has_edge(node, neighbors[1]):
+                    r1 = G[node][neighbors[0]]['resistance']
+                    r2 = G[node][neighbors[1]]['resistance']
+                    R_eq = r1 + r2
+                    G.add_edge(neighbors[0], neighbors[1], resistance=R_eq)
+                    G.remove_node(node)
+                    changed = True
+                    break
+
+        # Handle parallel connections
+        parallel_edges = {}
         for u, v, data in list(G.edges(data=True)):
-            key = tuple(sorted([u, v]))
-            to_merge.setdefault(key, []).append(data['resistance'])
-        for (u, v), resistors in to_merge.items():
+            key = tuple(sorted((u, v)))
+            parallel_edges.setdefault(key, []).append(data['resistance'])
+
+        for (u, v), resistors in parallel_edges.items():
             if len(resistors) > 1:
                 R_eq = 1 / sum(1 / r for r in resistors)
-                G.remove_edges_from([(u, v)] * len(resistors))
+                G.remove_edges_from([(u, v)])
                 G.add_edge(u, v, resistance=R_eq)
                 changed = True
+                break
+
     return G[start][end]['resistance']
+```
 ### 🧪 Example Inputs
 
-### 🧪 Example Inputs
+Two resistors in **series**:
 
-#### 🔹 Simple Series
-Two resistors connected in series:
-
-- \( R_1 = 5\,\Omega \)  
-- \( R_2 = 10\,\Omega \)  
+- **R₁ = 5 Ω**  
+- **R₂ = 10 Ω**
 
 **Total Resistance**:  
-\[
-R_{\text{eq}} = R_1 + R_2 = 5 + 10 = \boxed{15\,\Omega}
-\]
+**Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω**
 
----
-
-#### 🔹 Simple Parallel
-Two resistors connected in parallel:
-
-- \( R_1 = 5\,\Omega \)  
-- \( R_2 = 10\,\Omega \)
-
-**Total Resistance**:  
-\[
-\frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{5} + \frac{1}{10} = \frac{3}{10}
-\]
-\[
-R_{\text{eq}} = \frac{10}{3} \approx \boxed{3.33\,\Omega}
-\]
-
----
-
-#### 🔹 Nested Configuration
-A nested combination:  
-5Ω in series with (10Ω parallel 20Ω)
-
-Step 1 – Solve the parallel part:
-\[
-\frac{1}{R_{\text{parallel}}} = \frac{1}{10} + \frac{1}{20} = \frac{3}{20}
-\quad \Rightarrow \quad R_{\text{parallel}} = \frac{20}{3} \approx 6.67\,\Omega
-\]
-
-Step 2 – Add the series resistor:
-\[
-R_{\text{eq}} = 5 + 6.67 = \boxed{11.67\,\Omega}
-\]
 ⚙️ Efficiency & Improvements
 Suitable for small/medium circuits.
 
