@@ -220,9 +220,7 @@ Debris tracking → analyze trajectories for safety.
 Using \frac{}-based formulas and Newtonian mechanics, we can:
 
 Classify payload motion,
-
 Simulate and visualize it,
-
 Apply it to real mission scenarios.
 
 ![alt text](image-4.png)
