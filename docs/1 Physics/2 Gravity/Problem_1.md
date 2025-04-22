@@ -1,31 +1,34 @@
 # Problem 1
 🌍 Orbital Period and Orbital Radius
+
 Motivation
 The relationship between the square of the orbital period and the cube of the orbital radius, known as Kepler's Third Law, is a cornerstone of celestial mechanics. This simple yet profound relationship allows for the determination of planetary motions and has implications for understanding gravitational interactions on both local and cosmic scales. By analyzing this relationship, one can connect fundamental principles of gravity with real-world phenomena such as satellite orbits and planetary systems.
 Derivation for Circular Orbits
 Kepler's Third Law describes the relationship between the orbital period 
-𝑇
+
 T and the orbital radius 
-𝑟
+
 r. Let’s derive this relationship for circular orbits.
 
 1. Gravitational Force = Centripetal Force
 The gravitational force acting between two objects (e.g., the Earth and the Moon) is given by:
+
 $$
 \frac{GMm}{r^2} = \frac{mv^2}{r}
 $$
+
 Here:
 
-𝐺
+
 G is the gravitational constant.
 
-𝑀
+
 M is the mass of the central body (Earth).
 
-𝑚
+
 m is the mass of the orbiting body (Moon).
 
-𝑟
+
 r is the distance between the two bodies.
 
 𝑣
@@ -62,6 +65,8 @@ $$
 T^2 = \frac{4\pi^2}{GM} \cdot r^3
 $$
 This is Kepler’s Third Law for circular orbits. It shows that the square of the orbital period is proportional to the cube of the orbital radius.
+
+
 🌌 Generalization to Elliptical Orbits
 For elliptical orbits, the semi-major axis 
 𝑎
@@ -71,16 +76,20 @@ r, and the masses of both bodies are taken into account. The generalized form of
 $$
 T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
 $$
+
+
 Here:
 
-𝑀
+
 M is the mass of the central body (e.g., the Sun).
 
-𝑚
+
 m is the mass of the orbiting body (e.g., a planet).
 
-𝑎
+
 a is the semi-major axis of the elliptical orbit.
+
+
 🌑 Real-World Example: The Moon and the Earth
 To apply Kepler’s Third Law to the Moon’s orbit around Earth:
 
@@ -94,10 +103,14 @@ days=2.36×10s
 T≈27.3days=2.36×10s
 
 Using Kepler’s Third Law:
+
 $$
 T^2 = \frac{4\pi^2}{GM} \cdot r^3
 $$
+
 This allows us to calculate the mass of the Earth or verify the Moon’s orbital parameters.
+
+
 💻 Simulation and Visualization
 To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. 
 
