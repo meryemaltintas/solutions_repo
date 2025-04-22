@@ -206,12 +206,10 @@ plt.show()
 </table>
 
 🚀 Real-World Applications
+
 Satellite deployment → adjust v_0 for desired orbit.
-
 Controlled re-entry → reduce v_0.
-
 Interplanetary probes → increase to escape velocity.
-
 Debris tracking → analyze trajectories for safety.
 
 ✅ Conclusion
