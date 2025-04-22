@@ -103,72 +103,23 @@ plt.show()
 ```
 
 # Print results
-labels = ["Earth", "Mars", "Jupiter"]
-results = {
-    "Earth": {"v1": 7910, "v2": 11180, "v3": 16770},
-    "Mars": {"v1": 3560, "v2": 5030, "v3": 7540},
-    "Jupiter": {"v1": 42160, "v2": 59600, "v3": 89400},
-}
+pip install tabulate
+from tabulate import tabulate
 
-html_content = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Escape Velocities</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 50%;
-      margin: 20px auto;
-      font-family: Arial, sans-serif;
-    }
-    th, td {
-      border: 1px solid #999;
-      padding: 8px 12px;
-      text-align: center;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    caption {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <table>
-    <caption>📊 Escape Velocity Results</caption>
-    <thead>
-      <tr>
-        <th>Planet</th>
-        <th>v1 (m/s)</th>
-        <th>v2 (m/s)</th>
-        <th>v3 (m/s)</th>
-      </tr>
-    </thead>
-    <tbody>
-"""
-
-# Verileri tabloya ekle
+# Tablo verilerini hazırla
+table_data = []
 for body in labels:
-    html_content += f"""
-      <tr>
-        <td>{body}</td>
-        <td>{results[body]['v1']}</td>
-        <td>{results[body]['v2']}</td>
-        <td>{results[body]['v3']}</td>
-      </tr>"""
+    v1 = f"{results[body]['v1']:.0f}"
+    v2 = f"{results[body]['v2']:.0f}"
+    v3 = f"{results[body]['v3']:.0f}"
+    table_data.append([body, v1, v2, v3])
 
-html_content += """
-    </tbody>
-  </table>
+# Başlıkları tanımla
+headers = ["Planet", "v₁ (m/s)", "v₂ (m/s)", "v₃ (m/s)"]
 
-</body>
-</html>
-"""
+# Konsola tabloyu yazdır
+print("📊 Sample Results\n")
+print(tabulate(table_data, headers=headers, tablefmt="github"))
 
 
 for body in labels:
