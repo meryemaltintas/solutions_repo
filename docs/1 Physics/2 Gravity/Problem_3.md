@@ -172,8 +172,6 @@ plt.legend()
 plt.show()
 ```
 
-📊 Sample Velocity Outcomes
-
 <table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Arial, sans-serif;">
   <caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Sample Velocity Outcomes</caption>
   <thead>
