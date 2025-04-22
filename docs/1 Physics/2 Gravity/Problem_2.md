@@ -101,15 +101,38 @@ plt.show()
 
 # Print results
 $$
-print("\n📊 Sample Results")
-print(f"{'Planet':<10} | {'v₁ (m/s)':>10} | {'v₂ (m/s)':>10} | {'v₃ (m/s)':>10}")
-print("-" * 48)
+<table style="border-collapse: collapse; width: 60%; margin: 20px auto; font-family: Arial, sans-serif;">
+  <caption style="caption-side: top; font-weight: bold; margin-bottom: 10px;">📊 Cosmic Velocity Table</caption>
+  <thead>
+    <tr style="background-color: #eee;">
+      <th style="border: 1px solid #ccc; padding: 8px;">Planet</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">v₁ (m/s)</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">v₂ (m/s)</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">v₃ (m/s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">Earth</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">7909.68</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">11185.98</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">16778.97</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">Mars</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">3554.68</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">5027.08</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">7540.62</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;">Jupiter</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">42567.51</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">60199.54</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">90299.32</td>
+    </tr>
+  </tbody>
+</table>
 
-for body in labels:
-    v1 = f"{results[body]['v1']:.0f}"
-    v2 = f"{results[body]['v2']:.0f}"
-    v3 = f"{results[body]['v3']:.0f}"
-    print(f"{body:<10} | {v1:>10} | {v2:>10} | {v3:>10}")
 
 
 🚀 Relevance in Space Exploration
@@ -127,6 +150,7 @@ Moon and Mars missions need at least $v_2$
 Voyager-style interstellar probes require $v_3$
 
 ![alt text](image-3.png)
+
 $$
 <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; margin: 20px auto; font-family: sans-serif;">
   <caption style="font-weight: bold; margin-bottom: 10px;">📊 Cosmic Velocity Table</caption>
