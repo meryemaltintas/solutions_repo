@@ -123,5 +123,12 @@ Step 2 – Add the series resistor:
 \[
 R_{\text{eq}} = 5 + 6.67 = \boxed{11.67\,\Omega}
 \]
+⚙️ Efficiency & Improvements
+Suitable for small/medium circuits.
 
+For large graphs, consider:
+
+Union-Find for disjoint sets
+
+Laplacian matrix + Kirchhoff’s laws (for advanced cases)
 
