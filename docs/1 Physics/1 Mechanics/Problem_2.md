@@ -10,7 +10,7 @@ $$
 $$
 
 Where:
-
+$$
 - \(\theta\): Angular displacement of the pendulum (radians).
 
 - \(\frac{d\theta}{dt}\): Angular velocity (\(\dot{\theta}\)).
@@ -33,7 +33,7 @@ To simplify, we define:
 - Natural frequency: \(\omega_0 = \sqrt{\frac{g}{L}}\),
 - Damping parameter: \(\beta = b\),
 - Driving amplitude: \(f = A\).
-
+$$
 Thus, the equation can be rewritten as:
 
 $$
@@ -88,11 +88,8 @@ At resonance, the system absorbs energy most efficiently from the driving force,
 
 ### Influence of Parameters
 $$
-
 - **Damping Coefficient (\(\beta\))**: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large \(\beta\), the system becomes overdamped, and oscillations decay quickly.
-
 - **Driving Amplitude (\(f\))**: Increasing \(f\) increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.
-
 - **Driving Frequency (\(\omega\))**: When \(\omega \approx \omega_0\), resonance occurs. For \(\omega \gg \omega_0\) or \(\omega \ll \omega_0\), the response amplitude decreases.
 
 ### Transition to Chaotic Motion
@@ -104,7 +101,7 @@ For large driving amplitudes or specific combinations of \(\beta\), \(f\), and \
 - **Sensitive Dependence on Initial Conditions**: Small changes in \(\theta(0)\) or \(\dot{\theta}(0)\) lead to drastically different trajectories.
 
 - **Chaotic Attractors**: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.
-
+$$
 ## 3. Practical Applications
 
 The forced damped pendulum model applies to:
@@ -113,12 +110,10 @@ The forced damped pendulum model applies to:
 - **Oscillating Circuits**: Driven RLC circuits behave analogously, with applications in electronics and signal processing.
 
 
-
-```python 
+```python
 import numpy as np
 import matplotlib.pyplot as plt
-
-#4 Simulate for different parameters
+# Simulate for different parameters
 for beta in beta_values:
     for f in f_values:
         # Arrays to store solution
@@ -154,7 +149,7 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
-         ```
+         
 
         # 2. Phase portrait
         plt.figure(figsize=(10, 6))
@@ -165,7 +160,7 @@ for beta in beta_values:
         plt.grid(True)
         plt.legend()
         plt.show()
-         ```
+         
 
         # 3. Poincaré section
         poincare_theta = []
