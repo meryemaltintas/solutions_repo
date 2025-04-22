@@ -61,14 +61,22 @@ $$
 This is Kepler’s Third Law for circular orbits. It shows that the square of the orbital period is proportional to the cube of the orbital radius.
 
 
-🌌 Generalization to Elliptical Orbits
+### 🌌 Generalization to Elliptical Orbits
 
+For **elliptical orbits**, the **semi-major axis** \( a \) replaces the orbital radius \( r \), and the **masses of both bodies** are taken into account.
 
-For elliptical orbits, the semi-major axis 
+The generalized form of **Kepler's Third Law** for elliptical orbits is:
 
-a replaces the orbital radius 
+$$
+T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
+$$
 
-r, and the masses of both bodies are taken into account. The generalized form of Kepler's Third Law for elliptical orbits is:
+Where:
+- **\( T \)**: Orbital period  
+- **\( G \)**: Gravitational constant  
+- **\( M \)**: Mass of the central body (e.g., the Sun)  
+- **\( m \)**: Mass of the orbiting body (e.g., a planet)  
+- **\( a \)**: Semi-major axis of the elliptical orbit
 
 $$
 T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
@@ -77,12 +85,9 @@ $$
 
 Here:
 
-
 M is the mass of the central body (e.g., the Sun).
 
-
 m is the mass of the orbiting body (e.g., a planet).
-
 
 a is the semi-major axis of the elliptical orbit.
 
