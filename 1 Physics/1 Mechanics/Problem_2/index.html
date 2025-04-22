@@ -70,8 +70,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#4-implementation">4. Implementation</a>
-</li>
 </ul>
 </li>
 </ul>
@@ -265,29 +263,10 @@ $$</p>
 - <strong>Energy Harvesting</strong>: Piezoelectric devices can use forced oscillations to convert mechanical energy into electrical energy.
 - <strong>Suspension Bridges</strong>: Understanding resonance helps design bridges to avoid catastrophic oscillations (e.g., Tacoma Narrows Bridge collapse).
 - <strong>Oscillating Circuits</strong>: Driven RLC circuits behave analogously, with applications in electronics and signal processing.</p>
-<h2 id="4-implementation">4. Implementation</h2>
-<p>Below is a Python script to simulate the forced damped pendulum using the 4th-order Runge-Kutta method (RK4). The script visualizes the motion, phase portraits, and Poincaré sections for different parameter sets to illustrate resonance and chaotic behavior.</p>
 <p>```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
-<p>g = 9.8  # m/s^2
-L = 1.0  # m
-omega_0 = np.sqrt(g / L)  # Natural frequency
-beta_values = [0.1, 0.5, 1.0]  # Damping coefficients (s^-1)
-f_values = [0.5, 1.2, 2.0]  # Driving amplitudes (rad/s^2)
-omega = 2/3 * omega_0  # Driving frequency (rad/s)</p>
-<p>t_max = 100  # Total time (s)
-dt = 0.01  # Time step (s)
-t = np.arange(0, t_max, dt)
-N = len(t)</p>
-<p>theta0 = 0.2  # Initial angle (rad)
-theta_dot0 = 0.0  # Initial angular velocity (rad/s)</p>
-<p>def pendulum_derivs(state, t, beta, f, omega, omega_0):
-    theta, theta_dot = state
-    dtheta_dt = theta_dot
-    dtheta_dot_dt = -beta * theta_dot - omega_0**2 * np.sin(theta) + f * np.cos(omega * t)
-    return [dtheta_dt, dtheta_dot_dt]</p>
-<h1 id="simulate-for-different-parameters">Simulate for different parameters</h1>
+<h1 id="4-simulate-for-different-parameters">4 Simulate for different parameters</h1>
 <p>for beta in beta_values:
     for f in f_values:
         # Arrays to store solution
