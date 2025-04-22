@@ -11,7 +11,7 @@ $$
 
 Where:
 
-$$
+
 - \(\theta\): Angular displacement of the pendulum (radians).
 
 - \(\frac{d\theta}{dt}\): Angular velocity (\(\dot{\theta}\)).
