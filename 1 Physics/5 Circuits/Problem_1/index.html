@@ -88,11 +88,9 @@
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#option-1-simplified-task-algorithm-description">✅ Option 1: Simplified Task – Algorithm Description</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#option-2-advanced-task-full-implementation-python-networkx">🧑‍💻 Option 2: Advanced Task – Full Implementation (Python + NetworkX)</a>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-python">🧑‍💻 Implementation (Python)</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#example-inputs">🧪 Example Inputs</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#example-inputs_1">🧪 Example Inputs</a>
 </li>
 </ul>
 </li>
@@ -221,77 +219,67 @@
 <li>Repeat until only one edge remains between terminals.</li>
 </ul>
 <hr/>
-<h3 id="option-2-advanced-task-full-implementation-python-networkx">🧑‍💻 Option 2: Advanced Task – Full Implementation (Python + NetworkX)</h3>
-<p>Below is a Python implementation using NetworkX:</p>
-<p>```python
-import networkx as nx</p>
-<p>def reduce_circuit(G, start, end):
+<h3 id="implementation-python">🧑‍💻 Implementation (Python)</h3>
+<p>Below is a Python implementation.</p>
+<pre><code class="language-python">import networkx as nx
+
+import networkx as nx
+
+def reduce_circuit(G, start, end):
+    """
+    Reduces a resistor circuit graph by combining series and parallel resistors.
+    Returns the equivalent resistance between the start and end nodes.
+
+    Parameters:
+        G (networkx.Graph): The circuit graph with 'resistance' as edge attribute.
+        start (hashable): The starting node of the circuit.
+        end (hashable): The ending node of the circuit.
+
+    Returns:
+        float: The equivalent resistance between start and end nodes.
+    """
     changed = True
     while changed:
         changed = False
+
+        # Handle series connections
         for node in list(G.nodes()):
-            # Handle series
-            if node != start and node != end and G.degree[node] == 2:
+            if node not in (start, end) and G.degree[node] == 2:
                 neighbors = list(G.neighbors(node))
-                r1 = G[node][neighbors[0]]['resistance']
-                r2 = G[node][neighbors[1]]['resistance']
-                R_eq = r1 + r2
-                G.add_edge(neighbors[0], neighbors[1], resistance=R_eq)
-                G.remove_node(node)
-                changed = True
-                break
-        # Handle parallel
-        to_merge = {}
+                if G.has_edge(node, neighbors[0]) and G.has_edge(node, neighbors[1]):
+                    r1 = G[node][neighbors[0]]['resistance']
+                    r2 = G[node][neighbors[1]]['resistance']
+                    R_eq = r1 + r2
+                    G.add_edge(neighbors[0], neighbors[1], resistance=R_eq)
+                    G.remove_node(node)
+                    changed = True
+                    break
+
+        # Handle parallel connections
+        parallel_edges = {}
         for u, v, data in list(G.edges(data=True)):
-            key = tuple(sorted([u, v]))
-            to_merge.setdefault(key, []).append(data['resistance'])
-        for (u, v), resistors in to_merge.items():
+            key = tuple(sorted((u, v)))
+            parallel_edges.setdefault(key, []).append(data['resistance'])
+
+        for (u, v), resistors in parallel_edges.items():
             if len(resistors) &gt; 1:
                 R_eq = 1 / sum(1 / r for r in resistors)
-                G.remove_edges_from([(u, v)] * len(resistors))
+                G.remove_edges_from([(u, v)])
                 G.add_edge(u, v, resistance=R_eq)
                 changed = True
-    return G[start][end]['resistance']</p>
+                break
+
+    return G[start][end]['resistance']
+</code></pre>
 <h3 id="example-inputs">🧪 Example Inputs</h3>
-<h3 id="example-inputs_1">🧪 Example Inputs</h3>
-<h4 id="simple-series">🔹 Simple Series</h4>
-<p>Two resistors connected in series:</p>
+<p>Two resistors in <strong>series</strong>:</p>
 <ul>
-<li><span class="arithmatex">\( R_1 = 5\,\Omega \)</span> </li>
-<li><span class="arithmatex">\( R_2 = 10\,\Omega \)</span> </li>
+<li><strong>R₁ = 5 Ω</strong> </li>
+<li><strong>R₂ = 10 Ω</strong></li>
 </ul>
 <p><strong>Total Resistance</strong>:<br/>
-[
-R_{\text{eq}} = R_1 + R_2 = 5 + 10 = \boxed{15\,\Omega}
-]</p>
-<hr/>
-<h4 id="simple-parallel">🔹 Simple Parallel</h4>
-<p>Two resistors connected in parallel:</p>
-<ul>
-<li><span class="arithmatex">\( R_1 = 5\,\Omega \)</span> </li>
-<li><span class="arithmatex">\( R_2 = 10\,\Omega \)</span></li>
-</ul>
-<p><strong>Total Resistance</strong>:<br/>
-[
-\frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{5} + \frac{1}{10} = \frac{3}{10}
-]
-[
-R_{\text{eq}} = \frac{10}{3} \approx \boxed{3.33\,\Omega}
-]</p>
-<hr/>
-<h4 id="nested-configuration">🔹 Nested Configuration</h4>
-<p>A nested combination:<br/>
-5Ω in series with (10Ω parallel 20Ω)</p>
-<p>Step 1 – Solve the parallel part:
-[
-\frac{1}{R_{\text{parallel}}} = \frac{1}{10} + \frac{1}{20} = \frac{3}{20}
-\quad \Rightarrow \quad R_{\text{parallel}} = \frac{20}{3} \approx 6.67\,\Omega
-]</p>
-<p>Step 2 – Add the series resistor:
-[
-R_{\text{eq}} = 5 + 6.67 = \boxed{11.67\,\Omega}
-]
-⚙️ Efficiency &amp; Improvements
+<strong>Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω</strong></p>
+<p>⚙️ Efficiency &amp; Improvements
 Suitable for small/medium circuits.</p>
 <p>For large graphs, consider:</p>
 <p>Union-Find for disjoint sets</p>
