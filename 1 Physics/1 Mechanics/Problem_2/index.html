@@ -198,11 +198,10 @@
 <div class="arithmatex">\[
 \frac{d^2 \theta}{dt^2} + b \frac{d \theta}{dt} + \frac{g}{L} \sin \theta = A \cos(\omega t)
 \]</div>
-<p>Where:</p>
+<p>Where:
+$$
+- <span class="arithmatex">\(\theta\)</span>: Angular displacement of the pendulum (radians).</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(\theta\)</span>: Angular displacement of the pendulum (radians).</p>
-</li>
 <li>
 <p><span class="arithmatex">\(\frac{d\theta}{dt}\)</span>: Angular velocity (<span class="arithmatex">\(\dot{\theta}\)</span>).</p>
 </li>
@@ -231,8 +230,9 @@
 <p>To simplify, we define:
 - Natural frequency: <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span>,
 - Damping parameter: <span class="arithmatex">\(\beta = b\)</span>,
-- Driving amplitude: <span class="arithmatex">\(f = A\)</span>.</p>
-<p>Thus, the equation can be rewritten as:</p>
+- Driving amplitude: <span class="arithmatex">\(f = A\)</span>.
+$$
+Thus, the equation can be rewritten as:</p>
 <div class="arithmatex">\[
 \ddot{\theta} + \beta \dot{\theta} + \omega_0^2 \sin\theta = f \cos(\omega t)
 \]</div>
@@ -266,18 +266,10 @@ A_d = \frac{f}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\beta \omega)^2}}, \quad \tan\
 <p>At resonance, the system absorbs energy most efficiently from the driving force, leading to large oscillations. Damping (<span class="arithmatex">\(\beta\)</span>) limits the amplitude, preventing it from becoming infinite as it would in an undamped system. Resonance increases the system’s energy, which can be beneficial (e.g., in energy harvesting) or destructive (e.g., in mechanical structures like bridges).</p>
 <h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
 <h3 id="influence-of-parameters">Influence of Parameters</h3>
-<p>$$</p>
-<ul>
-<li>
-<p><strong>Damping Coefficient (<span class="arithmatex">\(\beta\)</span>)</strong>: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large <span class="arithmatex">\(\beta\)</span>, the system becomes overdamped, and oscillations decay quickly.</p>
-</li>
-<li>
-<p><strong>Driving Amplitude (<span class="arithmatex">\(f\)</span>)</strong>: Increasing <span class="arithmatex">\(f\)</span> increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.</p>
-</li>
-<li>
-<p><strong>Driving Frequency (<span class="arithmatex">\(\omega\)</span>)</strong>: When <span class="arithmatex">\(\omega \approx \omega_0\)</span>, resonance occurs. For <span class="arithmatex">\(\omega \gg \omega_0\)</span> or <span class="arithmatex">\(\omega \ll \omega_0\)</span>, the response amplitude decreases.</p>
-</li>
-</ul>
+<p>$$
+- <strong>Damping Coefficient (<span class="arithmatex">\(\beta\)</span>)</strong>: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large <span class="arithmatex">\(\beta\)</span>, the system becomes overdamped, and oscillations decay quickly.
+- <strong>Driving Amplitude (<span class="arithmatex">\(f\)</span>)</strong>: Increasing <span class="arithmatex">\(f\)</span> increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.
+- <strong>Driving Frequency (<span class="arithmatex">\(\omega\)</span>)</strong>: When <span class="arithmatex">\(\omega \approx \omega_0\)</span>, resonance occurs. For <span class="arithmatex">\(\omega \gg \omega_0\)</span> or <span class="arithmatex">\(\omega \ll \omega_0\)</span>, the response amplitude decreases.</p>
 <h3 id="transition-to-chaotic-motion">Transition to Chaotic Motion</h3>
 <p>For large driving amplitudes or specific combinations of <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(f\)</span>, and <span class="arithmatex">\(\omega\)</span>, the nonlinear term <span class="arithmatex">\(\sin\theta\)</span> becomes significant, and the system can exhibit chaotic behavior. This transition is characterized by:</p>
 <ul>
@@ -288,7 +280,8 @@ A_d = \frac{f}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\beta \omega)^2}}, \quad \tan\
 <p><strong>Sensitive Dependence on Initial Conditions</strong>: Small changes in <span class="arithmatex">\(\theta(0)\)</span> or <span class="arithmatex">\(\dot{\theta}(0)\)</span> lead to drastically different trajectories.</p>
 </li>
 <li>
-<p><strong>Chaotic Attractors</strong>: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.</p>
+<p><strong>Chaotic Attractors</strong>: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.
+$$</p>
 </li>
 </ul>
 <h2 id="3-practical-applications">3. Practical Applications</h2>
@@ -296,10 +289,10 @@ A_d = \frac{f}{\sqrt{(\omega_0^2 - \omega^2)^2 + (\beta \omega)^2}}, \quad \tan\
 - <strong>Energy Harvesting</strong>: Piezoelectric devices can use forced oscillations to convert mechanical energy into electrical energy.
 - <strong>Suspension Bridges</strong>: Understanding resonance helps design bridges to avoid catastrophic oscillations (e.g., Tacoma Narrows Bridge collapse).
 - <strong>Oscillating Circuits</strong>: Driven RLC circuits behave analogously, with applications in electronics and signal processing.</p>
-<p>```python 
+<p>```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
-<h1 id="4-simulate-for-different-parameters">4 Simulate for different parameters</h1>
+<h1 id="simulate-for-different-parameters">Simulate for different parameters</h1>
 <p>for beta in beta_values:
     for f in f_values:
         # Arrays to store solution
@@ -334,7 +327,7 @@ import matplotlib.pyplot as plt</p>
     plt.grid(True)
     plt.legend()
     plt.show()
-     ```
+
 
     # 2. Phase portrait
     plt.figure(figsize=(10, 6))
@@ -345,7 +338,7 @@ import matplotlib.pyplot as plt</p>
     plt.grid(True)
     plt.legend()
     plt.show()
-     ```
+
 
     # 3. Poincaré section
     poincare_theta = []
