@@ -147,9 +147,7 @@ Interstellar Missions | $v_3$
 The cosmic velocities define the energy requirements to transition between gravitational zones:
 
 Low Earth orbit needs $v_1$
-
 Moon and Mars missions need at least $v_2$
-
 Voyager-style interstellar probes require $v_3$
 
 ![alt text](image-3.png)
