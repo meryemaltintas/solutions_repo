@@ -49,8 +49,6 @@ Below is a Python implementation.
 ```python
 import networkx as nx
 
-import networkx as nx
-
 def reduce_circuit(G, start, end):
     """
     Reduces a resistor circuit graph by combining series and parallel resistors.
