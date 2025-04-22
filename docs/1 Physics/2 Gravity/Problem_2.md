@@ -128,15 +128,13 @@ Voyager-style interstellar probes require $v_3$
 
 ![alt text](image-3.png)
 
-\nEarth:
-  v1 = 7909.68 m/s
-  v2 = 11185.98 m/s
-  v3 = 16778.97 m/s
-\nMars:
-  v1 = 3554.68 m/s
-  v2 = 5027.08 m/s
-  v3 = 7540.62 m/s
-\nJupiter:
-  v1 = 42567.51 m/s
-  v2 = 60199.54 m/s
-  v3 = 90299.32 m/s
+
+print("\n📊 Cosmic Velocity Table")
+print(f"{'Planet':<10} | {'v₁ (m/s)':>12} | {'v₂ (m/s)':>12} | {'v₃ (m/s)':>12}")
+print("-" * 52)
+
+
+print(f"{'Earth':<10} | {7909.68:>12.2f} | {11185.98:>12.2f} | {16778.97:>12.2f}")
+print(f"{'Mars':<10}  | {3554.68:>12.2f} | {5027.08:>12.2f} | {7540.62:>12.2f}")
+print(f"{'Jupiter':<10} | {42567.51:>12.2f} | {60199.54:>12.2f} | {90299.32:>12.2f}")
+
