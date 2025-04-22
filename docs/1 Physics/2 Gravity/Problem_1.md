@@ -73,6 +73,7 @@ T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
 $$
 
 Where:
+
 - **\( T \)**: Orbital period  
 - **\( G \)**: Gravitational constant  
 - **\( M \)**: Mass of the central body (e.g., the Sun)  
