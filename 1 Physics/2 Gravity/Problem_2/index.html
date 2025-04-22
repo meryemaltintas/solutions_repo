@@ -172,15 +172,15 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<p>🚀 Escape Velocities and Cosmic Velocities
-🧭 Motivation
-Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:</p>
-<p>Reaching orbit</p>
-<p>Escaping a planet</p>
-<p>Escaping the Solar System</p>
-<p>These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
-🧠 Definitions
-1️⃣ First Cosmic Velocity
+<p>🚀 Escape Velocities and Cosmic Velocities</p>
+<p>🧭 Motivation</p>
+<p>Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:</p>
+<p>1-Reaching orbit</p>
+<p>2-Escaping a planet</p>
+<p>3- the Solar System</p>
+<p>These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.</p>
+<p>🧠 Definitions</p>
+<p>1️⃣ First Cosmic Velocity
 Meaning: Minimum speed to enter a circular orbit close to the surface of a planet.</p>
 <p>Formula:</p>
 <p><span class="arithmatex">\(v_1 = \sqrt{\frac{G M}{R}}\)</span></p>
@@ -247,6 +247,70 @@ plt.tight_layout()
 plt.show()
 </code></pre>
 <h1 id="print-results">Print results</h1>
+<p>labels = ["Earth", "Mars", "Jupiter"]
+results = {
+    "Earth": {"v1": 7910, "v2": 11180, "v3": 16770},
+    "Mars": {"v1": 3560, "v2": 5030, "v3": 7540},
+    "Jupiter": {"v1": 42160, "v2": 59600, "v3": 89400},
+}</p>
+<p>html_content = """</p>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Escape Velocities</title>
+<style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    caption {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<table>
+<caption>📊 Escape Velocity Results</caption>
+<thead>
+<tr>
+<th>Planet</th>
+<th>v1 (m/s)</th>
+<th>v2 (m/s)</th>
+<th>v3 (m/s)</th>
+</tr>
+</thead>
+<tbody>
+"""
+
+# Verileri tabloya ekle
+for body in labels:
+    html_content += f"""
+      <tr>
+<td>{body}</td>
+<td>{results[body]['v1']}</td>
+<td>{results[body]['v2']}</td>
+<td>{results[body]['v3']}</td>
+</tr>"""
+
+html_content += """
+    </tbody>
+</table>
+</body>
+</html>
+<p>"""</p>
 <p>for body in labels:
     print(f"\n{body}:")
     print(f"  v1 = {results[body]['v1']:.2f} m/s")
@@ -257,12 +321,12 @@ Planet | <span class="arithmatex">\(v_1\)</span> (m/s) | <span class="arithmatex
 Earth | ~7910 | ~11180 | ~16770
 Mars | ~3560 | ~5030 | ~7540
 Jupiter | ~42160 | ~59600 | ~89400</p>
-<p>🚀 Relevance in Space Exploration
-Mission Type | Required Velocity
+<p>🚀 Relevance in Space Exploration</p>
+<p>Mission Type | Required Velocity
 Orbital Satellite | <span class="arithmatex">\(v_1\)</span>
 Planetary Escape Missions | <span class="arithmatex">\(v_2\)</span>
-Interstellar Missions | <span class="arithmatex">\(v_3\)</span>
-✅ Conclusion
+Interstellar Missions | <span class="arithmatex">\(v_3\)</span></p>
+<p>✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:</p>
 <p>Low Earth orbit needs <span class="arithmatex">\(v_1\)</span></p>
 <p>Moon and Mars missions need at least <span class="arithmatex">\(v_2\)</span></p>
