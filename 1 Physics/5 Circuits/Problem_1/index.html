@@ -278,10 +278,13 @@ def reduce_circuit(G, start, end):
 <p><strong>Total Resistance</strong>:<br/>
 <strong>Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω</strong></p>
 <p>⚙️ Efficiency &amp; Improvements
-Suitable for small/medium circuits.</p>
-<p>For large graphs, consider:</p>
-<p>Union-Find for disjoint sets</p>
-<p>Laplacian matrix + Kirchhoff’s laws (for advanced cases)</p>
+The current algorithm is suitable for small to medium-sized circuits, especially those composed of clear series and parallel combinations.</p>
+<p>For larger and more complex graphs, consider the following enhancements:</p>
+<p>Union-Find (Disjoint Set Union - DSU):
+Useful for efficiently identifying and merging connected components during simplification, especially when analyzing multiple parallel branches.</p>
+<p>Laplacian Matrix + Kirchhoff’s Laws:
+For arbitrary and highly connected networks, applying Kirchhoff’s Current and Voltage Laws using the graph Laplacian enables precise analysis through linear algebra. This method scales better and is ideal for automated circuit solvers and simulations.</p>
+<p>These improvements enable more robust and scalable solutions, especially when dealing with real-world electrical networks or integrating circuit analysis into larger computational systems.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
