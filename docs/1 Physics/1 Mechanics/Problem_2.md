@@ -97,38 +97,9 @@ The forced damped pendulum model applies to:
 - **Suspension Bridges**: Understanding resonance helps design bridges to avoid catastrophic oscillations (e.g., Tacoma Narrows Bridge collapse).
 - **Oscillating Circuits**: Driven RLC circuits behave analogously, with applications in electronics and signal processing.
 
-## 4. Implementation
-
-Below is a Python script to simulate the forced damped pendulum using the 4th-order Runge-Kutta method (RK4). The script visualizes the motion, phase portraits, and Poincaré sections for different parameter sets to illustrate resonance and chaotic behavior.
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Parameters
-g = 9.8  # m/s^2
-L = 1.0  # m
-omega_0 = np.sqrt(g / L)  # Natural frequency
-beta_values = [0.1, 0.5, 1.0]  # Damping coefficients (s^-1)
-f_values = [0.5, 1.2, 2.0]  # Driving amplitudes (rad/s^2)
-omega = 2/3 * omega_0  # Driving frequency (rad/s)
-
-# Time array
-t_max = 100  # Total time (s)
-dt = 0.01  # Time step (s)
-t = np.arange(0, t_max, dt)
-N = len(t)
-
-# Initial conditions
-theta0 = 0.2  # Initial angle (rad)
-theta_dot0 = 0.0  # Initial angular velocity (rad/s)
-
-# Function to compute derivatives
-def pendulum_derivs(state, t, beta, f, omega, omega_0):
-    theta, theta_dot = state
-    dtheta_dt = theta_dot
-    dtheta_dot_dt = -beta * theta_dot - omega_0**2 * np.sin(theta) + f * np.cos(omega * t)
-    return [dtheta_dt, dtheta_dot_dt]
 
 # Simulate for different parameters
 for beta in beta_values:
