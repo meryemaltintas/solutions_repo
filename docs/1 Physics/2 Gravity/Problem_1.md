@@ -94,17 +94,16 @@ m is the mass of the orbiting body (e.g., a planet).
 a is the semi-major axis of the elliptical orbit.
 
 
-🌑 Real-World Example: The Moon and the Earth
+### 🌑 Real-World Example: The Moon and the Earth
+
 To apply Kepler’s Third Law to the Moon’s orbit around Earth:
 
-Average orbital radius 
-𝑟=3.84×108m
-r=3.84×108m
+- **Average orbital radius**:  
+  \( r = 3.84 \times 10^8 \, \text{m} \)
 
-Orbital period 𝑇≈27.3
- 
-days=2.36×10s
-T≈27.3days=2.36×10s
+- **Orbital period**:  
+  \( T \approx 27.3 \, \text{days} = 2.36 \times 10^6 \, \text{s} \)
+
 
 Using Kepler’s Third Law:
 
