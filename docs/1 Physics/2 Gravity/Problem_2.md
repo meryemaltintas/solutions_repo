@@ -15,7 +15,6 @@ These are key concepts in satellite launches, Moon/Mars missions, and interstell
 
 🧠 Definitions
 
-
 1️⃣ First Cosmic Velocity
 Meaning: Minimum speed to enter a circular orbit close to the surface of a planet.
 
@@ -31,7 +30,6 @@ $M$: Mass of the planet (kg)
 
 $R$: Radius from the planet's center (m)
 
-
 2️⃣ Second Cosmic Velocity (Escape Velocity)
 Meaning: Minimum speed to completely escape a planet's gravity.
 
@@ -45,7 +43,6 @@ Meaning: Approximate speed needed to leave the Sun’s gravitational influence f
 Formula (approximate):
 
 $v_3 \approx 1.5 \cdot v_2 = 1.5 \cdot \sqrt{\frac{2 G M}{R}}$
-
 
 📐 Parameters Affecting Velocity
 Mass ($M$): Heavier planets have stronger gravity → higher velocities.
@@ -103,46 +100,23 @@ plt.show()
 ```
 
 # Print results
-pip install tabulate
-from tabulate import tabulate
+$$
+print("\n📊 Sample Results")
+print(f"{'Planet':<10} | {'v₁ (m/s)':>10} | {'v₂ (m/s)':>10} | {'v₃ (m/s)':>10}")
+print("-" * 48)
 
-# Tablo verilerini hazırla
-table_data = []
 for body in labels:
     v1 = f"{results[body]['v1']:.0f}"
     v2 = f"{results[body]['v2']:.0f}"
     v3 = f"{results[body]['v3']:.0f}"
-    table_data.append([body, v1, v2, v3])
-
-# Başlıkları tanımla
-headers = ["Planet", "v₁ (m/s)", "v₂ (m/s)", "v₃ (m/s)"]
-
-# Konsola tabloyu yazdır
-print("📊 Sample Results\n")
-print(tabulate(table_data, headers=headers, tablefmt="github"))
-
-
-for body in labels:
-    print(f"\\n{body}:")
-    print(f"  v1 = {results[body]['v1']:.2f} m/s")
-    print(f"  v2 = {results[body]['v2']:.2f} m/s")
-    print(f"  v3 = {results[body]['v3']:.2f} m/s")
-
-📊 Sample Results
-Planet | $v_1$ (m/s) | $v_2$ (m/s) | $v_3$ (m/s)
-Earth | ~7910 | ~11180 | ~16770
-Mars | ~3560 | ~5030 | ~7540
-Jupiter | ~42160 | ~59600 | ~89400
+    print(f"{body:<10} | {v1:>10} | {v2:>10} | {v3:>10}")
 
 
 🚀 Relevance in Space Exploration
-
 Mission Type | Required Velocity
 Orbital Satellite | $v_1$
 Planetary Escape Missions | $v_2$
 Interstellar Missions | $v_3$
-
-
 ✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:
 
