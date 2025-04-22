@@ -17,6 +17,7 @@ $$
 $$
 
 Here:
+
 - <span style="font-weight: bold; color: #ff6347;">**G**</span>: The gravitational constant.
 
 - <span style="font-weight: bold; color: #4682b4;">**M**</span>: The mass of the central body (e.g., Earth).
