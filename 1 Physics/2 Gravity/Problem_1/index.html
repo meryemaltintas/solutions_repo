@@ -172,31 +172,25 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>🌍 Orbital Period and Orbital Radius
-Motivation
+<p>🌍 Orbital Period and Orbital Radius</p>
+<p>Motivation
 The relationship between the square of the orbital period and the cube of the orbital radius, known as Kepler's Third Law, is a cornerstone of celestial mechanics. This simple yet profound relationship allows for the determination of planetary motions and has implications for understanding gravitational interactions on both local and cosmic scales. By analyzing this relationship, one can connect fundamental principles of gravity with real-world phenomena such as satellite orbits and planetary systems.
 Derivation for Circular Orbits
-Kepler's Third Law describes the relationship between the orbital period 
-𝑇
-T and the orbital radius 
-𝑟
-r. Let’s derive this relationship for circular orbits.</p>
+Kepler's Third Law describes the relationship between the orbital period </p>
+<p>T and the orbital radius </p>
+<p>r. Let’s derive this relationship for circular orbits.</p>
 <ol>
 <li>Gravitational Force = Centripetal Force
-The gravitational force acting between two objects (e.g., the Earth and the Moon) is given by:
-$$
-\frac{GMm}{r^2} = \frac{mv^2}{r}
-$$
-Here:</li>
+The gravitational force acting between two objects (e.g., the Earth and the Moon) is given by:</li>
 </ol>
-<p>𝐺
-G is the gravitational constant.</p>
-<p>𝑀
-M is the mass of the central body (Earth).</p>
-<p>𝑚
-m is the mass of the orbiting body (Moon).</p>
-<p>𝑟
-r is the distance between the two bodies.</p>
+<div class="arithmatex">\[
+\frac{GMm}{r^2} = \frac{mv^2}{r}
+\]</div>
+<p>Here:</p>
+<p>G is the gravitational constant.</p>
+<p>M is the mass of the central body (Earth).</p>
+<p>m is the mass of the orbiting body (Moon).</p>
+<p>r is the distance between the two bodies.</p>
 <p>𝑣
 v is the orbital velocity of the orbiting body.
 2. Simplifying the Equation
@@ -230,8 +224,8 @@ $$
 \frac{4\pi^2 r^2}{T^2} = \frac{GM}{r}
 T^2 = \frac{4\pi^2}{GM} \cdot r^3
 $$
-This is Kepler’s Third Law for circular orbits. It shows that the square of the orbital period is proportional to the cube of the orbital radius.
-🌌 Generalization to Elliptical Orbits
+This is Kepler’s Third Law for circular orbits. It shows that the square of the orbital period is proportional to the cube of the orbital radius.</p>
+<p>🌌 Generalization to Elliptical Orbits
 For elliptical orbits, the semi-major axis 
 𝑎
 a replaces the orbital radius 
@@ -239,15 +233,12 @@ a replaces the orbital radius
 r, and the masses of both bodies are taken into account. The generalized form of Kepler's Third Law for elliptical orbits is:
 $$
 T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
-$$
-Here:</p>
-<p>𝑀
-M is the mass of the central body (e.g., the Sun).</p>
-<p>𝑚
-m is the mass of the orbiting body (e.g., a planet).</p>
-<p>𝑎
-a is the semi-major axis of the elliptical orbit.
-🌑 Real-World Example: The Moon and the Earth
+$$</p>
+<p>Here:</p>
+<p>M is the mass of the central body (e.g., the Sun).</p>
+<p>m is the mass of the orbiting body (e.g., a planet).</p>
+<p>a is the semi-major axis of the elliptical orbit.</p>
+<p>🌑 Real-World Example: The Moon and the Earth
 To apply Kepler’s Third Law to the Moon’s orbit around Earth:</p>
 <p>Average orbital radius 
 𝑟=3.84×108m
@@ -256,12 +247,12 @@ r=3.84×108m</p>
  
 days=2.36×10s
 T≈27.3days=2.36×10s</p>
-<p>Using Kepler’s Third Law:
-$$
+<p>Using Kepler’s Third Law:</p>
+<div class="arithmatex">\[
 T^2 = \frac{4\pi^2}{GM} \cdot r^3
-$$
-This allows us to calculate the mass of the Earth or verify the Moon’s orbital parameters.
-💻 Simulation and Visualization
+\]</div>
+<p>This allows us to calculate the mass of the Earth or verify the Moon’s orbital parameters.</p>
+<p>💻 Simulation and Visualization
 To simulate circular orbits and verify the relationship between orbital period and radius, we can write Python code. </p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
