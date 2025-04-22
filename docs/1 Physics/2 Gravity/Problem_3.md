@@ -22,7 +22,6 @@ Visualize trajectories using Python.
 
 🧠 Physics and Equations
 
-
 1️⃣ Newton's Law of Universal Gravitation
 
 The gravitational force acting on the payload:
