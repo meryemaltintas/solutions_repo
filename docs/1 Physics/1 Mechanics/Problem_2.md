@@ -101,7 +101,7 @@ The forced damped pendulum model applies to:
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Simulate for different parameters
+#4 Simulate for different parameters
 for beta in beta_values:
     for f in f_values:
         # Arrays to store solution
