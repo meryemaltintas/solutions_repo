@@ -6,9 +6,7 @@
 Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:
 
 1-Reaching orbit
-
 2-Escaping a planet
-
 3- the Solar System
 
 These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
