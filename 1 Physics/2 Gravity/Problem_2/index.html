@@ -247,36 +247,21 @@ plt.tight_layout()
 plt.show()
 </code></pre>
 <h1 id="print-results">Print results</h1>
-<p>pip install tabulate
-from tabulate import tabulate</p>
-<h1 id="tablo-verilerini-hazrla">Tablo verilerini hazırla</h1>
-<p>table_data = []
-for body in labels:
+<p>$$
+print("\n📊 Sample Results")
+print(f"{'Planet':&lt;10} | {'v₁ (m/s)':&gt;10} | {'v₂ (m/s)':&gt;10} | {'v₃ (m/s)':&gt;10}")
+print("-" * 48)</p>
+<p>for body in labels:
     v1 = f"{results[body]['v1']:.0f}"
     v2 = f"{results[body]['v2']:.0f}"
     v3 = f"{results[body]['v3']:.0f}"
-    table_data.append([body, v1, v2, v3])</p>
-<h1 id="baslklar-tanmla">Başlıkları tanımla</h1>
-<p>headers = ["Planet", "v₁ (m/s)", "v₂ (m/s)", "v₃ (m/s)"]</p>
-<h1 id="konsola-tabloyu-yazdr">Konsola tabloyu yazdır</h1>
-<p>print("📊 Sample Results\n")
-print(tabulate(table_data, headers=headers, tablefmt="github"))</p>
-<p>for body in labels:
-    print(f"\n{body}:")
-    print(f"  v1 = {results[body]['v1']:.2f} m/s")
-    print(f"  v2 = {results[body]['v2']:.2f} m/s")
-    print(f"  v3 = {results[body]['v3']:.2f} m/s")</p>
-<p>📊 Sample Results
-Planet | <span class="arithmatex">\(v_1\)</span> (m/s) | <span class="arithmatex">\(v_2\)</span> (m/s) | <span class="arithmatex">\(v_3\)</span> (m/s)
-Earth | ~7910 | ~11180 | ~16770
-Mars | ~3560 | ~5030 | ~7540
-Jupiter | ~42160 | ~59600 | ~89400</p>
-<p>🚀 Relevance in Space Exploration</p>
-<p>Mission Type | Required Velocity
+    print(f"{body:&lt;10} | {v1:&gt;10} | {v2:&gt;10} | {v3:&gt;10}")</p>
+<p>🚀 Relevance in Space Exploration
+Mission Type | Required Velocity
 Orbital Satellite | <span class="arithmatex">\(v_1\)</span>
 Planetary Escape Missions | <span class="arithmatex">\(v_2\)</span>
-Interstellar Missions | <span class="arithmatex">\(v_3\)</span></p>
-<p>✅ Conclusion
+Interstellar Missions | <span class="arithmatex">\(v_3\)</span>
+✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:</p>
 <p>Low Earth orbit needs <span class="arithmatex">\(v_1\)</span></p>
 <p>Moon and Mars missions need at least <span class="arithmatex">\(v_2\)</span></p>
