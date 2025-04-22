@@ -64,15 +64,17 @@ $$
 \frac{4\pi^2 r^2}{T^2} = \frac{GM}{r}
 T^2 = \frac{4\pi^2}{GM} \cdot r^3
 $$
+
 This is Kepler’s Third Law for circular orbits. It shows that the square of the orbital period is proportional to the cube of the orbital radius.
 
 
 🌌 Generalization to Elliptical Orbits
 For elliptical orbits, the semi-major axis 
-𝑎
+
 a replaces the orbital radius 
-𝑟
+
 r, and the masses of both bodies are taken into account. The generalized form of Kepler's Third Law for elliptical orbits is:
+
 $$
 T^2 = \frac{4\pi^2}{G(M + m)} \cdot a^3
 $$
