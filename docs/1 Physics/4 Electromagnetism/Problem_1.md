@@ -30,7 +30,6 @@ The **Lorentz force** is a fundamental concept governing the motion of charged p
    Observe how these parameters affect the trajectory.
 
 ### 4. Visualization:
-   - Create 2D and 3D plots to show the particle’s path in different scenarios.
    - Highlight key physical phenomena such as the **Larmor radius** and **drift velocity**.
 
 
