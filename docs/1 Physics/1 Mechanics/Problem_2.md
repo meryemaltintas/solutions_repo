@@ -101,7 +101,8 @@ For large driving amplitudes or specific combinations of \(\beta\), \(f\), and \
 - **Sensitive Dependence on Initial Conditions**: Small changes in \(\theta(0)\) or \(\dot{\theta}(0)\) lead to drastically different trajectories.
 
 - **Chaotic Attractors**: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.
-$$
+
+
 ## 3. Practical Applications
 
 The forced damped pendulum model applies to:
@@ -111,80 +112,7 @@ The forced damped pendulum model applies to:
 
 - **Oscillating Circuits**: Driven RLC circuits behave analogously, with applications in electronics and signal processing.
 
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-# Simulate for different parameters
-for beta in beta_values:
-    for f in f_values:
-        # Arrays to store solution
-        theta = np.zeros(N)
-        theta_dot = np.zeros(N)
-        theta[0] = theta0
-        theta_dot[0] = theta_dot0
-
-import numpy as np
-import matplotlib.pyplot as plt
-        # RK4 integration
-        for i in range(N-1):
-            state = [theta[i], theta_dot[i]]
-            k1 = pendulum_derivs(state, t[i], beta, f, omega, omega_0)
-            
-            state_k2 = [theta[i] + 0.5 * dt * k1[0], theta_dot[i] + 0.5 * dt * k1[1]]
-            k2 = pendulum_derivs(state_k2, t[i] + 0.5 * dt, beta, f, omega, omega_0)
-            
-            state_k3 = [theta[i] + 0.5 * dt * k2[0], theta_dot[i] + 0.5 * dt * k2[1]]
-            k3 = pendulum_derivs(state_k3, t[i] + 0.5 * dt, beta, f, omega, omega_0)
-            
-            state_k4 = [theta[i] + dt * k3[0], theta_dot[i] + dt * k3[1]]
-            k4 = pendulum_derivs(state_k4, t[i] + dt, beta, f, omega, omega_0)
-            
-            theta[i+1] = theta[i] + (dt/6) * (k1[0] + 2*k2[0] + 2*k3[0] + k4[0])
-            theta_dot[i+1] = theta_dot[i] + (dt/6) * (k1[1] + 2*k2[1] + 2*k3[1] + k4[1])
-
-        # Plotting
-        # 1. Time series of theta
-        plt.figure(figsize=(10, 4))
-        plt.plot(t, theta, label=f'β={beta}, f={f}')
-        plt.xlabel('Time (s)')
-        plt.ylabel('Angle (rad)')
-        plt.title(f'Forced Damped Pendulum: Angle vs Time (β={beta}, f={f})')
-        plt.grid(True)
-        plt.legend()
-        plt.show()
-         
-
-        # 2. Phase portrait
-        plt.figure(figsize=(10, 6))
-        plt.plot(theta, theta_dot, label=f'β={beta}, f={f}')
-        plt.xlabel('Angle (rad)')
-        plt.ylabel('Angular Velocity (rad/s)')
-        plt.title(f'Phase Portrait (β={beta}, f={f})')
-        plt.grid(True)
-        plt.legend()
-        plt.show()
-         
-
-        # 3. Poincaré section
-        poincare_theta = []
-        poincare_theta_dot = []
-        period = 2 * np.pi / omega  # Period of driving force
-        for i in range(N):
-            if abs(t[i] % period) < dt / 2:  # Sample at each driving period
-                poincare_theta.append(theta[i])
-                poincare_theta_dot.append(theta_dot[i])
-
-        plt.figure(figsize=(10, 6))
-        plt.scatter(poincare_theta, poincare_theta_dot, s=1, color='red', label=f'β={beta}, f={f}')
-        plt.xlabel('Angle (rad)')
-        plt.ylabel('Angular Velocity (rad/s)')
-        plt.title(f'Poincaré Section (β={beta}, f={f})')
-        plt.grid(True)
-        plt.legend()
-        plt.show()
-        ```
-5. Discussion
+4. Discussion
 Limitations
 
 The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.
