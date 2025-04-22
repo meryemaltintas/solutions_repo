@@ -45,10 +45,11 @@ Describe an algorithm that calculates the equivalent resistance using graph simp
 ### 🧑‍💻 Implementation (Python)
 
 Below is a Python implementation.
-
 ```python
+import matplotlib.pyplot as plt
 import networkx as nx
 
+# Function to reduce the resistor network graph
 def reduce_circuit(G, start, end):
     """
     Reduces a resistor circuit graph by combining series and parallel resistors.
@@ -66,7 +67,7 @@ def reduce_circuit(G, start, end):
     while changed:
         changed = False
 
-        # Handle series connections
+        # Handle series connections (where two resistors are in series)
         for node in list(G.nodes()):
             if node not in (start, end) and G.degree[node] == 2:
                 neighbors = list(G.neighbors(node))
@@ -79,7 +80,7 @@ def reduce_circuit(G, start, end):
                     changed = True
                     break
 
-        # Handle parallel connections
+        # Handle parallel connections (where two resistors are in parallel)
         parallel_edges = {}
         for u, v, data in list(G.edges(data=True)):
             key = tuple(sorted((u, v)))
@@ -93,8 +94,31 @@ def reduce_circuit(G, start, end):
                 changed = True
                 break
 
+    # Print the final equivalent resistance between start and end nodes
+    print(f"Equivalent resistance between {start} and {end}: {G[start][end]['resistance']} Ω")
     return G[start][end]['resistance']
+
+
+# Create a sample resistor network (graph)
+G = nx.Graph()
+G.add_edge(1, 2, resistance=5)   # 5Ω between nodes 1 and 2
+G.add_edge(2, 3, resistance=10)  # 10Ω between nodes 2 and 3
+G.add_edge(3, 4, resistance=15)  # 15Ω between nodes 3 and 4
+G.add_edge(1, 4, resistance=20)  # 20Ω between nodes 1 and 4
+
+# Reduce the circuit and find the equivalent resistance between nodes 1 and 4
+reduce_circuit(G, 1, 4)
+
+# Visualize the graph
+pos = nx.spring_layout(G)
+nx.draw(G, pos, with_labels=True, node_color='lightblue', font_weight='bold', node_size=3000)
+edge_labels = nx.get_edge_attributes(G, 'resistance')
+nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+plt.title("Resistor Network")
+plt.show()
 ```
+![alt text](image.png)
+
 ### 🧪 Example Inputs
 
 Two resistors in **series**:
