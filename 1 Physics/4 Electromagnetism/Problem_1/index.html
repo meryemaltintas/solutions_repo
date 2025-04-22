@@ -172,121 +172,72 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Problem 1: Simulating the Effects of the Lorentz Force
-Motivation:
-The Lorentz force, expressed as:</p>
-<h1 id="f">𝐹</h1>
-<p>𝑞
-⋅
-(
-𝐸
-+
-𝑣
-×
-𝐵
-)
-F=q⋅(E+v×B)
-governs the motion of charged particles in electric and magnetic fields. It plays a key role in many applications, such as particle accelerators, mass spectrometers, and plasma physics. By simulating the motion of particles under the influence of these forces, we can explore complex trajectories and visualize the resulting effects.</p>
-<p>Task:
-1. Exploration of Applications:</p>
-<p>Identify systems where the Lorentz force plays a key role (e.g., particle accelerators, mass spectrometers, plasma confinement).</p>
-<p>Discuss the role of electric (
-𝐸
-E) and magnetic (
-𝐵
-B) fields in controlling the motion of charged particles.</p>
-<ol>
-<li>Simulating Particle Motion:</li>
-</ol>
-<p>Implement a simulation to compute and visualize the trajectory of a charged particle under:</p>
-<p>A uniform magnetic field.</p>
-<p>Combined uniform electric and magnetic fields.</p>
-<p>Crossed electric and magnetic fields.</p>
-<p>Simulate the particle's circular, helical, or drift motion based on initial conditions and field configurations.</p>
-<ol>
-<li>Parameter Exploration:</li>
-</ol>
-<p>Allow variations in:</p>
-<p>Field strengths (
-𝐵
-B, 
-𝐸
-E)</p>
-<p>Initial particle velocity (
-𝑣
-v)</p>
-<p>Charge and mass of the particle (
-𝑞
-q, 
-𝑚
-m)</p>
-<p>Observe how these parameters influence the trajectory.</p>
-<ol>
-<li>Visualization:</li>
-</ol>
-<p>Create clear, labeled plots showing the particle's path in 2D and 3D for different scenarios.</p>
-<p>Highlight physical phenomena such as the Larmor radius and drift velocity.</p>
-<p>Mathematical Model:
-The Lorentz force is the force exerted on a charged particle moving in the presence of electric and magnetic fields:</p>
-<h1 id="f_1">𝐹</h1>
-<p>𝑞
-⋅
-(
-𝐸
-+
-𝑣
-×
-𝐵
-)
-F=q⋅(E+v×B)
-Where:</p>
-<p>𝐹
-F is the Lorentz force,</p>
-<p>𝑞
-q is the charge of the particle,</p>
-<p>𝐸
-E is the electric field,</p>
-<p>𝑣
-v is the velocity of the particle,</p>
-<p>𝐵
-B is the magnetic field,</p>
-<p>×
-× is the cross product.</p>
-<p>The motion of the particle is governed by Newton's second law:</p>
-<p>𝑚
-⋅
-𝑑
-𝑣
-𝑑
-𝑡
-=
-𝐹
-m⋅ 
-dt
-dv
-​
- =F
-Where:</p>
-<p>𝑚
-m is the mass of the particle,</p>
-<p>𝑑
-𝑣
-𝑑
-𝑡
-dt
-dv
-​
-  is the acceleration (change in velocity over time).</p>
-<p>Python Code: Simulation and Visualization
-Below is the Python code to simulate the motion of a charged particle under the influence of a magnetic field and to visualize its trajectory. We use Euler's method for numerical integration.</p>
+<h1 id="problem-1-simulating-the-effects-of-the-lorentz-force">Problem 1: Simulating the Effects of the Lorentz Force</h1>
+<h2 id="motivation">Motivation:</h2>
+<p>The <strong>Lorentz force</strong> is a fundamental concept governing the motion of charged particles in electric and magnetic fields. It plays a critical role in various applications, including plasma physics, particle accelerators, and astrophysics. By simulating particle motion under the influence of these forces, we can visualize the complex paths that particles take in different field configurations.</p>
+<hr/>
+<h2 id="task-overview">Task Overview:</h2>
+<h3 id="1-exploration-of-applications">1. Exploration of Applications:</h3>
+<ul>
+<li>Identify systems where the Lorentz force is crucial (e.g., particle accelerators, mass spectrometers, plasma confinement).</li>
+<li>Discuss how <strong>electric (<span class="arithmatex">\( \mathbf{E} \)</span>)</strong> and <strong>magnetic (<span class="arithmatex">\( \mathbf{B} \)</span>)</strong> fields influence particle motion.</li>
+</ul>
+<h3 id="2-simulating-particle-motion">2. Simulating Particle Motion:</h3>
+<ul>
+<li>Implement a simulation to compute and visualize the trajectory of a charged particle under:<ul>
+<li>A uniform magnetic field.</li>
+<li>Combined uniform electric and magnetic fields.</li>
+<li>Crossed electric and magnetic fields.</li>
+</ul>
+</li>
+</ul>
+<p>Simulate the particle’s circular, helical, or drift motion based on the initial conditions and field configurations.</p>
+<h3 id="3-parameter-exploration">3. Parameter Exploration:</h3>
+<ul>
+<li>Allow variations in:<ul>
+<li>Field strengths (<span class="arithmatex">\( B \)</span>, <span class="arithmatex">\( E \)</span>)</li>
+<li>Initial particle velocity (<span class="arithmatex">\( \mathbf{v} \)</span>)</li>
+<li>Charge and mass of the particle (<span class="arithmatex">\( q \)</span>, <span class="arithmatex">\( m \)</span>)</li>
+</ul>
+</li>
+</ul>
+<p>Observe how these parameters affect the trajectory.</p>
+<h3 id="4-visualization">4. Visualization:</h3>
+<ul>
+<li>Create 2D and 3D plots to show the particle’s path in different scenarios.</li>
+<li>Highlight key physical phenomena such as the <strong>Larmor radius</strong> and <strong>drift velocity</strong>.</li>
+</ul>
+<hr/>
+<h2 id="the-mathematical-model">The Mathematical Model:</h2>
+<p>The <strong>Lorentz force</strong> is given by the equation:</p>
+<div class="arithmatex">\[
+\mathbf{F} = q \cdot \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( \mathbf{F} \)</span> is the Lorentz force,
+- <span class="arithmatex">\( q \)</span> is the charge of the particle,
+- <span class="arithmatex">\( \mathbf{E} \)</span> is the electric field,
+- <span class="arithmatex">\( \mathbf{v} \)</span> is the velocity of the particle,
+- <span class="arithmatex">\( \mathbf{B} \)</span> is the magnetic field, and
+- <span class="arithmatex">\( \times \)</span> represents the <strong>cross product</strong> between velocity and magnetic field.</p>
+<p>The motion of the particle is governed by <strong>Newton’s second law</strong>:</p>
+<div class="arithmatex">\[
+m \cdot \frac{d\mathbf{v}}{dt} = \mathbf{F}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( m \)</span> is the mass of the particle,
+- <span class="arithmatex">\( \frac{d\mathbf{v}}{dt} \)</span> is the acceleration (change in velocity over time).</p>
+<hr/>
+<h2 id="python-code-simulation-and-visualization">Python Code: Simulation and Visualization</h2>
+<p>Below is the Python code used to simulate the motion of a charged particle under a magnetic field and visualize its trajectory. This code uses <strong>Euler's method</strong> for numerical integration:</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-q = 1.6e-19  # Particle charge (Coulombs)
-m = 1.67e-27  # Particle mass (kg) - example: mass of a proton
+q = 1.6e-19  # Charge of the particle (Coulombs)
+m = 1.67e-27  # Mass of the particle (kg), e.g., proton
 B = 1.0  # Magnetic field strength (Tesla)
-E = np.array([0.0, 0.0, 0.0])  # Electric field strength (V/m), zero for now
+E = np.array([0.0, 0.0, 0.0])  # Electric field (V/m), assumed to be zero for simplicity
 v0 = np.array([1e5, 0, 0])  # Initial velocity (m/s)
 r0 = np.array([0, 0, 0])  # Initial position (m)
 
@@ -295,7 +246,7 @@ t_max = 1e-5  # Total simulation time (seconds)
 dt = 1e-7  # Time step (seconds)
 num_steps = int(t_max / dt)
 
-# Initialize arrays to store position and velocity
+# Initialize position and velocity arrays
 r = np.zeros((num_steps, 3))
 v = np.zeros((num_steps, 3))
 r[0] = r0
@@ -303,53 +254,26 @@ v[0] = v0
 
 # Euler method for numerical integration
 for i in range(1, num_steps):
-    # Compute the Lorentz force (F = q(E + v x B))
+    # Compute the Lorentz force: F = q(E + v x B)
     cross_product = np.cross(v[i-1], [0, 0, B])  # v x B
-    F = q * (E + cross_product)
+    F = q * (E + cross_product)  # Lorentz force
 
     # Update velocity and position using Euler's method
     a = F / m  # Acceleration
     v[i] = v[i-1] + a * dt  # Update velocity
     r[i] = r[i-1] + v[i] * dt  # Update position
 
-# Plot the trajectory in 2D (xy-plane)
+# Plot the trajectory of the particle in 2D (xy-plane)
 plt.figure(figsize=(8, 6))
-plt.plot(r[:, 0], r[:, 1])
+plt.plot(r[:, 0], r[:, 1], label='Particle Trajectory')
 plt.title('Particle Trajectory in a Magnetic Field')
 plt.xlabel('X Position (m)')
 plt.ylabel('Y Position (m)')
 plt.grid(True)
+plt.legend()
 plt.show()
 </code></pre>
-<p>Explanation:
-Initial Conditions: The initial velocity (
-𝑣
-0
-v 
-0
-​
- ) and position (
-𝑟
-0
-r 
-0
-​
- ) of the particle are specified.</p>
-<p>Lorentz Force: The Lorentz force is calculated as the cross product of the velocity and magnetic field vectors, combined with the electric field.</p>
-<p>Euler Method: The Euler method is used to numerically integrate the equations of motion, updating the velocity and position of the particle at each time step.</p>
-<p>Visualization: The particle's trajectory is plotted in the 2D plane (x-y).</p>
-<p>Visualization:
-This code simulates the motion of a charged particle in a magnetic field. The resulting trajectory is shown in a 2D plot. The motion is typically circular (or helical, depending on other field configurations), and the particle's path is affected by both the charge and the field strengths.</p>
-<p>Results:
-This simulation helps to visualize how the Lorentz force affects charged particles, especially in scenarios such as cyclotrons, magnetic confinement systems, and particle accelerators.</p>
-<p>Extensions:
-This simulation can be extended to:</p>
-<p>3D simulations by adding another magnetic or electric field component in the z-direction.</p>
-<p>Simulate multiple particles and observe their interactions.</p>
-<p>Implement non-uniform fields and study their effects.</p>
-<p>Conclusion:
-The above code simulates and visualizes the motion of a charged particle under the influence of the Lorentz force, offering insights into fundamental physics used in applications like magnetic confinement and particle accelerators.</p>
-<p><img alt="alt text" src="../image.png"/></p>
+<p><img alt="alt text" src="../image-1.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
