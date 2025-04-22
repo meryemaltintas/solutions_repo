@@ -70,6 +70,8 @@ This is Kepler’s Third Law for circular orbits. It shows that the square of th
 
 
 🌌 Generalization to Elliptical Orbits
+
+
 For elliptical orbits, the semi-major axis 
 
 a replaces the orbital radius 
