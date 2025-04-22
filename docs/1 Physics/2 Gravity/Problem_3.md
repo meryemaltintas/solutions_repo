@@ -208,7 +208,7 @@ plt.show()
   </tbody>
 </table>
 
-🚀 Real-World Applications
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
