@@ -105,7 +105,6 @@ $$
 ## 3. Practical Applications
 
 The forced damped pendulum model applies to:
-
 - **Energy Harvesting**: Piezoelectric devices can use forced oscillations to convert mechanical energy into electrical energy.
 
 - **Suspension Bridges**: Understanding resonance helps design bridges to avoid catastrophic oscillations (e.g., Tacoma Narrows Bridge collapse).
@@ -114,6 +113,17 @@ The forced damped pendulum model applies to:
 
 
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+# Simulate for different parameters
+for beta in beta_values:
+    for f in f_values:
+        # Arrays to store solution
+        theta = np.zeros(N)
+        theta_dot = np.zeros(N)
+        theta[0] = theta0
+        theta_dot[0] = theta_dot0
+
 import numpy as np
 import matplotlib.pyplot as plt
         # RK4 integration
