@@ -18,19 +18,12 @@ $$
 
 Here:
 - <span style="font-weight: bold; color: #ff6347;">**G**</span>: The gravitational constant.
+
 - <span style="font-weight: bold; color: #4682b4;">**M**</span>: The mass of the central body (e.g., Earth).
+
 - <span style="font-weight: bold; color: #32cd32;">**m**</span>: The mass of the orbiting body (e.g., Moon).
+
 - <span style="font-weight: bold; color: #ffd700;">**r**</span>: The distance between the two bodies.
-
-G is the gravitational constant.
-
-M is the mass of the central body (Earth).
-
-m is the mass of the orbiting body (Moon).
-
-r is the distance between the two bodies.
-
-v is the orbital velocity of the orbiting body.
 
 
 2. Simplifying the Equation
