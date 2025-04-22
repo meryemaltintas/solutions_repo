@@ -10,6 +10,7 @@ $$
 $$
 
 Where:
+$$
 - \(\theta\): Angular displacement of the pendulum (radians).
 - \(\frac{d\theta}{dt}\): Angular velocity (\(\dot{\theta}\)).
 - \(\frac{d^2\theta}{dt^2}\): Angular acceleration (\(\ddot{\theta}\)).
@@ -24,7 +25,7 @@ To simplify, we define:
 - Natural frequency: \(\omega_0 = \sqrt{\frac{g}{L}}\),
 - Damping parameter: \(\beta = b\),
 - Driving amplitude: \(f = A\).
-
+$$
 Thus, the equation can be rewritten as:
 
 $$
@@ -78,7 +79,7 @@ At resonance, the system absorbs energy most efficiently from the driving force,
 ## 2. Analysis of Dynamics
 
 ### Influence of Parameters
-
+$$
 - **Damping Coefficient (\(\beta\))**: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large \(\beta\), the system becomes overdamped, and oscillations decay quickly.
 - **Driving Amplitude (\(f\))**: Increasing \(f\) increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.
 - **Driving Frequency (\(\omega\))**: When \(\omega \approx \omega_0\), resonance occurs. For \(\omega \gg \omega_0\) or \(\omega \ll \omega_0\), the response amplitude decreases.
@@ -89,7 +90,7 @@ For large driving amplitudes or specific combinations of \(\beta\), \(f\), and \
 - **Period Doubling**: The pendulum’s motion may double its period repeatedly as \(f\) increases, a hallmark of the route to chaos.
 - **Sensitive Dependence on Initial Conditions**: Small changes in \(\theta(0)\) or \(\dot{\theta}(0)\) lead to drastically different trajectories.
 - **Chaotic Attractors**: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.
-
+$$
 ## 3. Practical Applications
 
 The forced damped pendulum model applies to:
@@ -199,7 +200,7 @@ Limitations
 The model assumes a constant driving frequency and amplitude, which may not hold in real systems with time-varying forces.
 Nonlinear damping (e.g., velocity-squared damping) is not considered.
 The simulation uses a fixed time step, which may introduce numerical errors for highly chaotic regimes.
-
+s
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 ![alt text](image-11.png)
