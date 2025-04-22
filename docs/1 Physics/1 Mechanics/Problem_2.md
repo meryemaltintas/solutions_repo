@@ -88,17 +88,23 @@ At resonance, the system absorbs energy most efficiently from the driving force,
 
 ### Influence of Parameters
 $$
+
 - **Damping Coefficient (\(\beta\))**: Higher damping reduces the amplitude of oscillations and suppresses resonance. For very large \(\beta\), the system becomes overdamped, and oscillations decay quickly.
+
 - **Driving Amplitude (\(f\))**: Increasing \(f\) increases the amplitude of the steady-state response and can push the system into nonlinear regimes, leading to chaotic behavior.
+
 - **Driving Frequency (\(\omega\))**: When \(\omega \approx \omega_0\), resonance occurs. For \(\omega \gg \omega_0\) or \(\omega \ll \omega_0\), the response amplitude decreases.
 
 ### Transition to Chaotic Motion
 
 For large driving amplitudes or specific combinations of \(\beta\), \(f\), and \(\omega\), the nonlinear term \(\sin\theta\) becomes significant, and the system can exhibit chaotic behavior. This transition is characterized by:
+
 - **Period Doubling**: The pendulum’s motion may double its period repeatedly as \(f\) increases, a hallmark of the route to chaos.
+
 - **Sensitive Dependence on Initial Conditions**: Small changes in \(\theta(0)\) or \(\dot{\theta}(0)\) lead to drastically different trajectories.
+
 - **Chaotic Attractors**: The system’s phase space shows a strange attractor, visible in phase portraits and Poincaré sections.
-$$
+
 ## 3. Practical Applications
 
 The forced damped pendulum model applies to:
@@ -107,6 +113,10 @@ The forced damped pendulum model applies to:
 - **Oscillating Circuits**: Driven RLC circuits behave analogously, with applications in electronics and signal processing.
 
 
+
+```python 
+import numpy as np
+import matplotlib.pyplot as plt
 
 #4 Simulate for different parameters
 for beta in beta_values:
