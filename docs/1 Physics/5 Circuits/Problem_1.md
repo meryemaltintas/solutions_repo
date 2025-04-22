@@ -130,8 +130,8 @@ Two resistors in **series**:
 **Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω**
 
 ⚙️ Efficiency & Improvements
-The current algorithm is suitable for small to medium-sized circuits, especially those composed of clear series and parallel combinations.
 
+The current algorithm is suitable for small to medium-sized circuits, especially those composed of clear series and parallel combinations.
 For larger and more complex graphs, consider the following enhancements:
 
 Union-Find (Disjoint Set Union - DSU):
