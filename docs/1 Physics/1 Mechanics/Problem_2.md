@@ -10,6 +10,7 @@ $$
 $$
 
 Where:
+
 $$
 - \(\theta\): Angular displacement of the pendulum (radians).
 
