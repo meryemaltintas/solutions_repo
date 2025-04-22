@@ -1,16 +1,21 @@
 # Problem 2
 🚀 Escape Velocities and Cosmic Velocities
+
 🧭 Motivation
+
 Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:
 
-Reaching orbit
+1-Reaching orbit
 
-Escaping a planet
+2-Escaping a planet
 
-Escaping the Solar System
+3- the Solar System
 
 These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
+
 🧠 Definitions
+
+
 1️⃣ First Cosmic Velocity
 Meaning: Minimum speed to enter a circular orbit close to the surface of a planet.
 
@@ -26,6 +31,7 @@ $M$: Mass of the planet (kg)
 
 $R$: Radius from the planet's center (m)
 
+
 2️⃣ Second Cosmic Velocity (Escape Velocity)
 Meaning: Minimum speed to completely escape a planet's gravity.
 
@@ -39,6 +45,7 @@ Meaning: Approximate speed needed to leave the Sun’s gravitational influence f
 Formula (approximate):
 
 $v_3 \approx 1.5 \cdot v_2 = 1.5 \cdot \sqrt{\frac{2 G M}{R}}$
+
 
 📐 Parameters Affecting Velocity
 Mass ($M$): Heavier planets have stronger gravity → higher velocities.
@@ -96,6 +103,74 @@ plt.show()
 ```
 
 # Print results
+labels = ["Earth", "Mars", "Jupiter"]
+results = {
+    "Earth": {"v1": 7910, "v2": 11180, "v3": 16770},
+    "Mars": {"v1": 3560, "v2": 5030, "v3": 7540},
+    "Jupiter": {"v1": 42160, "v2": 59600, "v3": 89400},
+}
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escape Velocities</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    caption {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <caption>📊 Escape Velocity Results</caption>
+    <thead>
+      <tr>
+        <th>Planet</th>
+        <th>v1 (m/s)</th>
+        <th>v2 (m/s)</th>
+        <th>v3 (m/s)</th>
+      </tr>
+    </thead>
+    <tbody>
+"""
+
+# Verileri tabloya ekle
+for body in labels:
+    html_content += f"""
+      <tr>
+        <td>{body}</td>
+        <td>{results[body]['v1']}</td>
+        <td>{results[body]['v2']}</td>
+        <td>{results[body]['v3']}</td>
+      </tr>"""
+
+html_content += """
+    </tbody>
+  </table>
+
+</body>
+</html>
+"""
+
+
 for body in labels:
     print(f"\\n{body}:")
     print(f"  v1 = {results[body]['v1']:.2f} m/s")
@@ -108,11 +183,15 @@ Earth | ~7910 | ~11180 | ~16770
 Mars | ~3560 | ~5030 | ~7540
 Jupiter | ~42160 | ~59600 | ~89400
 
+
 🚀 Relevance in Space Exploration
+
 Mission Type | Required Velocity
 Orbital Satellite | $v_1$
 Planetary Escape Missions | $v_2$
 Interstellar Missions | $v_3$
+
+
 ✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:
 
