@@ -1,160 +1,346 @@
-# Problem 1
-Interference Patterns on a water surface
-MOTIVATION:
-Interference occurs when waves from different sources overlap, creating new patterns. On a water surface, this can be easily observed when ripples from different points meet, forming distinctive interference patterns. These patterns can show us how waves combine in different ways, either reinforcing each other or cancelling out.
+# Problem1
+Step 1: Select a Regular Polygon
+We'll start by selecting a regular polygon to place the point sources. For simplicity, let's consider the following polygons:
 
-Studying these patterns helps us understand wave behavior in a simple, visual way. It also allows us to explore important concepts, like the relationship between wave phase and the effects of multiple sources. This task offers a hands-on approach to learning about wave interactions and their real-world applications, making it an interesting and engaging way to dive into wave physics.
+Equilateral Triangle (3 vertices)
 
-TASK:
-A circular wave on the water surface, emanating from a point source located at 
-(𝑥0,𝑦0) (x0,y0​), can be described by the Single Disturbance equation:
-$$
-\eta(x, y, t) = \frac{A}{\sqrt{r}} \cos \left( k r - \omega t + \phi \right)
-$$
-where:
+Square (4 vertices)
 
-$$
-\eta(x, y, t) \quad \text{is the displacement of the water surface at point} \ (x, y) \ \text{and time} \ t,
-$$
+Regular Pentagon (5 vertices)
 
-$$
-A \quad \text{is the amplitude of the wave},
-$$
+We'll need to create positions for the sources corresponding to these polygons. The positions will be placed on a circle around a center point (the origin).
 
-$$
-k = \frac{2\pi}{\lambda} \quad \text{is the wave number, related to the wavelength} \ \lambda,
-$$
+Step 2: Position the Sources
+For a regular polygon, the vertices will be evenly spaced around a circle. The angle between adjacent vertices will be 
+𝜃
+=
+2
+𝜋
+𝑛
+θ= 
+n
+2π
+​
+ , where 
+𝑛
+n is the number of sides of the polygon.
 
-$$
-\omega = 2\pi f \quad \text{is the angular frequency, related to the frequency} \ f,
-$$
+For example, for an equilateral triangle:
 
-$$
-r = \sqrt{(x - x_0)^2 + (y - y_0)^2} \quad \text{is the distance from the source to the point} \ (x, y),
-$$
+The angle between any two adjacent vertices is 
+𝜃
+=
+2
+𝜋
+3
+θ= 
+3
+2π
+​
+ .
 
-$$
-\phi \quad \text{is the initial phase.}
-$$
+The vertices will be at equal distances from the origin and each other.
 
-STEPS TO FOLLOW:
-SELECT A REGULAR POLYGON: Choose a regular polygon (e.g., equilateral triangle, square, regular pentagon).
+The position of each source can be expressed as:
 
-POSITION THE SOURCES: Place point wave sources at the vertices of the selected polygon.
+Source 1: 
+(
+𝑟
+,
+0
+)
+(r,0) (where 
+𝑟
+r is the radius of the circle)
 
-WAVE EQUATIONS: Write the equations describing the waves emitted from each source, considering their respective positions.
+Source 2: 
+(
+𝑟
+cos
+⁡
+(
+2
+𝜋
+3
+)
+,
+𝑟
+sin
+⁡
+(
+2
+𝜋
+3
+)
+)
+(rcos( 
+3
+2π
+​
+ ),rsin( 
+3
+2π
+​
+ ))
 
-SUPERPOSITION OF WAVES: Apply the principle of superposition by summing the wave displacements at each point on the water surface:
-$$
-\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
-$$
-where
+Source 3: 
+(
+𝑟
+cos
+⁡
+(
+4
+𝜋
+3
+)
+,
+𝑟
+sin
+⁡
+(
+4
+𝜋
+3
+)
+)
+(rcos( 
+3
+4π
+​
+ ),rsin( 
+3
+4π
+​
+ ))
 
-$$
-N \quad \text{is the number of sources (vertices of the polygon).}
-$$
+This approach will be generalized for any regular polygon.
 
-\textbf{ANALYZE INTERFERENCE PATTERNS:} Examine the resulting displacement
+Step 3: Wave Equation
+The displacement 
+𝜙
+ϕ for a wave emitted from a point source located at 
+(
+𝑥
+𝑠
+,
+𝑦
+𝑠
+)
+(x 
+s
+​
+ ,y 
+s
+​
+ ) at a distance 
+𝑟
+r from a point 
+(
+𝑥
+,
+𝑦
+)
+(x,y) on the water surface can be written as:
 
-$$
-\eta_{\text{sum}}(x, y, t) \quad \text{as a function of position} \ (x, y) \ \text{and time} \ t. \quad \text{Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).}
-$$
-
-VISUALIZATION: Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
-
-CONSIDERATIONS:
-
-Assume all sources emit waves with the same amplitude 
+𝜙
+(
+𝑥
+,
+𝑦
+,
+𝑡
+)
+=
 𝐴
-A, wavelength 
+sin
+⁡
+(
+𝑘
+⋅
+𝑟
+−
+𝜔
+𝑡
++
+𝜑
+)
+ϕ(x,y,t)=Asin(k⋅r−ωt+φ)
+Where:
+
+𝐴
+A is the amplitude of the wave (same for all sources),
+
+𝑘
+=
+2
+𝜋
 𝜆
-λ, and frequency 
+k= 
+λ
+2π
+​
+  is the wave number,
+
+𝜔
+=
+2
+𝜋
 𝑓
-f.
+ω=2πf is the angular frequency,
 
-The waves are coherent, maintaining a constant phase difference.
+𝜑
+φ is the initial phase (we will assume they are all the same for simplicity),
 
-For analysis and visualization, you may use simulation and graphical tools such as Python with libraries like Matplotlib, or other software tools capable of plotting wave patterns and interference.
+𝑟
+r is the distance from the source to the observation point.
 
-Ensure that the visualization highlights the interference regions of constructive and destructive interference, showing wave amplification and cancellation effects clearly.
+For multiple sources, the displacement at each point is the sum of the displacements from each source. The total displacement 
+Φ
+(
+𝑥
+,
+𝑦
+,
+𝑡
+)
+Φ(x,y,t) due to multiple sources is:
 
-DELIVERABLES:
-A Markdown document with Python script or notebook implementing the simulations.
+Φ
+(
+𝑥
+,
+𝑦
+,
+𝑡
+)
+=
+∑
+𝑖
+=
+1
+𝑛
+𝐴
+sin
+⁡
+(
+𝑘
+⋅
+𝑟
+𝑖
+−
+𝜔
+𝑡
++
+𝜑
+)
+Φ(x,y,t)= 
+i=1
+∑
+n
+​
+ Asin(k⋅r 
+i
+​
+ −ωt+φ)
+Where 
+𝑟
+𝑖
+r 
+i
+​
+  is the distance from the 
+𝑖
+i-th source to the point 
+(
+𝑥
+,
+𝑦
+)
+(x,y).
 
-A detailed explanation of the interference patterns, with the goal of understanding wave superposition for the chosen regular polygon.
+Step 4: Superposition of Waves
+Using the principle of superposition, we will compute the total displacement at each point on the water surface due to the combination of waves from all sources. The resulting interference pattern will show areas of constructive interference (where waves reinforce each other) and destructive interference (where waves cancel each other out).
 
-Graphical representations of the water surface showing constructive and destructive interference regions.
+To compute the interference, we will:
 
-Formulas in frac Version:
-Wave Displacement (Single Source)
-$$
-\eta(x, y, t) = \frac{A}{\sqrt{r}} \cos \left( k r - \omega t + \phi \right)
-$$
-Wave Number (k):
-$$
-k = \frac{2 \pi}{\lambda}
-$$
-Angular Frequency (𝜔):
-$$
-\omega = 2 \pi f
-$$
-Distance from Source (r):
-$$
-r = \sqrt{(x - x_0)^2 + (y - y_0)^2}
-$$
-Superposition (Sum of Waves):
-$$
-\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
-$$
-where 
-𝑁
-N is the number of sources (vertices of the polygon).
+Choose a grid of points on the water surface.
+
+For each point, calculate the distance from each source.
+
+Compute the displacement from each source at each point.
+
+Sum the displacements to get the total wave displacement at that point.
+
+Step 5: Visualization
+Using Python's Matplotlib library, we can visualize the water surface interference pattern. We will plot the displacement 
+Φ
+(
+𝑥
+,
+𝑦
+,
+𝑡
+)
+Φ(x,y,t) as a 2D heatmap or contour plot to show regions of constructive and destructive interference.
+
+Python Code Implementation
+Here’s a sample Python code to visualize interference patterns for a regular polygon with 
+𝑛
+n sources:
+
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Parameters
-A = 1              # Amplitude
-lambda_ = 1        # Wavelength
-f = 1              # Frequency
+A = 1  # Amplitude
+lambda_ = 1  # Wavelength
+f = 1  # Frequency
 omega = 2 * np.pi * f  # Angular frequency
 k = 2 * np.pi / lambda_  # Wave number
-phi = 0            # Initial phase
-num_sources = 5    # Number of polygon vertices (5 for pentagon)
-radius = 5         # Radius of the polygon from the center
-time = 0           # Time
+r = 5  # Radius of the circle for source placement
+n = 4  # Number of sources (vertices of the polygon)
+phi = 0  # Initial phase
 
-# Coordinates (vertices of the regular polygon)
-theta = np.linspace(0, 2 * np.pi, num_sources + 1)
-x_sources = radius * np.cos(theta)
-y_sources = radius * np.sin(theta)
+# Generate source positions (vertices of the regular polygon)
+angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
+sources = np.array([(r * np.cos(angle), r * np.sin(angle)) for angle in angles])
 
-# Create grid for the water surface
-x_range = np.linspace(-6, 6, 300)
-y_range = np.linspace(-6, 6, 300)
-X, Y = np.meshgrid(x_range, y_range)
+# Create a grid of points for visualization
+x_vals = np.linspace(-8, 8, 400)
+y_vals = np.linspace(-8, 8, 400)
+X, Y = np.meshgrid(x_vals, y_vals)
 
-# Superposition calculation
-eta_sum = np.zeros_like(X)
+# Function to calculate the displacement at each point (X, Y)
+def displacement(x, y, sources, A, k, omega, phi):
+    total_displacement = 0
+    for (x_s, y_s) in sources:
+        r = np.sqrt((x - x_s)**2 + (y - y_s)**2)  # Distance from source to point
+        total_displacement += A * np.sin(k * r - omega * 0 + phi)
+    return total_displacement
 
-for i in range(num_sources):
-    # Contribution from each source
-    r = np.sqrt((X - x_sources[i])**2 + (Y - y_sources[i])**2)
-    eta = A / np.sqrt(r) * np.cos(k * r - omega * time + phi)
-    eta_sum += eta
+# Calculate displacement for each point on the grid
+Z = np.vectorize(displacement)(X, Y, sources, A, k, omega, phi)
 
-# Visualizing the interference pattern
+# Plot the interference pattern as a contour plot
 plt.figure(figsize=(8, 6))
-plt.contourf(X, Y, eta_sum, 50, cmap='RdBu')
-plt.colorbar(label='Water Surface Displacement')
-plt.scatter(x_sources, y_sources, color='black', label='Sources', zorder=5)
-plt.title(f"Interference Pattern - {num_sources}-Source Polygon")
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.legend()
+plt.contourf(X, Y, Z, levels=50, cmap='RdYlBu')
+plt.colorbar(label='Displacement')
+plt.title(f'Interference Pattern for {n}-sided Polygon')
+plt.xlabel('x')
+plt.ylabel('y')
 plt.show()
-```
-![alt text](image.png)
+
+Step 6: Analysis of the Interference Patterns
+Constructive Interference: Occurs when the displacements from the different sources reinforce each other. In the plot, this is where the displacement is large and positive.
+
+Destructive Interference: Occurs when the displacements cancel each other out. This will show up as regions where the displacement is near zero or negative.
+
+Symmetry: Since the sources are placed at the vertices of a regular polygon, we expect the interference pattern to be symmetric with respect to the center of the polygon.
+
+By varying the number of sources (vertices of the polygon), we can observe how the interference patterns change with the configuration of the point sources.
 
 
 
+The interference patterns on the water surface are a result of wave superposition, with constructive and destructive regions. The chosen polygon affects the symmetry and nature of these patterns. The Python code provided can be easily adapted for different regular polygons and can help visualize how waves interact from multiple sources.
