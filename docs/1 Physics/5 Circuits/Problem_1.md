@@ -129,7 +129,7 @@ Two resistors in **series**:
 **Total Resistance**:  
 **Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω**
 
-⚙️ Efficiency & Improvements
+**⚙️ Efficiency & Improvements**
 
 The current algorithm is suitable for small to medium-sized circuits, especially those composed of clear series and parallel combinations.
 For larger and more complex graphs, consider the following enhancements:
