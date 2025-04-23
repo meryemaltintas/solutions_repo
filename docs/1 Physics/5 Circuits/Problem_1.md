@@ -128,6 +128,42 @@ Two resistors in **series**:
 
 **Total Resistance**:  
 **Rₑq = R₁ + R₂ = 5 + 10 = 15 Ω**
+```python
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+# Set up the plot
+fig, ax = plt.subplots()
+ax.set_aspect('equal')
+ax.axis('off')
+
+# Function to draw a wire
+def draw_wire(x1, y1, x2, y2):
+    ax.plot([x1, x2], [y1, y2], color='black', linewidth=2)
+
+# Function to draw a resistor symbol
+def draw_resistor(x, y, label):
+    ax.add_patch(patches.Rectangle((x, y - 0.3), 1.5, 0.6, edgecolor='black', facecolor='none', lw=2))
+    ax.text(x + 0.75, y, label, fontsize=12, ha='center', va='center')
+
+# Draw the circuit
+draw_wire(0, 0, 1, 0)
+draw_resistor(1, 0, 'R₁ = 5Ω')
+draw_wire(2.5, 0, 3.5, 0)
+draw_resistor(3.5, 0, 'R₂ = 10Ω')
+draw_wire(5, 0, 5, -2)
+draw_wire(5, -2, 0, -2)
+draw_wire(0, -2, 0, 0)
+
+# Display total resistance
+ax.text(2.5, -2.5, 'Total Resistance: Rₑq = R₁ + R₂ = 15Ω', ha='center', fontsize=12)
+
+plt.xlim(-1, 6)
+plt.ylim(-3, 1)
+plt.show()
+```
+![alt text](image-1.png)
+
 
 **⚙️ Efficiency & Improvements**
 
