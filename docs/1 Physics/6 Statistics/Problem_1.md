@@ -62,7 +62,8 @@ def plot_sampling_distributions(population, pop_name):
     fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
     plt.tight_layout()
     plt.show()
-
+    
+    ```
 # Uniform Distribution
 uniform_population = np.random.uniform(0, 100, population_size)
 plot_sampling_distributions(uniform_population, "Uniform Distribution")
