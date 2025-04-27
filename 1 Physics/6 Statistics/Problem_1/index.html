@@ -172,22 +172,29 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Central Limit Theorem - Motivation
-The Central Limit Theorem (CLT) states that regardless of the shape of the population distribution, the sampling distribution of the sample mean will approximate a normal distribution as the sample size becomes large enough.</p>
-<p>Key Points:</p>
-<p>Works for any original distribution (uniform, exponential, binomial, etc.).</p>
-<p>The rate of convergence depends on the sample size and the population’s variance.</p>
-<ol>
-<li>Simulating Sampling Distributions
-We will use 3 types of population distributions:</li>
-</ol>
-<p>Uniform distribution (evenly spread)</p>
-<p>Exponential distribution (skewed right)</p>
-<p>Binomial distribution (discrete distribution)</p>
-<p>For each distribution:</p>
-<p>Generate a large "population" (size = 100,000).</p>
-<p>Sample different sample sizes (5, 10, 30, 50).</p>
-<p>Repeat 1000 times per sample size.</p>
+<h1 id="_1">===========================================</h1>
+<h1 id="central-limit-theorem-motivation">Central Limit Theorem - Motivation</h1>
+<h1 id="_2">===========================================</h1>
+<h1 id="the-central-limit-theorem-clt-states-that-regardless-of-the-shape">The Central Limit Theorem (CLT) states that regardless of the shape</h1>
+<h1 id="of-the-population-distribution-the-sampling-distribution-of-the-sample-mean">of the population distribution, the sampling distribution of the sample mean</h1>
+<h1 id="will-approximate-a-normal-distribution-as-the-sample-size-becomes-large-enough">will approximate a normal distribution as the sample size becomes large enough.</h1>
+<h1 id="key-points">Key Points:</h1>
+<h1 id="-">-----------------------------</h1>
+<h1 id="-works-for-any-original-distribution-uniform-exponential-binomial-etc">- Works for any original distribution (uniform, exponential, binomial, etc.).</h1>
+<h1 id="-the-rate-of-convergence-depends-on-the-sample-size-and-the-populations-variance">- The rate of convergence depends on the sample size and the population’s variance.</h1>
+<h1 id="_3">===========================================</h1>
+<h1 id="simulating-sampling-distributions">Simulating Sampling Distributions</h1>
+<h1 id="_4">===========================================</h1>
+<h1 id="we-will-use-3-types-of-population-distributions">We will use 3 types of population distributions:</h1>
+<h1 id="-_1">-----------------------------</h1>
+<h1 id="-uniform-distribution-evenly-spread">- Uniform distribution (evenly spread)</h1>
+<h1 id="-exponential-distribution-skewed-right">- Exponential distribution (skewed right)</h1>
+<h1 id="-binomial-distribution-discrete-distribution">- Binomial distribution (discrete distribution)</h1>
+<h1 id="for-each-distribution">For each distribution:</h1>
+<h1 id="-_2">-----------------------------</h1>
+<h1 id="-generate-a-large-population-size-100000">- Generate a large "population" (size = 100,000).</h1>
+<h1 id="-sample-different-sample-sizes-5-10-30-50">- Sample different sample sizes (5, 10, 30, 50).</h1>
+<h1 id="-repeat-1000-times-per-sample-size">- Repeat 1000 times per sample size.</h1>
 <ol>
 <li>Python Code</li>
 </ol>
@@ -220,41 +227,42 @@ repeats = 1000</p>
 fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
 plt.tight_layout()
 plt.show()
+```
 </code></pre>
 <p><img alt="alt text" src="../image.png"/>
 <img alt="alt text" src="../image-1.png"/>
 <img alt="alt text" src="../image-2.png"/></p>
-<h1 id="_1">===========================================</h1>
+<h1 id="_5">===========================================</h1>
 <h1 id="3-parameter-exploration">3. Parameter Exploration</h1>
-<h1 id="_2">===========================================</h1>
+<h1 id="_6">===========================================</h1>
 <h1 id="observations">Observations:</h1>
-<h1 id="-">-----------------------------</h1>
+<h1 id="-_3">-----------------------------</h1>
 <h1 id="-uniform-distribution">- Uniform Distribution:</h1>
 <h1 id="-already-somewhat-symmetric">- Already somewhat symmetric.</h1>
 <h1 id="-converges-quickly-to-normality-even-with-small-sample-sizes">- Converges quickly to normality even with small sample sizes.</h1>
-<h1 id="_3"></h1>
+<h1 id="_7"></h1>
 <h1 id="-exponential-distribution">- Exponential Distribution:</h1>
 <h1 id="-highly-skewed">- Highly skewed.</h1>
 <h1 id="-needs-larger-sample-sizes-around-3050-for-the-sample-mean-distribution-to-become-approximately-normal">- Needs larger sample sizes (around 30–50) for the sample mean distribution to become approximately normal.</h1>
-<h1 id="_4"></h1>
+<h1 id="_8"></h1>
 <h1 id="-binomial-distribution">- Binomial Distribution:</h1>
 <h1 id="-symmetric-when-p-05">- Symmetric when p ≈ 0.5.</h1>
 <h1 id="-convergence-is-faster-compared-to-skewed-distributions">- Convergence is faster compared to skewed distributions.</h1>
 <h1 id="impact-of-population-variance">Impact of Population Variance:</h1>
-<h1 id="-_1">-----------------------------</h1>
+<h1 id="-_4">-----------------------------</h1>
 <h1 id="-populations-with-higher-variance-like-exponential-cause-the-sampling-distribution-to-be-wider-more-spread-out">- Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).</h1>
 <h1 id="-larger-sample-sizes-reduce-the-spread-standard-error-decreases-as-1-n">- Larger sample sizes reduce the spread (standard error decreases as 1 / √n).</h1>
-<h1 id="_5">===========================================</h1>
+<h1 id="_9">===========================================</h1>
 <h1 id="4-practical-applications">4. Practical Applications</h1>
-<h1 id="_6">===========================================</h1>
+<h1 id="_10">===========================================</h1>
 <h1 id="why-is-the-clt-important">Why is the CLT important?</h1>
-<h1 id="-_2">-----------------------------</h1>
+<h1 id="-_5">-----------------------------</h1>
 <h1 id="-estimating-population-parameters">- Estimating population parameters:</h1>
 <h1 id="-enables-us-to-use-the-normal-distribution-for-confidence-intervals-even-if-the-population-isnt-normal">- Enables us to use the normal distribution for confidence intervals even if the population isn't normal.</h1>
-<h1 id="_7"></h1>
+<h1 id="_11"></h1>
 <h1 id="-quality-control">- Quality control:</h1>
 <h1 id="-detects-anomalies-in-manufacturing-processes-by-looking-at-averages">- Detects anomalies in manufacturing processes by looking at averages.</h1>
-<h1 id="_8"></h1>
+<h1 id="_12"></h1>
 <h1 id="-finance">- Finance:</h1>
 <h1 id="-predicts-returns-or-risks-by-aggregating-lots-of-small-random-events">- Predicts returns or risks by aggregating lots of small random events.</h1>
 </div>
