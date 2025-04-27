@@ -62,21 +62,11 @@ def plot_sampling_distributions(population, pop_name):
     fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
     plt.tight_layout()
     plt.show()
-    
-    ```
-# Uniform Distribution
-uniform_population = np.random.uniform(0, 100, population_size)
-plot_sampling_distributions(uniform_population, "Uniform Distribution")
 
-# Exponential Distribution
-exponential_population = np.random.exponential(scale=1.0, size=population_size)
-plot_sampling_distributions(exponential_population, "Exponential Distribution")
-
-# Binomial Distribution
-binomial_population = np.random.binomial(n=10, p=0.5, size=population_size)
-plot_sampling_distributions(binomial_population, "Binomial Distribution")
 
 ![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 3. Parameter Exploration
 Observations:
@@ -89,7 +79,7 @@ Binomial distribution: Symmetric when p ≈ 0.5. Convergence is faster compared 
 Impact of Population Variance:
 Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).
 
-Larger sample sizes reduce the spread (standard error decreases as print(1 / (n**0.5)))
+Larger sample sizes reduce the spread (standard error decreases as 1/ √n )
 
 
 4. Practical Applications
