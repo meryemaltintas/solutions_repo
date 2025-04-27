@@ -1,30 +1,34 @@
 # Problem 1
 
-Central Limit Theorem - Motivation
-The Central Limit Theorem (CLT) states that regardless of the shape of the population distribution, the sampling distribution of the sample mean will approximate a normal distribution as the sample size becomes large enough.
+# ===========================================
+# Central Limit Theorem - Motivation
+# ===========================================
 
-Key Points:
+# The Central Limit Theorem (CLT) states that regardless of the shape 
+# of the population distribution, the sampling distribution of the sample mean 
+# will approximate a normal distribution as the sample size becomes large enough.
 
-Works for any original distribution (uniform, exponential, binomial, etc.).
+# Key Points:
+# -----------------------------
+# - Works for any original distribution (uniform, exponential, binomial, etc.).
+# - The rate of convergence depends on the sample size and the population’s variance.
 
-The rate of convergence depends on the sample size and the population’s variance.
+# ===========================================
+# Simulating Sampling Distributions
+# ===========================================
 
-1. Simulating Sampling Distributions
-We will use 3 types of population distributions:
+# We will use 3 types of population distributions:
+# -----------------------------
+# - Uniform distribution (evenly spread)
+# - Exponential distribution (skewed right)
+# - Binomial distribution (discrete distribution)
 
-Uniform distribution (evenly spread)
+# For each distribution:
+# -----------------------------
+# - Generate a large "population" (size = 100,000).
+# - Sample different sample sizes (5, 10, 30, 50).
+# - Repeat 1000 times per sample size.
 
-Exponential distribution (skewed right)
-
-Binomial distribution (discrete distribution)
-
-For each distribution:
-
-Generate a large "population" (size = 100,000).
-
-Sample different sample sizes (5, 10, 30, 50).
-
-Repeat 1000 times per sample size.
 
 2. Python Code
 
@@ -61,6 +65,7 @@ def plot_sampling_distributions(population, pop_name):
     fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
     plt.tight_layout()
     plt.show()
+    ```
 
 
 ![alt text](image.png)
