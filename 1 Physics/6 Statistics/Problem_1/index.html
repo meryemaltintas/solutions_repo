@@ -172,6 +172,81 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p>Central Limit Theorem - Motivation
+The Central Limit Theorem (CLT) states that regardless of the shape of the population distribution, the sampling distribution of the sample mean will approximate a normal distribution as the sample size becomes large enough.</p>
+<p>Key Points:</p>
+<p>Works for any original distribution (uniform, exponential, binomial, etc.).</p>
+<p>The rate of convergence depends on the sample size and the population’s variance.</p>
+<ol>
+<li>Simulating Sampling Distributions
+We will use 3 types of population distributions:</li>
+</ol>
+<p>Uniform distribution (evenly spread)</p>
+<p>Exponential distribution (skewed right)</p>
+<p>Binomial distribution (discrete distribution)</p>
+<p>For each distribution:</p>
+<p>Generate a large "population" (size = 100,000).</p>
+<p>Sample different sample sizes (5, 10, 30, 50).</p>
+<p>Repeat 1000 times per sample size.
+2. Python Code</p>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns</p>
+<h1 id="set-style">Set style</h1>
+<p>sns.set(style="whitegrid")</p>
+<h1 id="define-population-sizes-and-sample-sizes">Define population sizes and sample sizes</h1>
+<p>population_size = 100_000
+sample_sizes = [5, 10, 30, 50]
+repeats = 1000</p>
+<h1 id="function-to-create-sampling-distribution">Function to create sampling distribution</h1>
+<p>def sampling_distribution(population, sample_size, repeats):
+    means = []
+    for _ in range(repeats):
+        sample = np.random.choice(population, size=sample_size, replace=False)
+        means.append(np.mean(sample))
+    return means</p>
+<h1 id="function-to-plot-sampling-distributions">Function to plot sampling distributions</h1>
+<p>def plot_sampling_distributions(population, pop_name):
+    fig, axes = plt.subplots(1, len(sample_sizes), figsize=(20, 4))</p>
+<pre><code>for idx, size in enumerate(sample_sizes):
+    sample_means = sampling_distribution(population, size, repeats)
+    sns.histplot(sample_means, kde=True, ax=axes[idx], stat="density", bins=30)
+    axes[idx].set_title(f"{pop_name} - Sample Size {size}")
+    axes[idx].set_xlabel("Sample Mean")
+    axes[idx].set_ylabel("Density")
+
+fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<h1 id="uniform-distribution">Uniform Distribution</h1>
+<p>uniform_population = np.random.uniform(0, 100, population_size)
+plot_sampling_distributions(uniform_population, "Uniform Distribution")</p>
+<h1 id="exponential-distribution">Exponential Distribution</h1>
+<p>exponential_population = np.random.exponential(scale=1.0, size=population_size)
+plot_sampling_distributions(exponential_population, "Exponential Distribution")</p>
+<h1 id="binomial-distribution">Binomial Distribution</h1>
+<p>binomial_population = np.random.binomial(n=10, p=0.5, size=population_size)
+plot_sampling_distributions(binomial_population, "Binomial Distribution")</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<ol>
+<li>Parameter Exploration
+Observations:
+Uniform distribution: Already somewhat symmetric. Converges quickly to normality even with small sample sizes.</li>
+</ol>
+<p>Exponential distribution: Highly skewed. Needs larger sample sizes (around 30–50) for the sample mean distribution to become approximately normal.</p>
+<p>Binomial distribution: Symmetric when p ≈ 0.5. Convergence is faster compared to skewed distributions.</p>
+<p>Impact of Population Variance:
+Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).</p>
+<p>Larger sample sizes reduce the spread (standard error decreases as print(1 / (n**0.5)))</p>
+<ol>
+<li>Practical Applications
+Why is the CLT important?</li>
+</ol>
+<p>Estimating population parameters: Enables us to use the normal distribution for confidence intervals even if the population isn't normal.</p>
+<p>Quality control: Detects anomalies in manufacturing processes by looking at averages.</p>
+<p>Finance: Predicts returns or risks by aggregating lots of small random events.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
