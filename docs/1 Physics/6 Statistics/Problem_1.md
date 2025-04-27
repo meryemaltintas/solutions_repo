@@ -1,33 +1,44 @@
 # Problem 1
 
-# ===========================================
-# Central Limit Theorem - Motivation
-# ===========================================
-
-# The Central Limit Theorem (CLT) states that regardless of the shape 
+# 🧠 central limit theorem - motivation
+# --------------------------------------------------
+# the central limit theorem (clt) states that regardless of the shape 
 # of the population distribution, the sampling distribution of the sample mean 
 # will approximate a normal distribution as the sample size becomes large enough.
 
-# Key Points:
-# -----------------------------
-# - Works for any original distribution (uniform, exponential, binomial, etc.).
-# - The rate of convergence depends on the sample size and the population’s variance.
+# 🔑 key points:
+# - works for any original distribution (uniform, exponential, binomial, etc.).
+# - the rate of convergence depends on the sample size and the population’s variance.
 
-# ===========================================
-# Simulating Sampling Distributions
-# ===========================================
+# 📊 simulating sampling distributions
+# --------------------------------------------------
+# we will use 3 types of population distributions:
+# - uniform distribution (evenly spread)
+# - exponential distribution (skewed right)
+# - binomial distribution (discrete distribution)
 
-# We will use 3 types of population distributions:
-# -----------------------------
-# - Uniform distribution (evenly spread)
-# - Exponential distribution (skewed right)
-# - Binomial distribution (discrete distribution)
+# for each distribution:
+# - generate a large "population" (size = 100,000).
+# - sample different sample sizes (5, 10, 30, 50).
+# - repeat 1000 times per sample size.
 
-# For each distribution:
-# -----------------------------
-# - Generate a large "population" (size = 100,000).
-# - Sample different sample sizes (5, 10, 30, 50).
-# - Repeat 1000 times per sample size.
+# 🔍 parameter exploration
+# --------------------------------------------------
+# observations:
+# - uniform distribution: already somewhat symmetric. converges quickly to normality even with small sample sizes.
+# - exponential distribution: highly skewed. needs larger sample sizes (around 30–50) for the sample mean distribution to become approximately normal.
+# - binomial distribution: symmetric when p ≈ 0.5. convergence is faster compared to skewed distributions.
+
+# impact of population variance:
+# - populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).
+# - larger sample sizes reduce the spread (standard error decreases as 1 / √n).
+
+# 🛠️ practical applications
+# --------------------------------------------------
+# why is the clt important?
+# - estimating population parameters: enables us to use the normal distribution for confidence intervals even if the population isn't normal.
+# - quality control: detects anomalies in manufacturing processes by looking at averages.
+# - finance: predicts returns or risks by aggregating lots of small random events.
 
 
 2. Python Code
