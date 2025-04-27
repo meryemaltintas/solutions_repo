@@ -219,19 +219,10 @@ repeats = 1000</p>
 fig.suptitle(f"Sampling Distribution of Sample Means ({pop_name})", fontsize=16)
 plt.tight_layout()
 plt.show()
-
-```
 </code></pre>
-<h1 id="uniform-distribution">Uniform Distribution</h1>
-<p>uniform_population = np.random.uniform(0, 100, population_size)
-plot_sampling_distributions(uniform_population, "Uniform Distribution")</p>
-<h1 id="exponential-distribution">Exponential Distribution</h1>
-<p>exponential_population = np.random.exponential(scale=1.0, size=population_size)
-plot_sampling_distributions(exponential_population, "Exponential Distribution")</p>
-<h1 id="binomial-distribution">Binomial Distribution</h1>
-<p>binomial_population = np.random.binomial(n=10, p=0.5, size=population_size)
-plot_sampling_distributions(binomial_population, "Binomial Distribution")</p>
-<p><img alt="alt text" src="../image.png"/></p>
+<p><img alt="alt text" src="../image.png"/>
+<img alt="alt text" src="../image-1.png"/>
+<img alt="alt text" src="../image-2.png"/></p>
 <ol>
 <li>Parameter Exploration
 Observations:
@@ -241,7 +232,7 @@ Uniform distribution: Already somewhat symmetric. Converges quickly to normality
 <p>Binomial distribution: Symmetric when p ≈ 0.5. Convergence is faster compared to skewed distributions.</p>
 <p>Impact of Population Variance:
 Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).</p>
-<p>Larger sample sizes reduce the spread (standard error decreases as print(1 / (n**0.5)))</p>
+<p>Larger sample sizes reduce the spread (standard error decreases as 1/ √n )</p>
 <ol>
 <li>Practical Applications
 Why is the CLT important?</li>
