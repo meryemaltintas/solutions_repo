@@ -25,13 +25,12 @@ Generate a large "population" (size = 100,000).
 Sample different sample sizes (5, 10, 30, 50).
 
 Repeat 1000 times per sample size.
+
 2. Python Code
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-
 # Set style
 sns.set(style="whitegrid")
 
@@ -68,26 +67,40 @@ def plot_sampling_distributions(population, pop_name):
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
-3. Parameter Exploration
-Observations:
-Uniform distribution: Already somewhat symmetric. Converges quickly to normality even with small sample sizes.
+# ===========================================
+# 3. Parameter Exploration
+# ===========================================
 
-Exponential distribution: Highly skewed. Needs larger sample sizes (around 30–50) for the sample mean distribution to become approximately normal.
+# Observations:
+# -----------------------------
+# - Uniform Distribution:
+#   - Already somewhat symmetric.
+#   - Converges quickly to normality even with small sample sizes.
+#
+# - Exponential Distribution:
+#   - Highly skewed.
+#   - Needs larger sample sizes (around 30–50) for the sample mean distribution to become approximately normal.
+#
+# - Binomial Distribution:
+#   - Symmetric when p ≈ 0.5.
+#   - Convergence is faster compared to skewed distributions.
 
-Binomial distribution: Symmetric when p ≈ 0.5. Convergence is faster compared to skewed distributions.
+# Impact of Population Variance:
+# -----------------------------
+# - Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).
+# - Larger sample sizes reduce the spread (standard error decreases as 1 / √n).
 
-Impact of Population Variance:
-Populations with higher variance (like exponential) cause the sampling distribution to be wider (more spread out).
+# ===========================================
+# 4. Practical Applications
+# ===========================================
 
-Larger sample sizes reduce the spread (standard error decreases as 1/ √n )
-
-
-4. Practical Applications
-Why is the CLT important?
-
-Estimating population parameters: Enables us to use the normal distribution for confidence intervals even if the population isn't normal.
-
-Quality control: Detects anomalies in manufacturing processes by looking at averages.
-
-Finance: Predicts returns or risks by aggregating lots of small random events.
-
+# Why is the CLT important?
+# -----------------------------
+# - Estimating population parameters:
+#   - Enables us to use the normal distribution for confidence intervals even if the population isn't normal.
+#
+# - Quality control:
+#   - Detects anomalies in manufacturing processes by looking at averages.
+#
+# - Finance:
+#   - Predicts returns or risks by aggregating lots of small random events.
