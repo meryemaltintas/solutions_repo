@@ -1,9 +1,17 @@
 # Problem1
 ### Motivation
 
-Interference occurs when waves from different sources overlap, creating new patterns. On a water surface, this can be easily observed when ripples from different points meet, forming distinctive interference patterns. These patterns can show us how waves combine in different ways, either reinforcing each other or canceling out.
+Interference: When waves from different sources overlap, they create new patterns. Separate the types of interference:
 
-Studying these patterns helps us understand wave behavior in a simple, visual way. It also allows us to explore important concepts, like the relationship between wave phase and the effects of multiple sources. This task offers a hands-on approach to learning about wave interactions and their real-world applications, making it an interesting and engaging way to dive into wave physics.
+Constructive Interference: Waves in phase (peaks align) combine to form larger amplitudes.
+
+Destructive Interference: Waves out of phase (peak meets trough) cancel each other out.
+
+Wave Sources: Ripples originate from distinct points on the water surface. Identify how multiple sources (e.g., two point sources) interact.
+
+Patterns: The resulting interference patterns (e.g., nodal lines, antinodes) depend on the distance between sources, wavelength, and phase differences.
+
+Phase Relationship: The relative phase of the waves determines whether interference is constructive or destructive.
 
 ### Task
 
