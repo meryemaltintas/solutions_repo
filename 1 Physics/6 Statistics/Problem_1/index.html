@@ -172,55 +172,76 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Exploring the Central Limit Theorem 🎲📊</p>
-<p>Motivation 💡</p>
-<p>Here’s your hands-on chance to explore one of the most fundamental concepts in statistics, the Central Limit Theorem (CLT)!
-🧪 We’ll visually see how data approaches a normal distribution step by step.</p>
-<ol>
-<li>Population Distributions 🧮</li>
-</ol>
-<p>Uniform Distribution 🌈</p>
-<p>Exponential Distribution ⚡</p>
-<p>Binomial Distribution 🎯</p>
-<p>🔍 Large datasets generated:</p>
-<h1 id="populations">Populations</h1>
-<p>```python
+<h1 id="exploring-the-central-limit-theorem-through-simulations">📊 Exploring the Central Limit Theorem through Simulations</h1>
+<hr/>
+<h2 id="motivation">🎯 Motivation</h2>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is a cornerstone of probability and statistics. It states that the sampling distribution of the <strong>sample mean</strong> approaches a <strong>normal distribution</strong> as the sample size increases — <strong>regardless</strong> of the original population’s shape. </p>
+<p>By using simulations, we can intuitively and visually understand this phenomenon and how randomness behaves in repeated sampling.</p>
+<hr/>
+<h2 id="1-simulating-sampling-distributions">1️⃣ Simulating Sampling Distributions</h2>
+<p>We select several types of population distributions for analysis:</p>
+<ul>
+<li>🎲 <strong>Uniform Distribution</strong></li>
+<li>📉 <strong>Exponential Distribution</strong></li>
+<li>🎯 <strong>Binomial Distribution</strong></li>
+</ul>
+<p>For each distribution, we generate a <strong>large synthetic population dataset</strong> using NumPy.</p>
+<hr/>
+<h2 id="2-sampling-and-visualization">2️⃣ Sampling and Visualization</h2>
+<p>From each synthetic population, we randomly sample and compute the <strong>sample mean</strong> for various sample sizes:</p>
+<ul>
+<li>Sample sizes: <strong>5, 10, 30, 50</strong></li>
+</ul>
+<p>We repeat the process many times (e.g., <strong>1000 simulations</strong>) to construct the <strong>sampling distribution of the sample mean</strong>.</p>
+<p>Then, we plot histograms to visualize how the distribution of sample means evolves with sample size.</p>
+<p>````python
 import numpy as np
 import matplotlib.pyplot as plt
-uniform_population = np.random.uniform(0, 1, 100000)
-exponential_population = np.random.exponential(1, 100000)
-binomial_population = np.random.binomial(10, 0.5, 100000)</p>
-<ol>
-<li>Sampling &amp; Visualization 📈</li>
-</ol>
-<p>Take multiple samples with different sizes (n=5, 10, 30, 50).</p>
-<p>Calculate the mean of each sample.</p>
-<p>Observe how the distribution of these means becomes more normal!</p>
-<p>🎨 Sample plots:</p>
-<h1 id="sampling-and-plotting">Sampling and plotting</h1>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt
-for size in [5, 10, 30, 50]:
-    means = sample_means(population, size)
-    plt.figure(figsize=(8, 4))
-    sns.histplot(means, bins=30, kde=True)
-    plt.title(f'Sampling Distribution (n={size})')
-    plt.xlabel('Sample Mean')
-    plt.ylabel('Frequency')
-    plt.show()
-3. Explore Parameters 🔍</p>
-<p>Distribution shape and sample size influence how quickly convergence occurs.</p>
-<p>Higher variance results in wider spread of the sampling distribution.</p>
-<p>💡 Calculate and compare:</p>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt
-pop_mean = np.mean(uniform_population)
-pop_var = np.var(uniform_population)</p>
-<p>means = sample_means(uniform_population, 30)
-print(f"Mean: {np.mean(means):.4f} (Expected: {pop_mean:.4f})")
-print(f"Variance: {np.var(means):.4f} (Expected: {pop_var/30:.4f})")</p>
+import seaborn as sns</p>
+<p>sns.set(style="whitegrid")</p>
+<h1 id="function-to-simulate-and-plot-clt-behavior">Function to simulate and plot CLT behavior</h1>
+<p>def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
+    plt.figure(figsize=(16, 10))</p>
+<pre><code>for i, n in enumerate(sample_sizes):
+    sample_means = [
+        np.mean(population_func(size=n, **pop_params))
+        for _ in range(n_simulations)
+    ]
+    plt.subplot(2, 2, i + 1)
+    sns.histplot(sample_means, bins=30, kde=True, color="cornflowerblue")
+    plt.title(f"Sample Size = {n}")
+    plt.xlabel("Sample Mean")
+    plt.ylabel("Frequency")
+
+plt.suptitle("Sampling Distribution of the Sample Mean", fontsize=18)
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
+</code></pre>
+<h1 id="define-sample-sizes">Define sample sizes</h1>
+<p>sample_sizes = [5, 10, 30, 50]</p>
+<h1 id="uniform-distribution">Uniform Distribution</h1>
+<p>print("🔷 Uniform Distribution")
+simulate_clt(np.random.uniform, {'low': 0, 'high': 10}, sample_sizes)</p>
+<h1 id="exponential-distribution">Exponential Distribution</h1>
+<p>print("🔶 Exponential Distribution")
+simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)</p>
+<h1 id="binomial-distribution">Binomial Distribution</h1>
+<p>print("⚪ Binomial Distribution")
+simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)</p>
+<h1 id="3-parameter-exploration">3️ Parameter Exploration</h1>
+<h1 id="shape-and-convergence">🔍 Shape and Convergence</h1>
+<ul>
+<li>**Exponential Distribution: Initially skewed, but the sample mean becomes more symmetric as sample size increases.</li>
+<li>**Uniform Distribution: Already symmetric, so it converges faster.</li>
+<li>**Binomial Distribution: Discrete, but smooths and becomes bell-shaped with larger samples.</li>
+</ul>
+<hr/>
+<h1 id="variance-impact">🔍 Variance Impact</h1>
+<ul>
+<li>** The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.</li>
+</ul>
+<hr/>
+<p>This demonstrates the Law of Large Numbers — larger samples lead to more stable and reliable estimates.</p>
 <h1 id="4-practical-applications">4. Practical Applications 🌍</h1>
 <ul>
 <li><strong>Estimating population parameters</strong> 🧾</li>
