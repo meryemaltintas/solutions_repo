@@ -72,35 +72,33 @@ simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)
 # Binomial distribution
 print("🔹 Binomial Distribution")
 simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
+
+![alt text](image-3.png)
+
 3️⃣ Parameter Exploration
 🔍 Shape and Convergence
+
 Distributions like the Exponential are initially skewed, but the mean's sampling distribution becomes more symmetric with larger sample sizes.
-
 The Uniform distribution converges more quickly since it's already symmetric.
-
 The Binomial distribution, being discrete, smooths out with increasing n.
 
 🔍 Variance Impact
-The spread (standard deviation) of the sampling distribution decreases as sample size increases.
 
+The spread (standard deviation) of the sampling distribution decreases as sample size increases.
 This reflects the law of large numbers: larger samples yield more stable, accurate estimates of the population mean.
 
 4️⃣ Practical Applications
 The CLT plays a vital role in many fields:
 
 📏 Estimating population parameters from small samples.
-
 🏭 Quality control: detecting anomalies in manufacturing processes.
-
 💹 Finance: modeling and forecasting market averages or risks.
-
 Understanding the CLT helps in making informed decisions even under uncertainty, by using averages from random samples.
 
 📦 Deliverables
+
 ✅ Python simulation scripts and/or notebooks.
-
 ✅ Histograms showing the convergence to a normal distribution.
-
 ✅ Explanatory discussion linking results with CLT theory.
 
 
