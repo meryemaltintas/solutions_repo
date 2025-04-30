@@ -72,6 +72,10 @@ print("⚪ Binomial Distribution")
 simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
 
 
+![alt text](image-4.png)
+
+
+
 # 3️ Parameter Exploration
 #🔍 Shape and Convergence
 
