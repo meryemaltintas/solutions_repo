@@ -33,14 +33,17 @@ We repeat the process many times (e.g., **1000 simulations**) to construct the *
 
 Then, we plot histograms to visualize how the distribution of sample means evolves with sample size.
 
-````python
+```python
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set(style="whitegrid")
 
 # Function to simulate and plot CLT behavior
 def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
     plt.figure(figsize=(16, 10))
-    
+
     for i, n in enumerate(sample_sizes):
         sample_means = [
             np.mean(population_func(size=n, **pop_params))
@@ -51,7 +54,7 @@ def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
         plt.title(f"Sample Size = {n}")
         plt.xlabel("Sample Mean")
         plt.ylabel("Frequency")
-    
+
     plt.suptitle("Sampling Distribution of the Sample Mean", fontsize=18)
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     plt.show()
@@ -79,15 +82,16 @@ simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
 # 3️ Parameter Exploration
 #🔍 Shape and Convergence
 
-Exponential Distribution: Initially skewed, but the sample mean becomes more symmetric as sample size increases.
-Uniform Distribution: Already symmetric, so it converges faster.
-Binomial Distribution: Discrete, but smooths and becomes bell-shaped with larger samples.
+- **Exponential Distribution: Initially skewed, but the sample mean becomes more symmetric as sample size increases.**
+- **Uniform Distribution: Already symmetric, so it converges faster.**
+- **Binomial Distribution: Discrete, but smooths and becomes bell-shaped with larger samples.**
 
 ---
 
 #🔍 Variance Impact
 
 The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.
+
 trates the Law of Large Numbers — larger samples lead to more stable and reliable estimates.
 ---
 
