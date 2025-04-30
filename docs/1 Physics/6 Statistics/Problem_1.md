@@ -37,8 +37,6 @@ Then, we plot histograms to visualize how the distribution of sample means evolv
 import numpy as np
 import matplotlib.pyplot as plt
 
-sns.set(style="whitegrid")
-
 # Function to simulate and plot CLT behavior
 def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
     plt.figure(figsize=(16, 10))
