@@ -175,84 +175,82 @@
 <h1 id="exploring-the-central-limit-theorem-through-simulations">📊 Exploring the Central Limit Theorem through Simulations</h1>
 <hr/>
 <h2 id="motivation">🎯 Motivation</h2>
-<p>The <strong>Central Limit Theorem (CLT)</strong> is a cornerstone of probability and statistics. It states that the sampling distribution of the sample mean approaches a <strong>normal distribution</strong> as the sample size increases, regardless of the original population’s distribution. Simulations provide an intuitive, hands-on way to observe this phenomenon in action and help understand how randomness behaves in the long run.</p>
+<p>The <strong>Central Limit Theorem (CLT)</strong> is a key idea in statistics. It says that the <strong>sampling distribution of the sample mean</strong> will become approximately <strong>normal</strong>, even if the original population is not — as long as the sample size is large enough.</p>
+<p>This simulation-based approach helps us understand how and why this works.</p>
 <hr/>
-<h2 id="1-simulating-sampling-distributions">1️⃣ Simulating Sampling Distributions</h2>
-<p>We begin by selecting various population distributions:</p>
+<h2 id="1-simulating-sampling-distributions">🧪 1. Simulating Sampling Distributions</h2>
+<p>We use different population types to demonstrate the CLT:</p>
 <ul>
-<li><strong>Uniform Distribution</strong></li>
-<li><strong>Exponential Distribution</strong></li>
-<li><strong>Binomial Distribution</strong></li>
+<li>🟦 Uniform Distribution</li>
+<li>📈 Exponential Distribution</li>
+<li>⚪ Binomial Distribution</li>
 </ul>
-<p>For each distribution, we generate a large synthetic population dataset using NumPy.</p>
+<p>Each distribution is used to generate a large synthetic dataset.</p>
 <hr/>
-<h2 id="2-sampling-and-visualization">2️⃣ Sampling and Visualization</h2>
-<p>We randomly sample data from the population and calculate the <strong>sample mean</strong> for different sample sizes:</p>
+<h2 id="2-sampling-and-visualization">📉 2. Sampling and Visualization</h2>
+<p>For each distribution, we:</p>
 <ul>
-<li>Sample sizes: <strong>5, 10, 30, 50</strong></li>
+<li>Choose sample sizes: <strong>5, 10, 30, 50</strong></li>
+<li>Randomly draw samples and calculate their means</li>
+<li>Repeat 1000 times to build a sampling distribution</li>
+<li>Plot histograms to observe how they approach a normal shape</li>
 </ul>
-<p>Each sampling process is repeated multiple times (e.g., 1000 times) to construct the <strong>sampling distribution of the sample mean</strong>.</p>
-<p>The results are visualized using histograms to observe how the shape of the distribution evolves with sample size.</p>
-<pre><code class="language-python">import numpy as np
+<hr/>
+<h3 id="python-code">💻 Python Code</h3>
+<p>```python
+import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+import seaborn as sns</p>
+<p>sns.set(style="whitegrid")</p>
+<p>def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
+    plt.figure(figsize=(16, 10))</p>
+<pre><code>for i, n in enumerate(sample_sizes):
+    sample_means = []
+    for _ in range(n_simulations):
+        sample = population_func(size=n, **pop_params)
+        sample_means.append(np.mean(sample))
 
-sns.set(style="whitegrid")
+    plt.subplot(2, 2, i + 1)
+    sns.histplot(sample_means, bins=30, kde=True, color="cornflowerblue")
+    plt.title(f"Sample Size = {n}")
+    plt.xlabel("Sample Mean")
+    plt.ylabel("Frequency")
 
-# Simulation function
-def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
-    plt.figure(figsize=(16, 10))
-
-    for i, n in enumerate(sample_sizes):
-        sample_means = []
-        for _ in range(n_simulations):
-            sample = population_func(size=n, **pop_params)
-            sample_means.append(np.mean(sample))
-
-        plt.subplot(2, 2, i + 1)
-        sns.histplot(sample_means, bins=30, kde=True, color="cornflowerblue")
-        plt.title(f"Sample Size = {n}")
-        plt.xlabel("Sample Mean")
-        plt.ylabel("Frequency")
-
-    plt.suptitle("Sampling Distribution of the Mean", fontsize=18)
-    plt.tight_layout(rect=[0, 0, 1, 0.96])
-    plt.show()
-
-# Sample sizes to try
-sample_sizes = [5, 10, 30, 50]
-
-# Uniform distribution
-print("🔹 Uniform Distribution")
-simulate_clt(np.random.uniform, {'low': 0, 'high': 10}, sample_sizes)
-
-# Exponential distribution
-print("🔹 Exponential Distribution")
-simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)
-
-# Binomial distribution
-print("🔹 Binomial Distribution")
-simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
+plt.suptitle("Sampling Distribution of the Mean", fontsize=18)
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image-3.png"/></p>
-<p>3️⃣ Parameter Exploration
-🔍 Shape and Convergence</p>
-<p>Distributions like the Exponential are initially skewed, but the mean's sampling distribution becomes more symmetric with larger sample sizes.
-The Uniform distribution converges more quickly since it's already symmetric.
-The Binomial distribution, being discrete, smooths out with increasing n.</p>
-<p>🔍 Variance Impact</p>
-<p>The spread (standard deviation) of the sampling distribution decreases as sample size increases.
-This reflects the law of large numbers: larger samples yield more stable, accurate estimates of the population mean.</p>
-<p>4️⃣ Practical Applications
-The CLT plays a vital role in many fields:</p>
-<p>📏 Estimating population parameters from small samples.
-🏭 Quality control: detecting anomalies in manufacturing processes.
-💹 Finance: modeling and forecasting market averages or risks.
-Understanding the CLT helps in making informed decisions even under uncertainty, by using averages from random samples.</p>
-<p>📦 Deliverables</p>
-<p>✅ Python simulation scripts and/or notebooks.
-✅ Histograms showing the convergence to a normal distribution.
-✅ Explanatory discussion linking results with CLT theory.</p>
+<p>sample_sizes = [5, 10, 30, 50]</p>
+<p>print("🟦 Uniform Distribution")
+simulate_clt(np.random.uniform, {'low': 0, 'high': 10}, sample_sizes)</p>
+<p>print("📈 Exponential Distribution")
+simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)</p>
+<p>print("⚪ Binomial Distribution")
+simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
+🔬 3. Parameter Exploration
+🧷 Shape of Original Distribution
+Uniform is already symmetric → fast convergence to normality.</p>
+<p>Exponential is skewed → still becomes normal with larger samples.</p>
+<p>Binomial is discrete → smooths out with increased sample size.</p>
+<p>🧮 Impact of Sample Size
+As sample size increases:</p>
+<p>The variance of the sample mean decreases</p>
+<p>The distribution of the mean becomes more concentrated around the true mean</p>
+<p>Results become more predictable and stable</p>
+<p>🌍 4. Practical Applications
+The CLT is widely used in:</p>
+<p>📏 Estimating unknown population parameters</p>
+<p>🏭 Quality control and manufacturing checks</p>
+<p>💼 Risk modeling and finance</p>
+<p>📊 Survey analysis and polling</p>
+<p>It allows us to use small samples to make big conclusions — safely.</p>
+<p>📦 Deliverables
+✅ Python code or Jupyter Notebook simulations</p>
+<p>✅ Histograms for each sample size and distribution</p>
+<p>✅ Discussion on the results and theory of CLT</p>
+<p>🧠 Conclusion
+The Central Limit Theorem shows us that averages behave predictably — even when the underlying data does not. This makes it one of the most powerful tools in all of statistics and data science.</p>
+<p>“The average of the averages is almost always normal.” 🌐</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
