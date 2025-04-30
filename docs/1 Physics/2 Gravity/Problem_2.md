@@ -5,17 +5,14 @@
 
 Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:
 
-1-Reaching orbit
-
-2-Escaping a planet
-
-3-The Solar System
+-**Reaching orbit**
+-**Escaping a planet**
+-**The Solar System**
 
 These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
 
 🧠 Definitions
-
-1️⃣ First Cosmic Velocity
+#1️⃣First Cosmic Velocity
 Meaning: Minimum speed to enter a circular orbit close to the surface of a planet.
 
 Formula:
