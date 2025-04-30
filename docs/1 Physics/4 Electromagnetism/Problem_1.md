@@ -65,20 +65,23 @@ Below is the Python code used to simulate the motion of a charged particle under
 import numpy as np
 import matplotlib.pyplot as plt
 
+import numpy as np
+import matplotlib.pyplot as plt
+
 # Constants
 q = 1.6e-19  # Charge of the particle (Coulombs)
 m = 1.67e-27  # Mass of the particle (kg), e.g., proton
-B = 1.0  # Magnetic field strength (Tesla)
-E = np.array([0.0, 0.0, 0.0])  # Electric field (V/m), assumed to be zero for simplicity
-v0 = np.array([1e5, 0, 0])  # Initial velocity (m/s)
+B = 2.0  # Magnetic field strength (Tesla) — slightly increased
+E = np.array([0.0, 0.0, 0.0])  # Electric field (V/m), assumed zero
+v0 = np.array([5e5, 0, 0])  # Initial velocity (m/s) — slightly increased
 r0 = np.array([0, 0, 0])  # Initial position (m)
 
 # Time parameters
-t_max = 1e-5  # Total simulation time (seconds)
-dt = 1e-7  # Time step (seconds)
+t_max = 10.0  # Total simulation time (seconds) — updated
+dt = 1e-5  # Time step (seconds) — small for better accuracy
 num_steps = int(t_max / dt)
 
-# Initialize position and velocity arrays
+# Initialize arrays for position and velocity
 r = np.zeros((num_steps, 3))
 v = np.zeros((num_steps, 3))
 r[0] = r0
@@ -86,24 +89,24 @@ v[0] = v0
 
 # Euler method for numerical integration
 for i in range(1, num_steps):
-    # Compute the Lorentz force: F = q(E + v x B)
-    cross_product = np.cross(v[i-1], [0, 0, B])  # v x B
+    cross_product = np.cross(v[i-1], [0, 0, B])  # v × B
     F = q * (E + cross_product)  # Lorentz force
-    
-    # Update velocity and position using Euler's method
     a = F / m  # Acceleration
     v[i] = v[i-1] + a * dt  # Update velocity
     r[i] = r[i-1] + v[i] * dt  # Update position
 
-# Plot the trajectory of the particle in 2D (xy-plane)
+# Plot the trajectory of the particle in the xy-plane
 plt.figure(figsize=(8, 6))
 plt.plot(r[:, 0], r[:, 1], label='Particle Trajectory')
-plt.title('Particle Trajectory in a Magnetic Field')
+plt.title('Trajectory of a Charged Particle in a Magnetic Field')
 plt.xlabel('X Position (m)')
 plt.ylabel('Y Position (m)')
 plt.grid(True)
+plt.axis('equal')  # Ensure aspect ratio is equal for circular motion
 plt.legend()
 plt.show()
+```
+
 ```
 ![alt text](image-1.png)
 
