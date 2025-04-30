@@ -36,7 +36,6 @@ Then, we plot histograms to visualize how the distribution of sample means evolv
 ````python
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 sns.set(style="whitegrid")
 
@@ -73,6 +72,7 @@ simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)
 # Binomial Distribution
 print("⚪ Binomial Distribution")
 simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
+
 
 # 3️ Parameter Exploration
 #🔍 Shape and Convergence
