@@ -11,7 +11,7 @@ Understanding escape velocity is crucial for space missions. It's the minimum sp
 
 These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
 
-🧠 Definitions
+#🧠 Definitions
 #1️⃣First Cosmic Velocity
 Meaning: Minimum speed to enter a circular orbit close to the surface of a planet.
 
@@ -35,14 +35,15 @@ Formula:
 
 $v_2 = \sqrt{2} \cdot v_1 = \sqrt{\frac{2 G M}{R}}$
 
- Third Cosmic Velocity
+# Third Cosmic Velocity
 Meaning: Approximate speed needed to leave the Sun’s gravitational influence from a planet’s surface.
 
-Formula (approximate):
+#Formula (approximate):
 
 $v_3 \approx 1.5 \cdot v_2 = 1.5 \cdot \sqrt{\frac{2 G M}{R}}$
 
-📐 Parameters Affecting Velocity
+#📐 Parameters Affecting Velocity
+
 Mass ($M$): Heavier planets have stronger gravity → higher velocities.
 
 Radius ($R$): Larger radius means you're further from the center → lower velocities.
@@ -142,8 +143,7 @@ Planetary Escape Missions | $v_2$
 
 Interstellar Missions | $v_3$
 
-
-✅ Conclusion
+#✅ Conclusion
 The cosmic velocities define the energy requirements to transition between gravitational zones:
 
 Low Earth orbit needs $v_1$
