@@ -194,9 +194,11 @@
 </ul>
 <p>We repeat the process many times (e.g., <strong>1000 simulations</strong>) to construct the <strong>sampling distribution of the sample mean</strong>.</p>
 <p>Then, we plot histograms to visualize how the distribution of sample means evolves with sample size.</p>
-<p>````python
+<p>```python
 import numpy as np
-import matplotlib.pyplot as plt</p>
+import matplotlib.pyplot as plt
+import seaborn as sns</p>
+<p>sns.set(style="whitegrid")</p>
 <h1 id="function-to-simulate-and-plot-clt-behavior">Function to simulate and plot CLT behavior</h1>
 <p>def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
     plt.figure(figsize=(16, 10))</p>
@@ -229,14 +231,15 @@ simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)</p>
 <p><img alt="alt text" src="../image-4.png"/></p>
 <h1 id="3-parameter-exploration">3️ Parameter Exploration</h1>
 <h1 id="shape-and-convergence">🔍 Shape and Convergence</h1>
-<p>Exponential Distribution: Initially skewed, but the sample mean becomes more symmetric as sample size increases.
-Uniform Distribution: Already symmetric, so it converges faster.
-Binomial Distribution: Discrete, but smooths and becomes bell-shaped with larger samples.</p>
+<ul>
+<li><strong>Exponential Distribution: Initially skewed, but the sample mean becomes more symmetric as sample size increases.</strong></li>
+<li><strong>Uniform Distribution: Already symmetric, so it converges faster.</strong></li>
+<li><strong>Binomial Distribution: Discrete, but smooths and becomes bell-shaped with larger samples.</strong></li>
+</ul>
 <hr/>
 <h1 id="variance-impact">🔍 Variance Impact</h1>
-<p>The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.
-trates the Law of Large Numbers — larger samples lead to more stable and reliable estimates.</p>
-<hr/>
+<p>The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.</p>
+<h2 id="trates-the-law-of-large-numbers-larger-samples-lead-to-more-stable-and-reliable-estimates">trates the Law of Large Numbers — larger samples lead to more stable and reliable estimates.</h2>
 <h1 id="4-practical-applications">4. Practical Applications 🌍</h1>
 <ul>
 <li><strong>Estimating population parameters</strong> 🧾</li>
