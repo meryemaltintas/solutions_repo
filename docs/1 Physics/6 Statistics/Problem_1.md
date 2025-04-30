@@ -41,42 +41,44 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Set the style for the plots
 sns.set(style="whitegrid")
 
 # Simulation function
 def simulate_clt(population_func, pop_params, sample_sizes, n_simulations=1000):
+    # Generate a population (e.g., normal distribution)
+    population = population_func(size=10000, **pop_params)  # Population with 10,000 elements
+    
+    # Create subplots for different sample sizes
     plt.figure(figsize=(16, 10))
     
-    for i, n in enumerate(sample_sizes):
+    for i, sample_size in enumerate(sample_sizes, 1):  # Start subplot indexing from 1
+        # Perform 1000 simulations for each sample size
         sample_means = []
         for _ in range(n_simulations):
-            sample = population_func(size=n, **pop_params)
-            sample_means.append(np.mean(sample))
+            sample = np.random.choice(population, size=sample_size)  # Random sampling
+            sample_mean = np.mean(sample)  # Calculate the sample mean
+            sample_means.append(sample_mean)
         
-        plt.subplot(2, 2, i + 1)
+        # Plot the histogram
+        plt.subplot(2, 2, i)  # 2x2 subplot layout
         sns.histplot(sample_means, bins=30, kde=True, color="cornflowerblue")
-        plt.title(f"Sample Size = {n}")
+        plt.title(f"Sample Size = {sample_size}")
         plt.xlabel("Sample Mean")
         plt.ylabel("Frequency")
     
-    plt.suptitle("Sampling Distribution of the Mean", fontsize=18)
-    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    # Adjust layout and add a main title
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.suptitle("Sampling Distribution of the Mean", fontsize=16)
     plt.show()
 
-# Sample sizes to try
-sample_sizes = [5, 10, 30, 50]
+# Define parameters and sample sizes
+pop_params = {"loc": 100, "scale": 15}  # For normal distribution: mean=100, std=15
+sample_sizes = [5, 10, 30, 50]  # Sample sizes to test
 
-# Uniform distribution
-print("🔹 Uniform Distribution")
-simulate_clt(np.random.uniform, {'low': 0, 'high': 10}, sample_sizes)
+# Run the simulation
+simulate_clt(np.random.normal, pop_params, sample_sizes, n_simulations=1000)
 
-# Exponential distribution
-print("🔹 Exponential Distribution")
-simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)
-
-# Binomial distribution
-print("🔹 Binomial Distribution")
-simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
 3️⃣ Parameter Exploration
 🔍 Shape and Convergence
 Distributions like the Exponential are initially skewed, but the mean's sampling distribution becomes more symmetric with larger sample sizes.
