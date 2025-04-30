@@ -50,7 +50,7 @@ Mass ($M$): Heavier planets have stronger gravity → higher velocities.
 
 Radius ($R$): Larger radius means you're further from the center → lower velocities.
 
-🧮 Python Code for Calculations & Graphs
+#🧮 Python Code for Calculations & Graphs
 
 ```python
 import numpy as np
