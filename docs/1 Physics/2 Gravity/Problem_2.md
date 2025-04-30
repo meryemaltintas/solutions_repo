@@ -21,13 +21,14 @@ $v_1 = \sqrt{\frac{G M}{R}}$
 
 Where:
 
-$G$: Gravitational constant = 6.674 \times 10^{-11} \ \text{m}^3/\text{kg}/\text{s}^2
+$G$: Gravitational constant = 6.674 
 
 $M$: Mass of the planet (kg)
 
 $R$: Radius from the planet's center (m)
 
 2️⃣ Second Cosmic Velocity (Escape Velocity)
+
 Meaning: Minimum speed to completely escape a planet's gravity.
 
 Formula:
