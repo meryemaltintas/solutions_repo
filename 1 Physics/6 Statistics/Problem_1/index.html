@@ -227,25 +227,26 @@ simulate_clt(np.random.uniform, {'low': 0, 'high': 10}, sample_sizes)</p>
 simulate_clt(np.random.exponential, {'scale': 2.0}, sample_sizes)</p>
 <h1 id="binomial-distribution">Binomial distribution</h1>
 <p>print("🔹 Binomial Distribution")
-simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
-3️⃣ Parameter Exploration
-🔍 Shape and Convergence
-Distributions like the Exponential are initially skewed, but the mean's sampling distribution becomes more symmetric with larger sample sizes.</p>
-<p>The Uniform distribution converges more quickly since it's already symmetric.</p>
-<p>The Binomial distribution, being discrete, smooths out with increasing n.</p>
-<p>🔍 Variance Impact
-The spread (standard deviation) of the sampling distribution decreases as sample size increases.</p>
-<p>This reflects the law of large numbers: larger samples yield more stable, accurate estimates of the population mean.</p>
+simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)</p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p>3️⃣ Parameter Exploration
+🔍 Shape and Convergence</p>
+<p>Distributions like the Exponential are initially skewed, but the mean's sampling distribution becomes more symmetric with larger sample sizes.
+The Uniform distribution converges more quickly since it's already symmetric.
+The Binomial distribution, being discrete, smooths out with increasing n.</p>
+<p>🔍 Variance Impact</p>
+<p>The spread (standard deviation) of the sampling distribution decreases as sample size increases.
+This reflects the law of large numbers: larger samples yield more stable, accurate estimates of the population mean.</p>
 <p>4️⃣ Practical Applications
 The CLT plays a vital role in many fields:</p>
-<p>📏 Estimating population parameters from small samples.</p>
-<p>🏭 Quality control: detecting anomalies in manufacturing processes.</p>
-<p>💹 Finance: modeling and forecasting market averages or risks.</p>
-<p>Understanding the CLT helps in making informed decisions even under uncertainty, by using averages from random samples.</p>
-<p>📦 Deliverables
-✅ Python simulation scripts and/or notebooks.</p>
-<p>✅ Histograms showing the convergence to a normal distribution.</p>
-<p>✅ Explanatory discussion linking results with CLT theory.</p>
+<p>📏 Estimating population parameters from small samples.
+🏭 Quality control: detecting anomalies in manufacturing processes.
+💹 Finance: modeling and forecasting market averages or risks.
+Understanding the CLT helps in making informed decisions even under uncertainty, by using averages from random samples.</p>
+<p>📦 Deliverables</p>
+<p>✅ Python simulation scripts and/or notebooks.
+✅ Histograms showing the convergence to a normal distribution.
+✅ Explanatory discussion linking results with CLT theory.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
