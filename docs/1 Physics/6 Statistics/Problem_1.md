@@ -19,8 +19,6 @@ We select several types of population distributions for analysis:
 - 📉 **Exponential Distribution**
 - 🎯 **Binomial Distribution**
 
-For each distribution, we generate a **large synthetic population dataset** using NumPy.
-
 ---
 
 ## 2️⃣ Sampling and Visualization
