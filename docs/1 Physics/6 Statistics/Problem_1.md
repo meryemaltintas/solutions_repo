@@ -90,9 +90,8 @@ simulate_clt(np.random.binomial, {'n': 10, 'p': 0.5}, sample_sizes)
 
 #🔍 Variance Impact
 
-The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.
+-**The spread (standard deviation) of the sample mean distribution decreases as the sample size increases.**
 
-trates the Law of Large Numbers — larger samples lead to more stable and reliable estimates.
 ---
 
 # 4. Practical Applications 🌍
