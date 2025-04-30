@@ -1,17 +1,52 @@
 # Problem1
 ### Motivation
 
-Interference: When waves from different sources overlap, they create new patterns. Separate the types of interference:
-
-Constructive Interference: Waves in phase (peaks align) combine to form larger amplitudes.
-
-Destructive Interference: Waves out of phase (peak meets trough) cancel each other out.
-
-Wave Sources: Ripples originate from distinct points on the water surface. Identify how multiple sources (e.g., two point sources) interact.
-
-Patterns: The resulting interference patterns (e.g., nodal lines, antinodes) depend on the distance between sources, wavelength, and phase differences.
-
-Phase Relationship: The relative phase of the waves determines whether interference is constructive or destructive.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Interference Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="interference-section">
+        <h2>Wave Interference: Key Concepts</h2>
+        <ul>
+            <li>
+                <strong>Interference Overview</strong>
+                <p>Waves from different sources overlap to form new patterns.</p>
+            </li>
+            <li>
+                <strong>Types of Interference</strong>
+                <ul>
+                    <li><strong>Constructive:</strong> In-phase waves, larger amplitudes.</li>
+                    <li><strong>Destructive:</strong> Out-of-phase waves, reduced amplitudes.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Wave Sources</strong>
+                <p>Ripples originate from distinct points (e.g., on water).</p>
+                <p>Example: Two point sources interact to produce patterns.</p>
+            </li>
+            <li>
+                <strong>Interference Patterns</strong>
+                <p>Nodal lines: Areas of wave cancellation (destructive).</p>
+                <p>Antinodes: Areas of wave amplification (constructive).</p>
+                <p>Depend on source spacing, wavelength, and phase differences.</p>
+            </li>
+            <li>
+                <strong>Phase Relationship</strong>
+                <p>Relative wave phase dictates interference type:</p>
+                <ul>
+                    <li>In phase: Constructive.</li>
+                    <li>Out of phase: Destructive.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
 
 ### Task
 
