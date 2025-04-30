@@ -1,12 +1,14 @@
 # Problem 2
 🚀 Escape Velocities and Cosmic Velocities
 
-🧭 Motivation
+#🧭 Motivation
 
 Understanding escape velocity is crucial for space missions. It's the minimum speed needed to break free from a planet's gravitational pull. Expanding on this idea, the first, second, and third cosmic velocities define thresholds in space travel:
 
 -**Reaching orbit**
+
 -**Escaping a planet**
+
 -**The Solar System**
 
 These are key concepts in satellite launches, Moon/Mars missions, and interstellar probes.
@@ -19,7 +21,7 @@ Formula:
 
 $v_1 = \sqrt{\frac{G M}{R}}$
 
-Where:
+#Where:
 
 $G$: Gravitational constant = 6.674 
 
