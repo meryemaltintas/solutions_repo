@@ -238,5 +238,5 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
-
+![alt text](image.png)
 
