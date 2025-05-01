@@ -9,6 +9,7 @@ In this article, we’ll explore two classical Monte Carlo methods for estimatin
 ##1.The Circle-Based Monte Carlo Method
 
 ##2.Buffon’s Needle Problem
+---
 
 #📘 1. Circle-Based Monte Carlo Method
 Theoretical Background
@@ -36,6 +37,7 @@ So, π can be estimated as:
 $$
 \pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}
 $$
+---
 
 #Python Simulation
 
@@ -75,10 +77,10 @@ print(f"Estimated Pi: {pi_estimate}")
 visualize_circle(x, y, inside)
 ```
 ![alt text](image-6.png)
-
+---
 #Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
-
+---
 #📘 2. Buffon’s Needle Method
 Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
@@ -176,6 +178,7 @@ Buffon’s Needle offers a fascinating connection between geometry and probabili
     </tr>
   </tbody>
 </table>
+---
 
 #Final Thoughts
 
@@ -186,7 +189,7 @@ Monte Carlo methods beautifully demonstrate how randomness can be harnessed to s
 In **Buffon’s Needle Problem**, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of **π**. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of **π**.
 
 In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.
-
+---
 ### **Explanation of the Analysis**
 
 As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate **π** using the formula:
@@ -206,6 +209,7 @@ Where:
 - \( C \) = Number of intersections
 
 By increasing the number of needle drops \( N \), the estimation of **π** becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.
+---
 
 ### **Code to Visualize Needle Intersections:**
 
@@ -252,6 +256,8 @@ line_distance = 2  # Distance between parallel lines
 visualize_intersections(n_drops, needle_length, line_distance)
 ```
 ![alt text](image-8.png)
+
+---
 
 <h3>Comparison of Results with Varying Number of Needle Drops</h3>
 
@@ -306,6 +312,8 @@ visualize_intersections(n_drops, needle_length, line_distance)
 </ul>
 
 <p>This table provides a clear comparison of how the accuracy and stability of the <strong>π</strong> estimation improves with an increasing number of needle drops. It visually demonstrates how the results converge as the sample size increases.</p>
+
+---
 
 
 #Analysis and Results
