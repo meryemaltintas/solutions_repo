@@ -196,9 +196,13 @@ $$
 $$
 
 Where:
+
 - \( L \) = Needle length
+
 - \( D \) = Distance between the parallel lines
+
 - \( N \) = Number of needle drops
+
 - \( C \) = Number of intersections
 
 By increasing the number of needle drops \( N \), the estimation of **π** becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.
