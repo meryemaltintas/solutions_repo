@@ -197,7 +197,7 @@ A_{\text{square}} = 2 \times 2 = 4
 <div class="arithmatex">\[
 \pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}
 \]</div>
-<p>Python Simulation</p>
+<h1 id="python-simulation">Python Simulation</h1>
 <p>```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
@@ -206,8 +206,9 @@ import matplotlib.pyplot as plt</p>
     y = np.random.uniform(-1, 1, n)
     inside = x<strong>2 + y</strong>2 &lt;= 1
     pi_approx = 4 * np.sum(inside) / n
-    return pi_approx, x, y, inside</p>
-<p>Visualization
+    return pi_approx, x, y, inside
+  plt.show()
+    <code>#Visualization
 This function plots points inside the circle in blue and outside in red:
 def visualize_circle(x, y, inside):
     plt.figure(figsize=(6,6))
@@ -217,12 +218,11 @@ def visualize_circle(x, y, inside):
     plt.gca().set_aspect('equal')
     plt.grid(True)
     plt.legend()
-    plt.show()
-    ```</p>
-<p>Results and Analysis
-As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</p>
-<p>📘 2. Buffon’s Needle Method
-Theoretical Background
+    plt.show()</code></p>
+<h1 id="results-and-analysis">Results and Analysis</h1>
+<p>As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</p>
+<h1 id="2-buffons-needle-method">📘 2. Buffon’s Needle Method</h1>
+<p>Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
 𝐿
 L. If the needle is dropped at random, there's a certain probability it will cross a line.</p>
