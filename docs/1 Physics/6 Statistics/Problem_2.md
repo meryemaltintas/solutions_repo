@@ -6,9 +6,9 @@ Monte Carlo simulations are a class of powerful computational techniques that ut
 
 In this article, we’ll explore two classical Monte Carlo methods for estimating π:
 
-#1.The Circle-Based Monte Carlo Method
+##1.The Circle-Based Monte Carlo Method
 
-#2.Buffon’s Needle Problem
+##2.Buffon’s Needle Problem
 
 #📘 1. Circle-Based Monte Carlo Method
 Theoretical Background
@@ -100,6 +100,49 @@ $$
 $$
 
 > **Note:** This method only works accurately when \( L \leq D \).
+
+#Code Implementation:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def buffons_needle(n, L, D):
+    C = 0
+    for _ in range(n):
+        angle = np.random.uniform(0, np.pi / 2)
+        x_center = np.random.uniform(0, D / 2)
+        if x_center <= (L / 2) * np.sin(angle):
+            C += 1
+    pi_estimate = (2 * L * n) / (D * C) if C > 0 else None
+    return pi_estimate, C
+
+def visualize_buffons_needle(n, L, D):
+    plt.figure(figsize=(8, 6))
+    plt.axhline(0, color='black', linewidth=2)
+    for _ in range(n):
+        angle = np.random.uniform(0, np.pi / 2)
+        x_center = np.random.uniform(0, D / 2)
+        x1 = x_center - (L / 2) * np.cos(angle)
+        x2 = x_center + (L / 2) * np.cos(angle)
+        plt.plot([x1, x2], [0, 0], color='blue', linewidth=2)
+    plt.xlim(0, D)
+    plt.ylim(-1, 1)
+    plt.title("Buffon’s Needle Simulation")
+    plt.grid(True)
+    plt.show()
+
+# Parameters for Buffon’s Needle
+n_drops = 1000
+needle_length = 1
+line_distance = 2
+
+# Estimate Pi and visualize
+pi_estimate, C = buffons_needle(n_drops, needle_length, line_distance)
+print(f"Estimated Pi from Buffon’s Needle: {pi_estimate}")
+
+# Visualize the needle drops
+visualize_buffons_needle(n_drops, needle_length, line_distance)
+```
 
 #Results and Analysis
 
