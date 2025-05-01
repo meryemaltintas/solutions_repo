@@ -1,6 +1,7 @@
 # Problem 2
 #🔢 Estimating π Using Monte Carlo Methods
 Introduction
+
 Monte Carlo simulations are a class of powerful computational techniques that utilize randomness to solve problems that might be deterministic in principle. These methods are widely used in physics, finance, engineering, and beyond. One elegant and intuitive application of Monte Carlo methods is the estimation of π (pi), the mathematical constant representing the ratio of a circle's circumference to its diameter.
 
 In this article, we’ll explore two classical Monte Carlo methods for estimating π:
@@ -100,7 +101,8 @@ $$
 
 > **Note:** This method only works accurately when \( L \leq D \).
 
-Results and Analysis
+#Results and Analysis
+
 Buffon’s Needle offers a fascinating connection between geometry and probability. However, it's less commonly used due to its slower convergence and higher variance compared to the circle method. Many drops may result in few or no crossings, especially for small sample sizes.
 
 <table border="1" cellspacing="0" cellpadding="8">
@@ -131,7 +133,8 @@ Buffon’s Needle offers a fascinating connection between geometry and probabili
   </tbody>
 </table>
 
-Final Thoughts
+#Final Thoughts
+
 Monte Carlo methods beautifully demonstrate how randomness can be harnessed to solve deterministic problems. While estimating π is an elegant and educational example, the underlying principles extend to complex real-world applications such as financial modeling, particle simulations, and machine learning.
 
 
