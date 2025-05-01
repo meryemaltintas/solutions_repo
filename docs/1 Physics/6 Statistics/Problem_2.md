@@ -143,6 +143,7 @@ print(f"Estimated Pi from Buffon’s Needle: {pi_estimate}")
 # Visualize the needle drops
 visualize_buffons_needle(n_drops, needle_length, line_distance)
 ```
+![alt text](image-7.png)
 
 #Results and Analysis
 
