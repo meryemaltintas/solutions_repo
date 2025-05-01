@@ -1,6 +1,6 @@
 # Problem 2
 #🔢 Estimating π Using Monte Carlo Methods
-Introduction
+##Introduction
 
 Monte Carlo simulations are a class of powerful computational techniques that utilize randomness to solve problems that might be deterministic in principle. These methods are widely used in physics, finance, engineering, and beyond. One elegant and intuitive application of Monte Carlo methods is the estimation of π (pi), the mathematical constant representing the ratio of a circle's circumference to its diameter.
 
