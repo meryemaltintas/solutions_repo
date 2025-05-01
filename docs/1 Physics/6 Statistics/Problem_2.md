@@ -51,7 +51,9 @@ def monte_carlo_pi(n):
   plt.show()
     ```
  #Visualization
+
 This function plots points inside the circle in blue and outside in red:
+
 def visualize_circle(x, y, inside):
     plt.figure(figsize=(6,6))
     plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
@@ -61,7 +63,7 @@ def visualize_circle(x, y, inside):
     plt.grid(True)
     plt.legend()
     plt.show()
-    ```
+
 
 #Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
