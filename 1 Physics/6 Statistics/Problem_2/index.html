@@ -176,8 +176,8 @@
 <p>Introduction</p>
 <p>Monte Carlo simulations are a class of powerful computational techniques that utilize randomness to solve problems that might be deterministic in principle. These methods are widely used in physics, finance, engineering, and beyond. One elegant and intuitive application of Monte Carlo methods is the estimation of π (pi), the mathematical constant representing the ratio of a circle's circumference to its diameter.</p>
 <p>In this article, we’ll explore two classical Monte Carlo methods for estimating π:</p>
-<h1 id="1the-circle-based-monte-carlo-method">1.The Circle-Based Monte Carlo Method</h1>
-<h1 id="2buffons-needle-problem">2.Buffon’s Needle Problem</h1>
+<h2 id="1the-circle-based-monte-carlo-method">1.The Circle-Based Monte Carlo Method</h2>
+<h2 id="2buffons-needle-problem">2.Buffon’s Needle Problem</h2>
 <h1 id="1-circle-based-monte-carlo-method">📘 1. Circle-Based Monte Carlo Method</h1>
 <p>Theoretical Background
 Imagine a unit circle (radius = 1) inscribed within a square of side length 2, centered at the origin. The area of the:
@@ -255,6 +255,47 @@ Let:</p>
 <blockquote>
 <p><strong>Note:</strong> This method only works accurately when <span class="arithmatex">\( L \leq D \)</span>.</p>
 </blockquote>
+<h1 id="code-implementation">Code Implementation:</h1>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+def buffons_needle(n, L, D):
+    C = 0
+    for _ in range(n):
+        angle = np.random.uniform(0, np.pi / 2)
+        x_center = np.random.uniform(0, D / 2)
+        if x_center &lt;= (L / 2) * np.sin(angle):
+            C += 1
+    pi_estimate = (2 * L * n) / (D * C) if C &gt; 0 else None
+    return pi_estimate, C
+
+def visualize_buffons_needle(n, L, D):
+    plt.figure(figsize=(8, 6))
+    plt.axhline(0, color='black', linewidth=2)
+    for _ in range(n):
+        angle = np.random.uniform(0, np.pi / 2)
+        x_center = np.random.uniform(0, D / 2)
+        x1 = x_center - (L / 2) * np.cos(angle)
+        x2 = x_center + (L / 2) * np.cos(angle)
+        plt.plot([x1, x2], [0, 0], color='blue', linewidth=2)
+    plt.xlim(0, D)
+    plt.ylim(-1, 1)
+    plt.title("Buffon’s Needle Simulation")
+    plt.grid(True)
+    plt.show()
+
+# Parameters for Buffon’s Needle
+n_drops = 1000
+needle_length = 1
+line_distance = 2
+
+# Estimate Pi and visualize
+pi_estimate, C = buffons_needle(n_drops, needle_length, line_distance)
+print(f"Estimated Pi from Buffon’s Needle: {pi_estimate}")
+
+# Visualize the needle drops
+visualize_buffons_needle(n_drops, needle_length, line_distance)
+</code></pre>
 <h1 id="results-and-analysis_1">Results and Analysis</h1>
 <p>Buffon’s Needle offers a fascinating connection between geometry and probability. However, it's less commonly used due to its slower convergence and higher variance compared to the circle method. Many drops may result in few or no crossings, especially for small sample sizes.</p>
 <table border="1" cellpadding="8" cellspacing="0">
