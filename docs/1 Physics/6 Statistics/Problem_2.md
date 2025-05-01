@@ -48,12 +48,8 @@ def monte_carlo_pi(n):
     inside = x**2 + y**2 <= 1
     pi_approx = 4 * np.sum(inside) / n
     return pi_approx, x, y, inside
-  plt.show()
-    ```
- #Visualization
 
-This function plots points inside the circle in blue and outside in red:
-
+# Visualization function
 def visualize_circle(x, y, inside):
     plt.figure(figsize=(6,6))
     plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
@@ -63,6 +59,7 @@ def visualize_circle(x, y, inside):
     plt.grid(True)
     plt.legend()
     plt.show()
+```
 
 
 #Results and Analysis
