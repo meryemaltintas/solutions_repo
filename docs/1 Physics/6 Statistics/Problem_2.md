@@ -42,6 +42,7 @@ $$
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Function to estimate Pi using Monte Carlo method
 def monte_carlo_pi(n):
     x = np.random.uniform(-1, 1, n)
     y = np.random.uniform(-1, 1, n)
@@ -59,8 +60,20 @@ def visualize_circle(x, y, inside):
     plt.grid(True)
     plt.legend()
     plt.show()
-```
 
+# Number of points for the simulation
+n = 10000
+
+# Estimate Pi and get the points and inside condition
+pi_estimate, x, y, inside = monte_carlo_pi(n)
+
+# Print the estimated value of Pi
+print(f"Estimated Pi: {pi_estimate}")
+
+# Visualize the points
+visualize_circle(x, y, inside)
+```
+![alt text](image-6.png)
 
 #Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
