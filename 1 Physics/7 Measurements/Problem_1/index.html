@@ -172,6 +172,201 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-using-a-pendulum">🌍 <strong>Measuring Earth's Gravitational Acceleration Using a Pendulum</strong> 🕰️</h1>
+<h2 id="motivation"><strong>Motivation:</strong></h2>
+<p>The acceleration <span class="arithmatex">\( g \)</span> due to gravity is a fundamental constant that influences various physical phenomena. Measuring <span class="arithmatex">\( g \)</span> accurately is crucial for understanding gravitational interactions, designing structures, and conducting experiments in physics. One classic method for determining <span class="arithmatex">\( g \)</span> is by using a pendulum, where the period of oscillation depends on the local gravitational field.</p>
+<hr/>
+<h2 id="procedure">📝<strong>Procedure:</strong></h2>
+<h3 id="materials"><strong>Materials:</strong></h3>
+<ul>
+<li><strong>String</strong> (1 or 1.5 meters long)</li>
+<li><strong>Small weight</strong> (e.g., bag of coins, key chain)</li>
+<li><strong>Stopwatch</strong> (or smartphone timer)</li>
+<li><strong>Ruler or measuring tape</strong></li>
+</ul>
+<h3 id="setup">⚙️ <strong>Setup:</strong></h3>
+<ol>
+<li>Attach the weight to the string and suspend it from a sturdy support.</li>
+<li>Measure the length of the pendulum, <span class="arithmatex">\( L \)</span>, from the suspension point to the center of the weight using a ruler or measuring tape. </li>
+<li>For this experiment, assume <span class="arithmatex">\( L = 1.0 \, \text{m} \)</span>.</li>
+<li><strong>Resolution of the ruler</strong>: 1 mm (0.001 m), so the uncertainty <span class="arithmatex">\( \Delta L = \frac{0.001}{2} = 0.0005 \, \text{m} \)</span>.</li>
+</ol>
+<h3 id="data-collection">⏱️<strong>Data Collection:</strong></h3>
+<ol>
+<li>Displace the pendulum slightly (within <span class="arithmatex">\( 15^\circ \)</span>) and release it.</li>
+<li>Measure the time for <strong>10 full oscillations</strong> <span class="arithmatex">\( T_{10} \)</span> and repeat the process <strong>10 times</strong>.</li>
+<li>Record all the measurements of <span class="arithmatex">\( T_{10} \)</span> and calculate:</li>
+<li>The mean time for 10 oscillations <span class="arithmatex">\( \overline{T_{10}} \)</span>.</li>
+<li>The standard deviation <span class="arithmatex">\( \sigma_T \)</span>.</li>
+</ol>
+<h3>📊Tabulated Data📊:</h3>
+<table border="1" cellpadding="10" cellspacing="0">
+<tr>
+<th>Trial</th>
+<th>T<sub>10</sub> (s)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>20.02</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.05</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.03</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.06</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.04</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.03</td>
+</tr>
+<tr>
+<td>7</td>
+<td>20.05</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.06</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.02</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20.04</td>
+</tr>
+</table>
+<hr/>
+<h3 id="mean-and-standard-deviation"><strong>Mean and Standard Deviation:</strong></h3>
+<p>The mean time for 10 oscillations:</p>
+<div class="arithmatex">\[
+\overline{T_{10}} = \frac{1}{10} \sum_{i=1}^{10} T_{10,i} = 20.04 \, \text{s}
+\]</div>
+<p>The standard deviation of <span class="arithmatex">\( T_{10} \)</span>:</p>
+<div class="arithmatex">\[
+\sigma_T \approx 0.02 \, \text{s}
+\]</div>
+<p>Uncertainty in the mean time <span class="arithmatex">\( \Delta T_{10} \)</span>:</p>
+<div class="arithmatex">\[
+\Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.0063 \, \text{s}
+\]</div>
+<hr/>
+<h2 id="calculations">🧮<strong>Calculations:</strong></h2>
+<h3 id="1-calculate-the-period"><strong>1. Calculate the Period:</strong></h3>
+<p>The period <span class="arithmatex">\( T \)</span> is the time for one oscillation:</p>
+<div class="arithmatex">\[
+T = \frac{\overline{T_{10}}}{10} = 2.004 \, \text{s}
+\]</div>
+<p>Uncertainty in the period <span class="arithmatex">\( \Delta T \)</span>:</p>
+<div class="arithmatex">\[
+\Delta T = \frac{\Delta T_{10}}{10} = 0.00063 \, \text{s}
+\]</div>
+<h3 id="2-calculate-gravitational-acceleration-g"><strong>2. Calculate Gravitational Acceleration <span class="arithmatex">\( g \)</span>:</strong></h3>
+<p>The formula for gravitational acceleration is:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<p>Substituting the known values:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 \times 1.0 \, \text{m}}{(2.004 \, \text{s})^2} \approx 9.83 \, \text{m/s}^2
+\]</div>
+<h3 id="3-propagate-uncertainties"><strong>3. Propagate Uncertainties:</strong></h3>
+<p>To calculate the uncertainty in <span class="arithmatex">\( g \)</span>, use the propagation formula:</p>
+<div class="arithmatex">\[
+\Delta g = g \left( \frac{\Delta L}{L} \right)^2 + \left( \frac{2 \Delta T}{T} \right)^2
+\]</div>
+<p>Substitute the known values:</p>
+<div class="arithmatex">\[
+\Delta g = 9.83 \left( \frac{0.0005}{1.0} \right)^2 + \left( \frac{2 \times 0.00063}{2.004} \right)^2
+\]</div>
+<div class="arithmatex">\[
+\Delta g \approx 0.0028 \, \text{m/s}^2
+\]</div>
+<hr/>
+<h2>📈Results Table📈:</h2>
+<table border="1" cellpadding="10" cellspacing="0">
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Uncertainty</th>
+</tr>
+<tr>
+<td>Pendulum Length (L)</td>
+<td>1.0 m</td>
+<td>0.0005 m</td>
+</tr>
+<tr>
+<td>Time for 10 Oscillations (T<sub>10</sub>)</td>
+<td>20.04 s</td>
+<td>0.0063 s</td>
+</tr>
+<tr>
+<td>Period (T)</td>
+<td>2.004 s</td>
+<td>0.00063 s</td>
+</tr>
+<tr>
+<td>Gravitational Acceleration (g)</td>
+<td>9.83 m/s²</td>
+<td>0.0028 m/s²</td>
+</tr>
+</table>
+<hr/>
+<h2 id="discussion">💬<strong>Discussion:</strong></h2>
+<h3 id="1-effect-of-measurement-resolution-on-delta-l">1. <strong>Effect of Measurement Resolution on <span class="arithmatex">\( \Delta L \)</span>:</strong></h3>
+<p>The measurement resolution of the ruler plays a significant role in determining the uncertainty. A small uncertainty in length will propagate into the uncertainty in <span class="arithmatex">\( g \)</span>, which directly impacts the final result.</p>
+<h3 id="2-variability-in-timing-and-its-impact-on-delta-t">2. <strong>Variability in Timing and Its Impact on <span class="arithmatex">\( \Delta T \)</span>:</strong></h3>
+<p>The timing of the oscillations introduces uncertainty, especially when using a manual stopwatch. Variations in human reaction time add to the uncertainty. Using a more precise timing device could reduce this error.</p>
+<h3 id="3-assumptions-and-experimental-limitations">3. <strong>Assumptions and Experimental Limitations:</strong></h3>
+<ul>
+<li>Assumed the angle of displacement stayed within <span class="arithmatex">\( 15^\circ \)</span>, ensuring the pendulum's motion remains simple and linear.</li>
+<li>Assumed no air resistance or friction at the pivot point.</li>
+<li>Ideal pendulum motion was assumed with no energy loss due to external factors like damping.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">✅<strong>Conclusion:</strong></h2>
+<p>The measured value of <span class="arithmatex">\( g \)</span> is <span class="arithmatex">\( 9.83 \, \text{m/s}^2 \)</span>, which is very close to the standard value of <span class="arithmatex">\( 9.81 \, \text{m/s}^2 \)</span>. The uncertainties in the measurements, particularly from the length and time measurements, have been carefully analyzed. Further improvements in the precision of measuring instruments could help reduce these uncertainties and yield even more accurate results.</p>
+<hr/>
+<h3 id="python-code-for-visualizing-the-data"><strong>Python Code for Visualizing the Data:</strong></h3>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Time data
+T10 = np.array([20.02, 20.05, 20.03, 20.06, 20.04, 20.03, 20.05, 20.06, 20.02, 20.04])
+mean_T10 = np.mean(T10)
+std_T10 = np.std(T10)
+
+# Plotting the Time for 10 Oscillations
+plt.figure(figsize=(8, 5))
+plt.plot(range(1, 11), T10, marker='o', color='b', label='Trial Times (T10)')
+plt.axhline(mean_T10, color='r', linestyle='--', label=f'Mean Time = {mean_T10:.2f} s')
+plt.title("Time for 10 Oscillations", fontsize=16)
+plt.xlabel("Trial Number", fontsize=12)
+plt.ylabel("Time (s)", fontsize=12)
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Plotting the standard deviation in relation to the trials
+plt.figure(figsize=(8, 5))
+plt.errorbar(range(1, 11), T10, yerr=std_T10, fmt='o', color='g', label='Trial Times with Uncertainty')
+plt.title("Trial Times with Standard Deviation", fontsize=16)
+plt.xlabel("Trial Number", fontsize=12)
+plt.ylabel("Time (s)", fontsize=12)
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
