@@ -77,9 +77,12 @@ print(f"Estimated Pi: {pi_estimate}")
 visualize_circle(x, y, inside)
 ```
 ![alt text](image-6.png)
+
 ---
+
 #Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
+
 ---
 #📘 2. Buffon’s Needle Method
 Theoretical Background
