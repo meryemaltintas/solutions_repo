@@ -335,7 +335,8 @@ visualize_buffons_needle(n_drops, needle_length, line_distance)
 <p>Monte Carlo methods beautifully demonstrate how randomness can be harnessed to solve deterministic problems. While estimating π is an elegant and educational example, the underlying principles extend to complex real-world applications such as financial modeling, particle simulations, and machine learning.</p>
 <h3 id="1-visualizing-the-intersection-count-of-lines-and-needles"><strong>1. Visualizing the Intersection Count of Lines and Needles</strong></h3>
 <p>In <strong>Buffon’s Needle Problem</strong>, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of <strong>π</strong>. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of <strong>π</strong>.</p>
-<h2 id="in-this-visualization-well-simulate-multiple-needle-drops-and-track-how-many-of-them-intersect-with-the-parallel-lines-the-result-will-be-plotted-to-show-both-the-positions-of-the-needles-and-the-number-of-times-they-intersect-with-the-lines">In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.</h2>
+<p>In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.</p>
+<hr/>
 <h3 id="explanation-of-the-analysis"><strong>Explanation of the Analysis</strong></h3>
 <p>As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate <strong>π</strong> using the formula:</p>
 <div class="arithmatex">\[
@@ -356,7 +357,8 @@ visualize_buffons_needle(n_drops, needle_length, line_distance)
 <p><span class="arithmatex">\( C \)</span> = Number of intersections</p>
 </li>
 </ul>
-<h2 id="by-increasing-the-number-of-needle-drops-n-the-estimation-of-becomes-more-accurate-a-smaller-number-of-drops-results-in-higher-variability-while-a-larger-number-provides-a-more-stable-and-reliable-estimate">By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</h2>
+<p>By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</p>
+<hr/>
 <h3 id="code-to-visualize-needle-intersections"><strong>Code to Visualize Needle Intersections:</strong></h3>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
