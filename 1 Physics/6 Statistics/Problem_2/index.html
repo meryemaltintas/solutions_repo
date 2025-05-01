@@ -173,7 +173,7 @@
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
 <h1 id="estimating-using-monte-carlo-methods">🔢 Estimating π Using Monte Carlo Methods</h1>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">📌Introduction</h2>
 <p>Monte Carlo simulations are a class of powerful computational techniques that utilize randomness to solve problems that might be deterministic in principle. These methods are widely used in physics, finance, engineering, and beyond. One elegant and intuitive application of Monte Carlo methods is the estimation of π (pi), the mathematical constant representing the ratio of a circle's circumference to its diameter.</p>
 <p>In this article, we’ll explore two classical Monte Carlo methods for estimating π:</p>
 <h2 id="1the-circle-based-monte-carlo-method">1.The Circle-Based Monte Carlo Method</h2>
@@ -199,7 +199,7 @@ A_{\text{square}} = 2 \times 2 = 4
 \pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}
 \]</div>
 <hr/>
-<h1 id="python-simulation">Python Simulation</h1>
+<h1 id="python-simulation">💻Python Simulation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -259,7 +259,7 @@ Let:</p>
 <blockquote>
 <p><strong>Note:</strong> This method only works accurately when <span class="arithmatex">\( L \leq D \)</span>.</p>
 </blockquote>
-<h1 id="code-implementation">Code Implementation:</h1>
+<h1 id="code-implementation">💻Code Implementation:</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -359,7 +359,7 @@ visualize_buffons_needle(n_drops, needle_length, line_distance)
 </ul>
 <p>By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</p>
 <hr/>
-<h3 id="code-to-visualize-needle-intersections"><strong>Code to Visualize Needle Intersections:</strong></h3>
+<h3 id="code-to-visualize-needle-intersections">💻<strong>Code to Visualize Needle Intersections:</strong></h3>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -455,15 +455,13 @@ visualize_intersections(n_drops, needle_length, line_distance)
 <hr/>
 <h1 id="analysis-and-results">Analysis and Results</h1>
 <h4 id="interpreting-the-results"><strong>Interpreting the Results:</strong></h4>
-<ol>
-<li><strong>Needle Drops</strong>:<br/>
-   As we increase the number of needle drops, we notice a higher frequency of intersections with the lines. This results in a more accurate estimate of <strong>π</strong>. This is because the process of dropping needles is a random event, and as the number of trials (needle drops) increases, the results start to follow the <strong>law of large numbers</strong>. Essentially, more trials lead to results that are closer to the expected value.</li>
-</ol>
+<p>-📌1. <strong>Needle Drops</strong>:<br/>
+   As we increase the number of needle drops, we notice a higher frequency of intersections with the lines. This results in a more accurate estimate of <strong>π</strong>. This is because the process of dropping needles is a random event, and as the number of trials (needle drops) increases, the results start to follow the <strong>law of large numbers</strong>. Essentially, more trials lead to results that are closer to the expected value.</p>
 <hr/>
-<h1 id="2number-of-intersections-c">2.Number of Intersections (C)</h1>
+<h1 id="2number-of-intersections-c">📌2.Number of Intersections (C)</h1>
 <p>The number of times the needle crosses a line is central to the accuracy of our <strong>π</strong> estimation. More intersections lead to a more accurate approximation of <strong>π</strong>. When the needle crosses the lines more often, the ratio of intersections to total drops gives us a stronger statistical basis for our estimate.</p>
 <hr/>
-<h1 id="3graph-interpretation">3.Graph Interpretation</h1>
+<h1 id="3graph-interpretation">📌3.Graph Interpretation</h1>
 <p>In the generated plots, <strong>red needles</strong> represent those that cross one of the parallel lines, while <strong>blue needles</strong> represent those that do not. By calculating the ratio of red needles (intersections) to total needles, we can estimate <strong>π</strong>. The higher the number of intersections (red needles), the more reliable the estimate.</p>
 <hr/>
 <h1 id="expected-outcome">Expected Outcome</h1>
