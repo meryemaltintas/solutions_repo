@@ -321,7 +321,7 @@ visualize_intersections(n_drops, needle_length, line_distance)
 ---
 
 
-#Analysis and Results
+#💬Analysis and Results
 
 #### **Interpreting the Results:**
 
@@ -338,7 +338,7 @@ visualize_intersections(n_drops, needle_length, line_distance)
 
 ---
 
-#Expected Outcome
+#💬Expected Outcome
 
 When we simulate **1000 needle drops**, the estimated value of **π** should converge closely to the true value of **3.14159**. As we increase the number of drops, the estimate becomes progressively more accurate. On the other hand, a smaller number of drops will likely result in a less precise estimate, with higher variability in the values of **π**.
 
