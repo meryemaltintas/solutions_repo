@@ -208,9 +208,10 @@ import matplotlib.pyplot as plt</p>
     pi_approx = 4 * np.sum(inside) / n
     return pi_approx, x, y, inside
   plt.show()
-    <code>#Visualization
-This function plots points inside the circle in blue and outside in red:
-def visualize_circle(x, y, inside):
+    ```
+ #Visualization</p>
+<p>This function plots points inside the circle in blue and outside in red:</p>
+<p>def visualize_circle(x, y, inside):
     plt.figure(figsize=(6,6))
     plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
     plt.scatter(x[~inside], y[~inside], color='red', s=1, label='Outside Circle')
@@ -218,7 +219,7 @@ def visualize_circle(x, y, inside):
     plt.gca().set_aspect('equal')
     plt.grid(True)
     plt.legend()
-    plt.show()</code></p>
+    plt.show()</p>
 <h1 id="results-and-analysis">Results and Analysis</h1>
 <p>As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</p>
 <h1 id="2-buffons-needle-method">📘 2. Buffon’s Needle Method</h1>
