@@ -192,6 +192,7 @@ Monte Carlo methods beautifully demonstrate how randomness can be harnessed to s
 In **Buffon’s Needle Problem**, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of **π**. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of **π**.
 
 In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.
+
 ---
 ### **Explanation of the Analysis**
 
@@ -212,6 +213,7 @@ Where:
 - \( C \) = Number of intersections
 
 By increasing the number of needle drops \( N \), the estimation of **π** becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.
+
 ---
 
 ### **Code to Visualize Needle Intersections:**
