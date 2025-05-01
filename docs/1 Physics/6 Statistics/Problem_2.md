@@ -36,7 +36,7 @@ $$
 \pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}
 $$
 
-Python Simulation
+#Python Simulation
 
 ```python
 import numpy as np
@@ -48,8 +48,9 @@ def monte_carlo_pi(n):
     inside = x**2 + y**2 <= 1
     pi_approx = 4 * np.sum(inside) / n
     return pi_approx, x, y, inside
-
- Visualization
+  plt.show()
+    ```
+ #Visualization
 This function plots points inside the circle in blue and outside in red:
 def visualize_circle(x, y, inside):
     plt.figure(figsize=(6,6))
@@ -62,10 +63,10 @@ def visualize_circle(x, y, inside):
     plt.show()
     ```
 
-Results and Analysis
+#Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
 
-📘 2. Buffon’s Needle Method
+#📘 2. Buffon’s Needle Method
 Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
 𝐿
