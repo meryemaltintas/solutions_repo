@@ -178,6 +178,7 @@
 <p>In this article, we’ll explore two classical Monte Carlo methods for estimating π:</p>
 <h2 id="1the-circle-based-monte-carlo-method">1.The Circle-Based Monte Carlo Method</h2>
 <h2 id="2buffons-needle-problem">2.Buffon’s Needle Problem</h2>
+<hr/>
 <h1 id="1-circle-based-monte-carlo-method">📘 1. Circle-Based Monte Carlo Method</h1>
 <p>Theoretical Background
 Imagine a unit circle (radius = 1) inscribed within a square of side length 2, centered at the origin. The area of the:
@@ -197,6 +198,7 @@ A_{\text{square}} = 2 \times 2 = 4
 <div class="arithmatex">\[
 \pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}
 \]</div>
+<hr/>
 <h1 id="python-simulation">Python Simulation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -232,9 +234,9 @@ print(f"Estimated Pi: {pi_estimate}")
 # Visualize the points
 visualize_circle(x, y, inside)
 </code></pre>
-<p><img alt="alt text" src="../image-6.png"/></p>
+<h2 id="_1"><img alt="alt text" src="../image-6.png"/></h2>
 <h1 id="results-and-analysis">Results and Analysis</h1>
-<p>As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</p>
+<h2 id="as-the-number-of-random-points-increases-the-estimated-value-of-converges-to-the-true-value-however-this-convergence-is-relatively-slow-and-requires-a-large-number-of-samples-for-high-precision">As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</h2>
 <h1 id="2-buffons-needle-method">📘 2. Buffon’s Needle Method</h1>
 <p>Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
@@ -326,11 +328,12 @@ visualize_buffons_needle(n_drops, needle_length, line_distance)
 </tr>
 </tbody>
 </table>
+<hr/>
 <h1 id="final-thoughts">Final Thoughts</h1>
 <p>Monte Carlo methods beautifully demonstrate how randomness can be harnessed to solve deterministic problems. While estimating π is an elegant and educational example, the underlying principles extend to complex real-world applications such as financial modeling, particle simulations, and machine learning.</p>
 <h3 id="1-visualizing-the-intersection-count-of-lines-and-needles"><strong>1. Visualizing the Intersection Count of Lines and Needles</strong></h3>
 <p>In <strong>Buffon’s Needle Problem</strong>, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of <strong>π</strong>. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of <strong>π</strong>.</p>
-<p>In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.</p>
+<h2 id="in-this-visualization-well-simulate-multiple-needle-drops-and-track-how-many-of-them-intersect-with-the-parallel-lines-the-result-will-be-plotted-to-show-both-the-positions-of-the-needles-and-the-number-of-times-they-intersect-with-the-lines">In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.</h2>
 <h3 id="explanation-of-the-analysis"><strong>Explanation of the Analysis</strong></h3>
 <p>As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate <strong>π</strong> using the formula:</p>
 <div class="arithmatex">\[
@@ -351,7 +354,7 @@ visualize_buffons_needle(n_drops, needle_length, line_distance)
 <p><span class="arithmatex">\( C \)</span> = Number of intersections</p>
 </li>
 </ul>
-<p>By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</p>
+<h2 id="by-increasing-the-number-of-needle-drops-n-the-estimation-of-becomes-more-accurate-a-smaller-number-of-drops-results-in-higher-variability-while-a-larger-number-provides-a-more-stable-and-reliable-estimate">By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</h2>
 <h3 id="code-to-visualize-needle-intersections"><strong>Code to Visualize Needle Intersections:</strong></h3>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -395,6 +398,7 @@ line_distance = 2  # Distance between parallel lines
 visualize_intersections(n_drops, needle_length, line_distance)
 </code></pre>
 <p><img alt="alt text" src="../image-8.png"/></p>
+<hr/>
 <h3>Comparison of Results with Varying Number of Needle Drops</h3>
 <p>The following table shows how the estimated value of <strong>π</strong> converges as we increase the number of needle drops. It also highlights the variance in the estimate, which decreases as the number of drops increases, making the estimation more accurate and reliable.</p>
 <table border="1" cellpadding="5" cellspacing="0">
@@ -444,6 +448,7 @@ visualize_intersections(n_drops, needle_length, line_distance)
 <li><strong>High Number of Needle Drops (N):</strong> As the number of drops increases, the variance decreases, and the estimate becomes more stable and accurate. The estimate of <strong>π</strong> gets closer to the true value.</li>
 </ul>
 <p>This table provides a clear comparison of how the accuracy and stability of the <strong>π</strong> estimation improves with an increasing number of needle drops. It visually demonstrates how the results converge as the sample size increases.</p>
+<hr/>
 <h1 id="analysis-and-results">Analysis and Results</h1>
 <h4 id="interpreting-the-results"><strong>Interpreting the Results:</strong></h4>
 <ol>
