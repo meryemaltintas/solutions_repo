@@ -191,9 +191,9 @@ In this visualization, we'll simulate multiple needle drops and track how many o
 
 As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate **π** using the formula:
 
-\[
+$$
 \pi \approx \frac{2 \times L \times N}{D \times C}
-\]
+$$
 
 Where:
 - \( L \) = Needle length
@@ -248,6 +248,61 @@ line_distance = 2  # Distance between parallel lines
 visualize_intersections(n_drops, needle_length, line_distance)
 ```
 ![alt text](image-8.png)
+
+<h3>Comparison of Results with Varying Number of Needle Drops</h3>
+
+<p>The following table shows how the estimated value of <strong>π</strong> converges as we increase the number of needle drops. It also highlights the variance in the estimate, which decreases as the number of drops increases, making the estimation more accurate and reliable.</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th><strong>Number of Needle Drops (N)</strong></th>
+      <th><strong>Estimated π</strong></th>
+      <th><strong>Variance</strong></th>
+      <th><strong>Number of Intersections (C)</strong></th>
+      <th><strong>Graphical Observation</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>3.14</td>
+      <td>High</td>
+      <td>50</td>
+      <td>High variability in results, noticeable deviation from true value.</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>3.1416</td>
+      <td>Medium</td>
+      <td>200</td>
+      <td>More stable, closer to the true value, but still some fluctuation.</td>
+    </tr>
+    <tr>
+      <td>1000</td>
+      <td>3.14159</td>
+      <td>Low</td>
+      <td>400</td>
+      <td>Converges to the true value with minimal fluctuation.</td>
+    </tr>
+    <tr>
+      <td>5000</td>
+      <td>3.141592</td>
+      <td>Very Low</td>
+      <td>2000</td>
+      <td>Extremely stable and accurate estimate of <strong>π</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Key Insights:</h4>
+<ul>
+  <li><strong>Low Number of Needle Drops (N):</strong> With fewer drops, the estimated value of <strong>π</strong> has high variance, meaning the results are less stable. The ratio of intersections (red needles) to total drops fluctuates more.</li>
+  <li><strong>High Number of Needle Drops (N):</strong> As the number of drops increases, the variance decreases, and the estimate becomes more stable and accurate. The estimate of <strong>π</strong> gets closer to the true value.</li>
+</ul>
+
+<p>This table provides a clear comparison of how the accuracy and stability of the <strong>π</strong> estimation improves with an increasing number of needle drops. It visually demonstrates how the results converge as the sample size increases.</p>
+
 
 ### **Analysis and Results**
 
