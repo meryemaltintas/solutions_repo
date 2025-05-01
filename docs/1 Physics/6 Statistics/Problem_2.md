@@ -325,15 +325,15 @@ visualize_intersections(n_drops, needle_length, line_distance)
 
 #### **Interpreting the Results:**
 
--📌1. **Needle Drops**:  
+#📌1.Needle Drops:  
    As we increase the number of needle drops, we notice a higher frequency of intersections with the lines. This results in a more accurate estimate of **π**. This is because the process of dropping needles is a random event, and as the number of trials (needle drops) increases, the results start to follow the **law of large numbers**. Essentially, more trials lead to results that are closer to the expected value.
 
 ---
-#📌2.Number of Intersections (C)  
+#📌2.Number of Intersections (C) : 
    The number of times the needle crosses a line is central to the accuracy of our **π** estimation. More intersections lead to a more accurate approximation of **π**. When the needle crosses the lines more often, the ratio of intersections to total drops gives us a stronger statistical basis for our estimate.
 
 ---
-#📌3.Graph Interpretation  
+#📌3.Graph Interpretation :
    In the generated plots, **red needles** represent those that cross one of the parallel lines, while **blue needles** represent those that do not. By calculating the ratio of red needles (intersections) to total needles, we can estimate **π**. The higher the number of intersections (red needles), the more reliable the estimate.
 
 ---
