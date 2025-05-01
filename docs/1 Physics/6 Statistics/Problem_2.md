@@ -304,28 +304,28 @@ visualize_intersections(n_drops, needle_length, line_distance)
 <p>This table provides a clear comparison of how the accuracy and stability of the <strong>π</strong> estimation improves with an increasing number of needle drops. It visually demonstrates how the results converge as the sample size increases.</p>
 
 
-### **Analysis and Results**
+#Analysis and Results
 
 #### **Interpreting the Results:**
 
 1. **Needle Drops**:  
    As we increase the number of needle drops, we notice a higher frequency of intersections with the lines. This results in a more accurate estimate of **π**. This is because the process of dropping needles is a random event, and as the number of trials (needle drops) increases, the results start to follow the **law of large numbers**. Essentially, more trials lead to results that are closer to the expected value.
 
-2. **Number of Intersections (C)**:  
+#2.Number of Intersections (C)  
    The number of times the needle crosses a line is central to the accuracy of our **π** estimation. More intersections lead to a more accurate approximation of **π**. When the needle crosses the lines more often, the ratio of intersections to total drops gives us a stronger statistical basis for our estimate.
 
-3. **Graph Interpretation**:  
+#3.Graph Interpretation  
    In the generated plots, **red needles** represent those that cross one of the parallel lines, while **blue needles** represent those that do not. By calculating the ratio of red needles (intersections) to total needles, we can estimate **π**. The higher the number of intersections (red needles), the more reliable the estimate.
 
 ---
 
-#### **Expected Outcome**:
+#Expected Outcome
 
 When we simulate **1000 needle drops**, the estimated value of **π** should converge closely to the true value of **3.14159**. As we increase the number of drops, the estimate becomes progressively more accurate. On the other hand, a smaller number of drops will likely result in a less precise estimate, with higher variability in the values of **π**.
 
 ---
 
-#### **Summary of the Results**:
+#Summary of the Results
 
 - **Small Number of Drops**:  
   A lower number of needle drops results in a higher variance in the estimated value of **π**. This means the estimate is less stable and can deviate significantly from the actual value.
