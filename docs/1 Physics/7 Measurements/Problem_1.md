@@ -212,39 +212,39 @@ The measured value of \( g \) is \( 9.83 \, \text{m/s}^2 \), which is very close
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
+from IPython.display import HTML
 
 # Data
 T10 = np.array([20.02, 20.05, 20.03, 20.06, 20.04, 20.03, 20.05, 20.06, 20.02, 20.04])
 mean_T10 = np.mean(T10)
-std_T10 = np.std(T10)
 
-# Create figure and axis
+# Set up figure and axis
 fig, ax = plt.subplots(figsize=(8, 5))
 x_data, y_data = [], []
 line, = ax.plot([], [], 'bo-', label='Trial Times (T10)')
-mean_line = ax.axhline(mean_T10, color='r', linestyle='--', label=f'Mean Time = {mean_T10:.2f} s')
+mean_line = ax.axhline(mean_T10, color='r', linestyle='--', label=f'Mean = {mean_T10:.2f} s')
 
-# Setup the plot appearance
 ax.set_xlim(0.5, 10.5)
 ax.set_ylim(min(T10) - 0.02, max(T10) + 0.02)
 ax.set_title("⏱️ Animated: Time for 10 Oscillations", fontsize=16)
-ax.set_xlabel("Trial Number", fontsize=12)
-ax.set_ylabel("Time (s)", fontsize=12)
+ax.set_xlabel("Trial Number")
+ax.set_ylabel("Time (s)")
 ax.legend()
 ax.grid(True)
 
-# Animation update function
+# Update function for animation
 def update(frame):
     x_data.append(frame + 1)
     y_data.append(T10[frame])
     line.set_data(x_data, y_data)
-    return line,
+    return line, mean_line
 
-# Create the animation
-ani = animation.FuncAnimation(fig, update, frames=range(len(T10)), blit=True, repeat=False, interval=500)
+# Animate
+ani = animation.FuncAnimation(fig, update, frames=len(T10), blit=True, interval=500, repeat=False)
 
-plt.show()
+# Render animation in Google Colab
+HTML(ani.to_jshtml())
 
 ```
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
