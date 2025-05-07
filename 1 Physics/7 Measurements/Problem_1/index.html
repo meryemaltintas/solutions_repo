@@ -340,32 +340,40 @@ g = \frac{4\pi^2 \times 1.0 \, \text{m}}{(2.004 \, \text{s})^2} \approx 9.83 \, 
 <h3 id="python-code-for-visualizing-the-data"><strong>Python Code for Visualizing the Data:</strong></h3>
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.animation as animation
 
-# Time data
+# Data
 T10 = np.array([20.02, 20.05, 20.03, 20.06, 20.04, 20.03, 20.05, 20.06, 20.02, 20.04])
 mean_T10 = np.mean(T10)
 std_T10 = np.std(T10)
 
-# Plotting the Time for 10 Oscillations
-plt.figure(figsize=(8, 5))
-plt.plot(range(1, 11), T10, marker='o', color='b', label='Trial Times (T10)')
-plt.axhline(mean_T10, color='r', linestyle='--', label=f'Mean Time = {mean_T10:.2f} s')
-plt.title("Time for 10 Oscillations", fontsize=16)
-plt.xlabel("Trial Number", fontsize=12)
-plt.ylabel("Time (s)", fontsize=12)
-plt.legend()
-plt.grid(True)
+# Create figure and axis
+fig, ax = plt.subplots(figsize=(8, 5))
+x_data, y_data = [], []
+line, = ax.plot([], [], 'bo-', label='Trial Times (T10)')
+mean_line = ax.axhline(mean_T10, color='r', linestyle='--', label=f'Mean Time = {mean_T10:.2f} s')
+
+# Setup the plot appearance
+ax.set_xlim(0.5, 10.5)
+ax.set_ylim(min(T10) - 0.02, max(T10) + 0.02)
+ax.set_title("⏱️ Animated: Time for 10 Oscillations", fontsize=16)
+ax.set_xlabel("Trial Number", fontsize=12)
+ax.set_ylabel("Time (s)", fontsize=12)
+ax.legend()
+ax.grid(True)
+
+# Animation update function
+def update(frame):
+    x_data.append(frame + 1)
+    y_data.append(T10[frame])
+    line.set_data(x_data, y_data)
+    return line,
+
+# Create the animation
+ani = animation.FuncAnimation(fig, update, frames=range(len(T10)), blit=True, repeat=False, interval=500)
+
 plt.show()
 
-# Plotting the standard deviation in relation to the trials
-plt.figure(figsize=(8, 5))
-plt.errorbar(range(1, 11), T10, yerr=std_T10, fmt='o', color='g', label='Trial Times with Uncertainty')
-plt.title("Trial Times with Standard Deviation", fontsize=16)
-plt.xlabel("Trial Number", fontsize=12)
-plt.ylabel("Time (s)", fontsize=12)
-plt.legend()
-plt.grid(True)
-plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image.png"/>
 <img alt="alt text" src="../image-1.png"/></p>
