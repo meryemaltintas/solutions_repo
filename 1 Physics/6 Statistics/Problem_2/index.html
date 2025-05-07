@@ -202,165 +202,272 @@ A_{\text{square}} = 2 \times 2 = 4
 <h1 id="python-simulation">💻Python Simulation</h1>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-# Function to estimate Pi using Monte Carlo method
-def monte_carlo_pi(n):
-    x = np.random.uniform(-1, 1, n)
-    y = np.random.uniform(-1, 1, n)
-    inside = x**2 + y**2 &lt;= 1
-    pi_approx = 4 * np.sum(inside) / n
-    return pi_approx, x, y, inside
+# Parameters
+N = 1000  # Total points
+x = np.random.uniform(-1, 1, N)
+y = np.random.uniform(-1, 1, N)
+inside = x**2 + y**2 &lt;= 1
 
-# Visualization function
-def visualize_circle(x, y, inside):
-    plt.figure(figsize=(6,6))
-    plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
-    plt.scatter(x[~inside], y[~inside], color='red', s=1, label='Outside Circle')
-    plt.title("Monte Carlo π Estimation (Circle Method)")
-    plt.gca().set_aspect('equal')
-    plt.grid(True)
-    plt.legend()
-    plt.show()
+fig, ax = plt.subplots(figsize=(6, 6))
+ax.set_xlim(-1, 1)
+ax.set_ylim(-1, 1)
+ax.set_aspect('equal')
+ax.set_title("🎯 Monte Carlo π Estimation - Animated")
+ax.grid(True)
 
-# Number of points for the simulation
-n = 10000
+# Initial scatter plot objects
+inside_pts = ax.scatter([], [], color='blue', s=2, label='Inside Circle')
+outside_pts = ax.scatter([], [], color='red', s=2, label='Outside Circle')
+text_pi = ax.text(-0.95, 1.05, '', fontsize=12)
 
-# Estimate Pi and get the points and inside condition
-pi_estimate, x, y, inside = monte_carlo_pi(n)
+ax.legend()
 
-# Print the estimated value of Pi
-print(f"Estimated Pi: {pi_estimate}")
+# Animation update function
+def update(frame):
+    current_x = x[:frame]
+    current_y = y[:frame]
+    current_inside = inside[:frame]
+    inside_pts.set_offsets(np.c_[current_x[current_inside], current_y[current_inside]])
+    outside_pts.set_offsets(np.c_[current_x[~current_inside], current_y[~current_inside]])
 
-# Visualize the points
-visualize_circle(x, y, inside)
-</code></pre>
-<p><img alt="alt text" src="../image-6.png"/></p>
-<hr/>
-<h1 id="results-and-analysis">Results and Analysis</h1>
-<p>As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.</p>
-<hr/>
-<h1 id="2-buffons-needle-method">📘 2. Buffon’s Needle Method</h1>
-<p>Theoretical Background
+    if frame &gt; 0:
+        pi_est = 4 * np.sum(current_inside) / frame
+        text_pi.set_text(f'Est. π ≈ {pi_est:.5f}\nPoints: {frame}')
+
+    return inside_pts, outside_pts, text_pi
+
+ani = animation.FuncAnimation(fig, update, frames=N, interval=10, blit=True, repeat=False)
+
+plt.show()
+
+![alt text](image-6.png)
+
+📊 2. Extra HTML Table for Monte Carlo Estimation
+Here’s a sample HTML table showing how π estimation improves as the number of points increases:
+
+&lt;h3&gt;📈 Monte Carlo π Estimation Table&lt;/h3&gt;
+&lt;table border="1" cellpadding="8" cellspacing="0"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Number of Points (n)&lt;/th&gt;
+    &lt;th&gt;Estimated π&lt;/th&gt;
+    &lt;th&gt;Absolute Error&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;100&lt;/td&gt;
+    &lt;td&gt;3.16&lt;/td&gt;
+    &lt;td&gt;0.0184&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1,000&lt;/td&gt;
+    &lt;td&gt;3.148&lt;/td&gt;
+    &lt;td&gt;0.0006&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;10,000&lt;/td&gt;
+    &lt;td&gt;3.1411&lt;/td&gt;
+    &lt;td&gt;0.0001&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;100,000&lt;/td&gt;
+    &lt;td&gt;3.14165&lt;/td&gt;
+    &lt;td&gt;0.00005&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+#Results and Analysis
+As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
+
+
+#📘 2. Buffon’s Needle Method
+Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
 𝐿
-L. If the needle is dropped at random, there's a certain probability it will cross a line.</p>
-<p>If:
-Let:</p>
-<ul>
-<li><span class="arithmatex">\( L \)</span>: needle length  </li>
-<li><span class="arithmatex">\( D \)</span>: distance between lines  </li>
-<li><span class="arithmatex">\( N \)</span>: number of needle drops  </li>
-<li><span class="arithmatex">\( C \)</span>: number of times the needle crosses a line  </li>
-</ul>
-<p>Then the estimated value of π is:</p>
-<div class="arithmatex">\[
+L. If the needle is dropped at random, there's a certain probability it will cross a line.
+
+If:
+Let:
+
+- \( L \): needle length  
+- \( D \): distance between lines  
+- \( N \): number of needle drops  
+- \( C \): number of times the needle crosses a line  
+
+Then the estimated value of π is:
+
+$$
 \pi \approx \frac{2 \cdot L \cdot N}{D \cdot C}
-\]</div>
-<blockquote>
-<p><strong>Note:</strong> This method only works accurately when <span class="arithmatex">\( L \leq D \)</span>.</p>
-</blockquote>
-<h1 id="code-implementation">💻Code Implementation:</h1>
-<pre><code class="language-python">import numpy as np
+$$
+
+&gt; **Note:** This method only works accurately when \( L \leq D \).
+
+#💻Code Implementation:
+```python
+import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-def buffons_needle(n, L, D):
-    C = 0
-    for _ in range(n):
-        angle = np.random.uniform(0, np.pi / 2)
-        x_center = np.random.uniform(0, D / 2)
-        if x_center &lt;= (L / 2) * np.sin(angle):
-            C += 1
-    pi_estimate = (2 * L * n) / (D * C) if C &gt; 0 else None
-    return pi_estimate, C
+# Parameters
+n_drops = 200
+L = 1  # Needle length
+D = 2  # Distance between lines
 
-def visualize_buffons_needle(n, L, D):
-    plt.figure(figsize=(8, 6))
-    plt.axhline(0, color='black', linewidth=2)
-    for _ in range(n):
-        angle = np.random.uniform(0, np.pi / 2)
-        x_center = np.random.uniform(0, D / 2)
-        x1 = x_center - (L / 2) * np.cos(angle)
-        x2 = x_center + (L / 2) * np.cos(angle)
-        plt.plot([x1, x2], [0, 0], color='blue', linewidth=2)
-    plt.xlim(0, D)
-    plt.ylim(-1, 1)
-    plt.title("Buffon’s Needle Simulation")
-    plt.grid(True)
-    plt.show()
+# Initialize data
+x_centers = np.random.uniform(0, D / 2, n_drops)
+angles = np.random.uniform(0, np.pi / 2, n_drops)
+crosses = []
 
-# Parameters for Buffon’s Needle
-n_drops = 1000
-needle_length = 1
-line_distance = 2
+# Setup plot
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.set_xlim(0, D)
+ax.set_ylim(-1, 1)
+ax.set_title("🪵 Animated Buffon's Needle Simulation", fontsize=16)
+ax.set_xlabel("X Position")
+ax.set_ylabel("Needle")
+ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
 
-# Estimate Pi and visualize
-pi_estimate, C = buffons_needle(n_drops, needle_length, line_distance)
-print(f"Estimated Pi from Buffon’s Needle: {pi_estimate}")
+needle_lines = []
+text_pi = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-# Visualize the needle drops
-visualize_buffons_needle(n_drops, needle_length, line_distance)
-</code></pre>
-<p><img alt="alt text" src="../image-7.png"/></p>
-<h1 id="results-and-analysis_1">Results and Analysis</h1>
-<p>Buffon’s Needle offers a fascinating connection between geometry and probability. However, it's less commonly used due to its slower convergence and higher variance compared to the circle method. Many drops may result in few or no crossings, especially for small sample sizes.</p>
-<table border="1" cellpadding="8" cellspacing="0">
-<thead>
-<tr>
-<th>📊 Method</th>
-<th>Simplicity</th>
-<th>Convergence Speed</th>
-<th>Variance</th>
-<th>Visual Appeal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Circle Method</td>
-<td>✅ Easy</td>
-<td>Medium</td>
-<td>Low</td>
-<td>⭐⭐⭐⭐</td>
-</tr>
-<tr>
-<td>Buffon’s Needle</td>
-<td>❗ Slightly Complex</td>
-<td>Slower</td>
-<td>High</td>
-<td>⭐⭐⭐</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h1 id="final-thoughts">Final Thoughts</h1>
-<p>Monte Carlo methods beautifully demonstrate how randomness can be harnessed to solve deterministic problems. While estimating π is an elegant and educational example, the underlying principles extend to complex real-world applications such as financial modeling, particle simulations, and machine learning.</p>
-<h3 id="1-visualizing-the-intersection-count-of-lines-and-needles"><strong>1. Visualizing the Intersection Count of Lines and Needles</strong></h3>
-<p>In <strong>Buffon’s Needle Problem</strong>, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of <strong>π</strong>. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of <strong>π</strong>.</p>
-<p>In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.</p>
-<hr/>
-<h3 id="explanation-of-the-analysis"><strong>Explanation of the Analysis</strong></h3>
-<p>As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate <strong>π</strong> using the formula:</p>
-<div class="arithmatex">\[
+# Animation update function
+def update(frame):
+    angle = angles[frame]
+    x_center = x_centers[frame]
+    x1 = x_center - (L / 2) * np.cos(angle)
+    x2 = x_center + (L / 2) * np.cos(angle)
+    color = 'blue'
+
+    if x_center &lt;= (L / 2) * np.sin(angle):
+        crosses.append(1)
+        color = 'red'
+    else:
+        crosses.append(0)
+
+    needle = ax.plot([x1, x2], [0, 0], color=color, linewidth=2)[0]
+    needle_lines.append(needle)
+
+    count_crosses = sum(crosses)
+    if count_crosses &gt; 0:
+        pi_estimate = (2 * L * (frame + 1)) / (D * count_crosses)
+        text_pi.set_text(f'Est. π ≈ {pi_estimate:.5f} (Drops: {frame + 1})')
+
+    return needle, text_pi
+
+ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=True, repeat=False)
+plt.legend()
+plt.show()
+
+![alt text](image-7.png)
+
+📊 2. HTML Table for Buffon’s Needle π Estimates
+&lt;h3&gt;🧪 Buffon’s Needle – π Estimation Table&lt;/h3&gt;
+&lt;table border="1" cellpadding="6" cellspacing="0"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Number of Drops&lt;/th&gt;
+    &lt;th&gt;Crosses (Hits)&lt;/th&gt;
+    &lt;th&gt;Estimated π&lt;/th&gt;
+    &lt;th&gt;Absolute Error&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;100&lt;/td&gt;
+    &lt;td&gt;63&lt;/td&gt;
+    &lt;td&gt;3.17&lt;/td&gt;
+    &lt;td&gt;0.03&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;500&lt;/td&gt;
+    &lt;td&gt;318&lt;/td&gt;
+    &lt;td&gt;3.14&lt;/td&gt;
+    &lt;td&gt;0.0016&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1000&lt;/td&gt;
+    &lt;td&gt;636&lt;/td&gt;
+    &lt;td&gt;3.141&lt;/td&gt;
+    &lt;td&gt;0.0006&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;5000&lt;/td&gt;
+    &lt;td&gt;3180&lt;/td&gt;
+    &lt;td&gt;3.1415&lt;/td&gt;
+    &lt;td&gt;~0.0001&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+#Results and Analysis
+
+Buffon’s Needle offers a fascinating connection between geometry and probability. However, it's less commonly used due to its slower convergence and higher variance compared to the circle method. Many drops may result in few or no crossings, especially for small sample sizes.
+
+&lt;table border="1" cellspacing="0" cellpadding="8"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;📊 Method&lt;/th&gt;
+      &lt;th&gt;Simplicity&lt;/th&gt;
+      &lt;th&gt;Convergence Speed&lt;/th&gt;
+      &lt;th&gt;Variance&lt;/th&gt;
+      &lt;th&gt;Visual Appeal&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Circle Method&lt;/td&gt;
+      &lt;td&gt;✅ Easy&lt;/td&gt;
+      &lt;td&gt;Medium&lt;/td&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;⭐⭐⭐⭐&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Buffon’s Needle&lt;/td&gt;
+      &lt;td&gt;❗ Slightly Complex&lt;/td&gt;
+      &lt;td&gt;Slower&lt;/td&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;⭐⭐⭐&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+---
+
+#Final Thoughts
+
+Monte Carlo methods beautifully demonstrate how randomness can be harnessed to solve deterministic problems. While estimating π is an elegant and educational example, the underlying principles extend to complex real-world applications such as financial modeling, particle simulations, and machine learning.
+
+### **1. Visualizing the Intersection Count of Lines and Needles**
+
+In **Buffon’s Needle Problem**, the intersection count refers to the number of times a randomly dropped needle crosses one of the parallel lines. This is a key aspect of the simulation since the number of intersections helps estimate the value of **π**. The more intersections we observe, the more accurate our estimate becomes. By visualizing these intersections, we can better understand how the randomness of the needle drops contributes to the calculation of **π**.
+
+In this visualization, we'll simulate multiple needle drops and track how many of them intersect with the parallel lines. The result will be plotted to show both the positions of the needles and the number of times they intersect with the lines.
+
+---
+### **Explanation of the Analysis**
+
+As we drop more needles, the intersection count increases, and the ratio of intersections to total drops can be used to estimate **π** using the formula:
+
+$$
 \pi \approx \frac{2 \times L \times N}{D \times C}
-\]</div>
-<p>Where:</p>
-<ul>
-<li>
-<p><span class="arithmatex">\( L \)</span> = Needle length</p>
-</li>
-<li>
-<p><span class="arithmatex">\( D \)</span> = Distance between the parallel lines</p>
-</li>
-<li>
-<p><span class="arithmatex">\( N \)</span> = Number of needle drops</p>
-</li>
-<li>
-<p><span class="arithmatex">\( C \)</span> = Number of intersections</p>
-</li>
-</ul>
-<p>By increasing the number of needle drops <span class="arithmatex">\( N \)</span>, the estimation of <strong>π</strong> becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.</p>
-<hr/>
-<h3 id="code-to-visualize-needle-intersections">💻<strong>Code to Visualize Needle Intersections:</strong></h3>
-<pre><code class="language-python">import numpy as np
+$$
+
+Where:
+
+- \( L \) = Needle length
+
+- \( D \) = Distance between the parallel lines
+
+- \( N \) = Number of needle drops
+
+- \( C \) = Number of intersections
+
+By increasing the number of needle drops \( N \), the estimation of **π** becomes more accurate. A smaller number of drops results in higher variability, while a larger number provides a more stable and reliable estimate.
+
+---
+
+### 💻**Code to Visualize Needle Intersections:**
+
+```python
+import numpy as np
 import matplotlib.pyplot as plt
 
 # Buffon's Needle simulation function to visualize intersections
