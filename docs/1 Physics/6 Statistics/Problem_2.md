@@ -45,9 +45,10 @@ $$
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from IPython.display import HTML
 
 # Parameters
-N = 1000  # Total points
+N = 1000
 x = np.random.uniform(-1, 1, N)
 y = np.random.uniform(-1, 1, N)
 inside = x**2 + y**2 <= 1
@@ -59,14 +60,11 @@ ax.set_aspect('equal')
 ax.set_title("🎯 Monte Carlo π Estimation - Animated")
 ax.grid(True)
 
-# Initial scatter plot objects
 inside_pts = ax.scatter([], [], color='blue', s=2, label='Inside Circle')
 outside_pts = ax.scatter([], [], color='red', s=2, label='Outside Circle')
 text_pi = ax.text(-0.95, 1.05, '', fontsize=12)
-
 ax.legend()
 
-# Animation update function
 def update(frame):
     current_x = x[:frame]
     current_y = y[:frame]
@@ -82,9 +80,11 @@ def update(frame):
 
 ani = animation.FuncAnimation(fig, update, frames=N, interval=10, blit=True, repeat=False)
 
-plt.show()
+# Display animation in Colab
+HTML(ani.to_jshtml())  # <-- This renders the animation in the output cell
 
-![alt text](image-6.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
 
 📊 2. Extra HTML Table for Monte Carlo Estimation
 Here’s a sample HTML table showing how π estimation improves as the number of points increases:
