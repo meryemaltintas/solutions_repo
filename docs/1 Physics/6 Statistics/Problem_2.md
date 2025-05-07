@@ -200,8 +200,8 @@ ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=Tru
 # Display animation in Colab
 HTML(ani.to_jshtml())  # or use ani.to_html5_video()
 
-
-![alt text](image-9.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
 
 📊 2. HTML Table for Buffon’s Needle π Estimates
 <h3>🧪 Buffon’s Needle – π Estimation Table</h3>
