@@ -82,7 +82,7 @@ ani = animation.FuncAnimation(fig, update, frames=N, interval=10, blit=True, rep
 
 # Display animation in Colab
 HTML(ani.to_jshtml())  # <-- This renders the animation in the output cell
-
+```
 ![alt text](image-10.png)
 ![alt text](image-11.png)
 
@@ -199,6 +199,7 @@ ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=Tru
 
 # Display animation in Colab
 HTML(ani.to_jshtml())  # or use ani.to_html5_video()
+```
 
 ![alt text](image-12.png)
 ![alt text](image-13.png)
