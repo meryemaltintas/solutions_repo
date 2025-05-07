@@ -151,22 +151,20 @@ $$
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from IPython.display import HTML
 
 # Parameters
 n_drops = 200
-L = 1  # Needle length
-D = 2  # Distance between lines
-
-# Initialize data
+L = 1
+D = 2
 x_centers = np.random.uniform(0, D / 2, n_drops)
 angles = np.random.uniform(0, np.pi / 2, n_drops)
 crosses = []
 
-# Setup plot
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.set_xlim(0, D)
 ax.set_ylim(-1, 1)
-ax.set_title("🪵 Animated Buffon's Needle Simulation", fontsize=16)
+ax.set_title("🪵 Buffon's Needle Simulation", fontsize=16)
 ax.set_xlabel("X Position")
 ax.set_ylabel("Needle")
 ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
@@ -174,35 +172,36 @@ ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
 needle_lines = []
 text_pi = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-# Animation update function
 def update(frame):
     angle = angles[frame]
     x_center = x_centers[frame]
     x1 = x_center - (L / 2) * np.cos(angle)
     x2 = x_center + (L / 2) * np.cos(angle)
     color = 'blue'
-    
+
     if x_center <= (L / 2) * np.sin(angle):
         crosses.append(1)
         color = 'red'
     else:
         crosses.append(0)
-    
+
     needle = ax.plot([x1, x2], [0, 0], color=color, linewidth=2)[0]
     needle_lines.append(needle)
-    
+
     count_crosses = sum(crosses)
     if count_crosses > 0:
         pi_estimate = (2 * L * (frame + 1)) / (D * count_crosses)
         text_pi.set_text(f'Est. π ≈ {pi_estimate:.5f} (Drops: {frame + 1})')
-    
+
     return needle, text_pi
 
 ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=True, repeat=False)
-plt.legend()
-plt.show()
 
-![alt text](image-7.png)
+# Display animation in Colab
+HTML(ani.to_jshtml())  # or use ani.to_html5_video()
+
+
+![alt text](image-9.png)
 
 📊 2. HTML Table for Buffon’s Needle π Estimates
 <h3>🧪 Buffon’s Needle – π Estimation Table</h3>
