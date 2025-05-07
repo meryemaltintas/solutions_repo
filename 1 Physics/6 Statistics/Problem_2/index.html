@@ -309,22 +309,20 @@ $$
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from IPython.display import HTML
 
 # Parameters
 n_drops = 200
-L = 1  # Needle length
-D = 2  # Distance between lines
-
-# Initialize data
+L = 1
+D = 2
 x_centers = np.random.uniform(0, D / 2, n_drops)
 angles = np.random.uniform(0, np.pi / 2, n_drops)
 crosses = []
 
-# Setup plot
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.set_xlim(0, D)
 ax.set_ylim(-1, 1)
-ax.set_title("🪵 Animated Buffon's Needle Simulation", fontsize=16)
+ax.set_title("🪵 Buffon's Needle Simulation", fontsize=16)
 ax.set_xlabel("X Position")
 ax.set_ylabel("Needle")
 ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
@@ -332,7 +330,6 @@ ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
 needle_lines = []
 text_pi = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-# Animation update function
 def update(frame):
     angle = angles[frame]
     x_center = x_centers[frame]
@@ -357,10 +354,12 @@ def update(frame):
     return needle, text_pi
 
 ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=True, repeat=False)
-plt.legend()
-plt.show()
 
-![alt text](image-7.png)
+# Display animation in Colab
+HTML(ani.to_jshtml())  # or use ani.to_html5_video()
+
+
+![alt text](image-9.png)
 
 📊 2. HTML Table for Buffon’s Needle π Estimates
 &lt;h3&gt;🧪 Buffon’s Needle – π Estimation Table&lt;/h3&gt;
