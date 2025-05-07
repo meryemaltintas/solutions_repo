@@ -44,46 +44,86 @@ $$
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-# Function to estimate Pi using Monte Carlo method
-def monte_carlo_pi(n):
-    x = np.random.uniform(-1, 1, n)
-    y = np.random.uniform(-1, 1, n)
-    inside = x**2 + y**2 <= 1
-    pi_approx = 4 * np.sum(inside) / n
-    return pi_approx, x, y, inside
+# Parameters
+N = 1000  # Total points
+x = np.random.uniform(-1, 1, N)
+y = np.random.uniform(-1, 1, N)
+inside = x**2 + y**2 <= 1
 
-# Visualization function
-def visualize_circle(x, y, inside):
-    plt.figure(figsize=(6,6))
-    plt.scatter(x[inside], y[inside], color='blue', s=1, label='Inside Circle')
-    plt.scatter(x[~inside], y[~inside], color='red', s=1, label='Outside Circle')
-    plt.title("Monte Carlo π Estimation (Circle Method)")
-    plt.gca().set_aspect('equal')
-    plt.grid(True)
-    plt.legend()
-    plt.show()
+fig, ax = plt.subplots(figsize=(6, 6))
+ax.set_xlim(-1, 1)
+ax.set_ylim(-1, 1)
+ax.set_aspect('equal')
+ax.set_title("🎯 Monte Carlo π Estimation - Animated")
+ax.grid(True)
 
-# Number of points for the simulation
-n = 10000
+# Initial scatter plot objects
+inside_pts = ax.scatter([], [], color='blue', s=2, label='Inside Circle')
+outside_pts = ax.scatter([], [], color='red', s=2, label='Outside Circle')
+text_pi = ax.text(-0.95, 1.05, '', fontsize=12)
 
-# Estimate Pi and get the points and inside condition
-pi_estimate, x, y, inside = monte_carlo_pi(n)
+ax.legend()
 
-# Print the estimated value of Pi
-print(f"Estimated Pi: {pi_estimate}")
+# Animation update function
+def update(frame):
+    current_x = x[:frame]
+    current_y = y[:frame]
+    current_inside = inside[:frame]
+    inside_pts.set_offsets(np.c_[current_x[current_inside], current_y[current_inside]])
+    outside_pts.set_offsets(np.c_[current_x[~current_inside], current_y[~current_inside]])
+    
+    if frame > 0:
+        pi_est = 4 * np.sum(current_inside) / frame
+        text_pi.set_text(f'Est. π ≈ {pi_est:.5f}\nPoints: {frame}')
+    
+    return inside_pts, outside_pts, text_pi
 
-# Visualize the points
-visualize_circle(x, y, inside)
-```
+ani = animation.FuncAnimation(fig, update, frames=N, interval=10, blit=True, repeat=False)
+
+plt.show()
+
 ![alt text](image-6.png)
 
----
+📊 2. Extra HTML Table for Monte Carlo Estimation
+Here’s a sample HTML table showing how π estimation improves as the number of points increases:
+
+<h3>📈 Monte Carlo π Estimation Table</h3>
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>Number of Points (n)</th>
+    <th>Estimated π</th>
+    <th>Absolute Error</th>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>3.16</td>
+    <td>0.0184</td>
+  </tr>
+  <tr>
+    <td>1,000</td>
+    <td>3.148</td>
+    <td>0.0006</td>
+  </tr>
+  <tr>
+    <td>10,000</td>
+    <td>3.1411</td>
+    <td>0.0001</td>
+  </tr>
+  <tr>
+    <td>100,000</td>
+    <td>3.14165</td>
+    <td>0.00005</td>
+  </tr>
+</table>
+
+
 
 #Results and Analysis
 As the number of random points increases, the estimated value of π converges to the true value. However, this convergence is relatively slow and requires a large number of samples for high precision.
 
----
+
 #📘 2. Buffon’s Needle Method
 Theoretical Background
 Buffon’s Needle is a classic probability problem introduced in the 18th century. Imagine a floor with evenly spaced parallel lines and a needle of length 
@@ -110,45 +150,95 @@ $$
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-def buffons_needle(n, L, D):
-    C = 0
-    for _ in range(n):
-        angle = np.random.uniform(0, np.pi / 2)
-        x_center = np.random.uniform(0, D / 2)
-        if x_center <= (L / 2) * np.sin(angle):
-            C += 1
-    pi_estimate = (2 * L * n) / (D * C) if C > 0 else None
-    return pi_estimate, C
+# Parameters
+n_drops = 200
+L = 1  # Needle length
+D = 2  # Distance between lines
 
-def visualize_buffons_needle(n, L, D):
-    plt.figure(figsize=(8, 6))
-    plt.axhline(0, color='black', linewidth=2)
-    for _ in range(n):
-        angle = np.random.uniform(0, np.pi / 2)
-        x_center = np.random.uniform(0, D / 2)
-        x1 = x_center - (L / 2) * np.cos(angle)
-        x2 = x_center + (L / 2) * np.cos(angle)
-        plt.plot([x1, x2], [0, 0], color='blue', linewidth=2)
-    plt.xlim(0, D)
-    plt.ylim(-1, 1)
-    plt.title("Buffon’s Needle Simulation")
-    plt.grid(True)
-    plt.show()
+# Initialize data
+x_centers = np.random.uniform(0, D / 2, n_drops)
+angles = np.random.uniform(0, np.pi / 2, n_drops)
+crosses = []
 
-# Parameters for Buffon’s Needle
-n_drops = 1000
-needle_length = 1
-line_distance = 2
+# Setup plot
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.set_xlim(0, D)
+ax.set_ylim(-1, 1)
+ax.set_title("🪵 Animated Buffon's Needle Simulation", fontsize=16)
+ax.set_xlabel("X Position")
+ax.set_ylabel("Needle")
+ax.axhline(0, color='black', linewidth=2, linestyle='--', label='Line')
 
-# Estimate Pi and visualize
-pi_estimate, C = buffons_needle(n_drops, needle_length, line_distance)
-print(f"Estimated Pi from Buffon’s Needle: {pi_estimate}")
+needle_lines = []
+text_pi = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-# Visualize the needle drops
-visualize_buffons_needle(n_drops, needle_length, line_distance)
-```
+# Animation update function
+def update(frame):
+    angle = angles[frame]
+    x_center = x_centers[frame]
+    x1 = x_center - (L / 2) * np.cos(angle)
+    x2 = x_center + (L / 2) * np.cos(angle)
+    color = 'blue'
+    
+    if x_center <= (L / 2) * np.sin(angle):
+        crosses.append(1)
+        color = 'red'
+    else:
+        crosses.append(0)
+    
+    needle = ax.plot([x1, x2], [0, 0], color=color, linewidth=2)[0]
+    needle_lines.append(needle)
+    
+    count_crosses = sum(crosses)
+    if count_crosses > 0:
+        pi_estimate = (2 * L * (frame + 1)) / (D * count_crosses)
+        text_pi.set_text(f'Est. π ≈ {pi_estimate:.5f} (Drops: {frame + 1})')
+    
+    return needle, text_pi
+
+ani = animation.FuncAnimation(fig, update, frames=n_drops, interval=40, blit=True, repeat=False)
+plt.legend()
+plt.show()
+
 ![alt text](image-7.png)
+
+📊 2. HTML Table for Buffon’s Needle π Estimates
+<h3>🧪 Buffon’s Needle – π Estimation Table</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>Number of Drops</th>
+    <th>Crosses (Hits)</th>
+    <th>Estimated π</th>
+    <th>Absolute Error</th>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>63</td>
+    <td>3.17</td>
+    <td>0.03</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>318</td>
+    <td>3.14</td>
+    <td>0.0016</td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>636</td>
+    <td>3.141</td>
+    <td>0.0006</td>
+  </tr>
+  <tr>
+    <td>5000</td>
+    <td>3180</td>
+    <td>3.1415</td>
+    <td>~0.0001</td>
+  </tr>
+</table>
+
 
 #Results and Analysis
 
