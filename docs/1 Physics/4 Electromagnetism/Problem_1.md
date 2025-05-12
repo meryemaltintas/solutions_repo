@@ -352,8 +352,11 @@ Electric force induces a drift velocity in the direction perpendicular to both f
 # Parameter Effects
 
 Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
+
 Stronger Electric Field: Increases the drift speed in crossed fields.
+
 Heavier Particles: Larger mass means a larger radius and slower acceleration.
+
 Charge Sign: Positive/negative particles spiral in opposite directions.
 
 #📊 HTML Comparison Table
