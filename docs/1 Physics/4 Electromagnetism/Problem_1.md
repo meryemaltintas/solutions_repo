@@ -97,10 +97,13 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 ```
 ![alt text](image-4.png)
 ![alt text](image-5.png)
+
 📈 Simulation Results and Interpretation
+
 We visualize the results from each field configuration:
 
 🔁 Case 1: Uniform Magnetic Field Only
+
 The particle follows a circular path due to the influence of a magnetic field. This motion is described by the Larmor radius:
 $$
 r_L = \frac{m v_\perp}{q B}
@@ -114,7 +117,9 @@ Where:
 - \( B \): magnetic field strength.
 
 This scenario produces **uniform circular motion** in the plane perpendicular to \( \vec{B} \).
+
 🌀 **Case 2:**  
+
 \( \vec{E} \parallel \vec{B} \) — Parallel Electric and Magnetic Fields
 
 When the electric field \( \vec{E} \) is parallel to the magnetic field \( \vec{B} \), the particle undergoes **helical motion**. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:
@@ -126,6 +131,7 @@ The circular motion remains in the plane perpendicular to \( \vec{B} \).
 The particle gains speed along the field direction \( \hat{z} \), forming a helix.
 
 ➡️ **Case 3:**  
+
 \( \vec{E} \perp \vec{B} \) — Crossed Electric and Magnetic Fields
 
 In this configuration, the particle undergoes **spiral motion** while also drifting in the direction perpendicular to both \( \vec{E} \) and \( \vec{B} \). This drift is described by the \( \vec{E} \times \vec{B} \) drift velocity:
@@ -135,7 +141,8 @@ $$
 The motion still includes circular components due to \( \vec{B} \).
 
 The particle drifts in a straight line at constant speed \( \vec{v}_d \).
-🧮 Parameter Effects
+
+#🧮 Parameter Effects
 Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
 
 Stronger Electric Field: Increases the drift speed in crossed fields.
@@ -172,9 +179,136 @@ Charge Sign: Positive/negative particles spiral in opposite directions.
   </tr>
 </table>
 
+---
+#1. Magnetic Field Only (Circular Motion)
+In this simulation, the particle moves in a circular path due to the magnetic field. The motion is governed by the Lorentz force, and the radius of the path is determined by the Larmor radius.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters for the simulation
+m = 1.0  # mass of the particle (kg)
+q = 1.0  # charge of the particle (C)
+B = 1.0  # magnetic field strength (T)
+v_perp = 1.0  # velocity perpendicular to B (m/s)
+r_L = m * v_perp / (q * B)  # Larmor radius
+
+# Time parameters
+t_max = 10.0  # maximum simulation time (seconds)
+dt = 0.01  # time step (seconds)
+times = np.arange(0, t_max, dt)
+
+# Initialize position and velocity
+x, y = r_L, 0  # initial position
+vx, vy = 0, v_perp  # velocity components (perpendicular to B)
+
+# Arrays to store positions for plotting
+x_vals, y_vals = [], []
+
+# Simulate the particle's motion
+for t in times:
+    # Update the position and velocity using the Lorentz force (right-hand rule)
+    # Assuming the magnetic field is in the z-direction
+    # Circular motion equations: dx/dt = -vy, dy/dt = vx
+    x_vals.append(x)
+    y_vals.append(y)
+
+    # Update velocity components for circular motion
+    x, y = x + vx * dt, y + vy * dt
+    vx, vy = -vy, vx  # velocity components in circular motion
+
+# Plot the circular trajectory
+plt.figure(figsize=(6, 6))
+plt.plot(x_vals, y_vals, label="Particle Path")
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Circular Motion in a Magnetic Field")
+plt.gca().set_aspect('equal', adjustable='box')
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+![alt text](image-6.png)
+
+#Explanation:
+Larmor radius: Determines the radius of the circular path that the particle follows.
+
+The motion is purely circular since the magnetic force provides a centripetal force that keeps the particle in the plane perpendicular to the magnetic field.
+
+The position is updated over time to plot the circular path.
+
+#2. Helical Motion 
+In this case, the electric and magnetic fields are parallel. The particle undergoes helical motion, spiraling around the magnetic field while being accelerated by the electric field.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+# Parameters for the simulation
+E = 1.0  # electric field strength (V/m)
+v_parallel = 0.5  # velocity component parallel to B (m/s)
+v_perp = 1.0  # velocity perpendicular to B (m/s)
+
+# Particle mass and charge
+m = 1.0  # kg
+q = 1.0  # C
+
+# Magnetic field strength
+B = 1.0  # Tesla
+
+# Calculate the Larmor radius and helical motion parameters
+omega_c = q * B / m  # cyclotron frequency
+v_drift = E / B  # drift velocity
+
+# Initial conditions
+r_L = m * v_perp / (q * B)  # Larmor radius
+z = 0  # starting position along the field direction
+x, y = r_L, 0  # initial position in x and y
+vx, vy = 0, v_perp  # initial velocity components
+
+# Time setup
+dt = 0.01
+t_max = 50
+times = np.arange(0, t_max, dt)
+
+# Arrays to store positions for plotting
+x_vals, y_vals, z_vals = [], [], []
+
+# Simulate the helical motion
+for t in times:
+    # Update position using circular motion and drift in the z-direction
+    x_vals.append(x)
+    y_vals.append(y)
+    z_vals.append(z)
+
+    # Update velocity components (perpendicular motion)
+    vx, vy = -vy, vx  # Circular motion update
+    x += vx * dt
+    y += vy * dt
+
+    # Drift motion along the z-axis
+    z += v_drift * dt
+
+# Plot the 3D helix
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x_vals, y_vals, z_vals, label="Helical Path")
+ax.set_xlabel('X (m)')
+ax.set_ylabel('Y (m)')
+ax.set_zlabel('Z (m)')
+ax.set_title('Helical Motion with \( \vec{E} \parallel \vec{B} \)')
+plt.legend()
+plt.show()
+```
+Explanation:
+Helical motion arises due to the combination of the perpendicular velocity (circular motion) and the parallel velocity (drifting motion along the magnetic field).
+
+The drift velocity is caused by the electric field, which pushes the particle along the field direction 
+v_z = \frac{dz}{dt}
+
+![alt text](image-7.png)
 
 
-
+ 
 
 
 
