@@ -100,7 +100,7 @@ where **N** is the number of sources (vertices of the polygon).
 
 ![alt text](image-1.png)
 
-✅ 1. One Point Source
+#✅ 1. One Point Source
 # Interference from a single point source
 
 Description: A single point source generates circular wavefronts radiating outward uniformly. No interference occurs, only basic wave propagation is visible.
@@ -134,7 +134,7 @@ plt.show()
 
 ![alt text](image-2.png)
 
-✅ 2. Two Point Sources
+#✅ 2. Two Point Sources
 # Interference from two coherent point sources
 Description: Two coherent sources interfere to produce a classic pattern of alternating constructive and destructive interference — producing nodal and antinodal lines
 
@@ -167,7 +167,7 @@ plt.show()
 ```
 ![alt text](image-3.png)
 
-✅ 3. Three Point Sources (Equilateral Triangle)
+#✅ 3. Three Point Sources (Equilateral Triangle)
 
 # Interference from three sources in an equilateral triangle
 Description: Three sources arranged in an equilateral triangle generate a more complex interference pattern with symmetry but additional regions of chaotic interaction.
@@ -203,7 +203,7 @@ plt.show()
 ```
 ![alt text](image-4.png)
 
-✅ 4. Four Point Sources (Square)
+#✅ 4. Four Point Sources (Square)
 
 # Interference from four sources at the corners of a square
 Description: Four sources placed at the corners of a square form an interference pattern exhibiting strong symmetry, with clear grid-like nodal and antinodal regions.
