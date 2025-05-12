@@ -1,7 +1,7 @@
 # Problem 1
-# ⚡ Simulating the Effects of the Lorentz Force
+#  Simulating the Effects of the Lorentz Force
 
-## 🎯 Motivation
+## Motivation
 
 The **Lorentz force** governs the motion of charged particles under the influence of electric and magnetic fields. It plays a foundational role in fields such as plasma physics, particle accelerators, electromagnetic traps, and space physics. The force is defined by the equation:
 
@@ -20,7 +20,7 @@ By simulating this force, we gain intuition into how particles behave in control
 
 ---
 
-## 🧠 Real-World Applications
+## Real-World Applications
 
 The Lorentz force is pivotal in many systems, including:
 
@@ -32,7 +32,7 @@ The Lorentz force is pivotal in many systems, including:
 
 ---
 
-## ⚙️ Simulation Methodology
+##  Simulation Methodology
 
 We simulate a charged particle’s motion under different configurations of electric and magnetic fields using the **Euler method**, solving Newton’s second law:
 
@@ -47,7 +47,7 @@ We examine three primary scenarios:
 
 ---
 
-## 🧪 Python Code
+## Python Code
 
 ```python
 import numpy as np
@@ -98,7 +98,7 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
-📈 Simulation Results and Interpretation
+#📈 Simulation Results and Interpretation
 
 We visualize the results from each field configuration:
 
@@ -108,6 +108,7 @@ The particle follows a circular path due to the influence of a magnetic field. T
 $$
 r_L = \frac{m v_\perp}{q B}
 $$
+
 Where:
 
 - \( r_L \): Larmor radius (radius of circular motion),
@@ -123,9 +124,11 @@ This scenario produces **uniform circular motion** in the plane perpendicular to
 \( \vec{E} \parallel \vec{B} \) — Parallel Electric and Magnetic Fields
 
 When the electric field \( \vec{E} \) is parallel to the magnetic field \( \vec{B} \), the particle undergoes **helical motion**. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:
+
 $$
 \vec{v}(t) = v_\perp \hat{\theta}(t) + v_{\parallel}(t) \hat{z}
 $$
+
 The circular motion remains in the plane perpendicular to \( \vec{B} \).
 
 The particle gains speed along the field direction \( \hat{z} \), forming a helix.
@@ -143,6 +146,7 @@ The motion still includes circular components due to \( \vec{B} \).
 The particle drifts in a straight line at constant speed \( \vec{v}_d \).
 
 #🧮 Parameter Effects
+
 Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
 
 Stronger Electric Field: Increases the drift speed in crossed fields.
