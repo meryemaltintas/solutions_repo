@@ -321,8 +321,70 @@ Helical motion arises due to the combination of the perpendicular velocity (circ
 
 ![alt text](image-7.png)
 
+#3. Crossed Electric and Magnetic Fields (Perpendicular)
 
- 
+In this configuration, the electric and magnetic fields are perpendicular to each other, and the particle undergoes a spiral motion with a drift along the direction perpendicular to both fields.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+# Constants for crossed electric and magnetic fields
+E = 1.0  # electric field strength (in V/m)
+B = 1.0  # magnetic field strength (in Tesla)
+v0 = 5.0  # initial velocity (in m/s)
+q = 1.0  # charge of the particle (in Coulombs)
+m = 1.0  # mass of the particle (in kg)
+
+# Initial conditions
+vx0, vy0, vz0 = 0, 0, v0  # initial velocity components in x, y, and z
+x0, y0, z0 = 0, 0, 0  # initial position
+
+# Time parameters
+t_max = 20  # simulation time (in seconds)
+dt = 0.01  # time step (in seconds)
+times = np.arange(0, t_max, dt)
+
+# Initialize position and velocity arrays
+x, y, z = [x0], [y0], [z0]
+vx, vy, vz = [vx0], [vy0], [vz0]
+
+# Lorentz force and motion equations with crossed electric and magnetic fields
+for t in times[1:]:
+    # Calculate the electric and magnetic forces (E perpendicular to B)
+    F_E = q * np.array([E, 0, 0])  # force due to electric field (along x-axis)
+    F_B = q * np.array([vy[-1], -vx[-1], 0]) * B  # force due to magnetic field
+
+    # Total force (crossed fields)
+    total_force = F_E + F_B
+
+    # Update velocities using F = ma
+    ax, ay, az = total_force / m
+    vx.append(vx[-1] + ax * dt)
+    vy.append(vy[-1] + ay * dt)
+    vz.append(vz[-1] + az * dt)
+
+    # Update positions using v = dx/dt
+    x.append(x[-1] + vx[-1] * dt)
+    y.append(y[-1] + vy[-1] * dt)
+    z.append(z[-1] + vz[-1] * dt)
+
+# Plotting the trajectory
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x, y, z, label="Trajectory")
+ax.set_title("Crossed Electric and Magnetic Fields")
+ax.set_xlabel("X (m)")
+ax.set_ylabel("Y (m)")
+ax.set_zlabel("Z (m)")
+plt.legend()
+plt.show()
+```
+#Explanation:
+Magnetic force causes circular motion in the plane perpendicular to the magnetic field.
+
+Electric force induces a drift velocity in the direction perpendicular to both fields, resulting in spiral motion.
+
+![alt text](image-8.png)
 
 
 
