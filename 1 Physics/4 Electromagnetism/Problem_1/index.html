@@ -276,21 +276,31 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 <img alt="alt text" src="../image-5.png"/></p>
 <h1 id="simulation-results-and-interpretation">📈 Simulation Results and Interpretation</h1>
 <p>We visualize the results from each field configuration:</p>
-<p>🔁 Case 1: Uniform Magnetic Field Only</p>
+<h1 id="case-1-uniform-magnetic-field-only">🔁 Case 1: Uniform Magnetic Field Only</h1>
 <p>The particle follows a circular path due to the influence of a magnetic field. This motion is described by the Larmor radius:
 $$
 r_L = \frac{m v_\perp}{q B}
 $$</p>
 <p>Where:</p>
 <ul>
-<li><span class="arithmatex">\( r_L \)</span>: Larmor radius (radius of circular motion),</li>
-<li><span class="arithmatex">\( m \)</span>: particle mass,</li>
-<li><span class="arithmatex">\( v_\perp \)</span>: component of velocity perpendicular to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>,</li>
-<li><span class="arithmatex">\( q \)</span>: electric charge,</li>
-<li><span class="arithmatex">\( B \)</span>: magnetic field strength.</li>
+<li>
+<p><span class="arithmatex">\( r_L \)</span>: Larmor radius (radius of circular motion),</p>
+</li>
+<li>
+<p><span class="arithmatex">\( m \)</span>: particle mass,</p>
+</li>
+<li>
+<p><span class="arithmatex">\( v_\perp \)</span>: component of velocity perpendicular to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>,</p>
+</li>
+<li>
+<p><span class="arithmatex">\( q \)</span>: electric charge,</p>
+</li>
+<li>
+<p><span class="arithmatex">\( B \)</span>: magnetic field strength.</p>
+</li>
 </ul>
 <p>This scenario produces <strong>uniform circular motion</strong> in the plane perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
-<p>🌀 <strong>Case 2:</strong> </p>
+<h1 id="case-2">🌀 <strong>Case 2:</strong></h1>
 <p><span class="arithmatex">\( \vec{E} \parallel \vec{B} \)</span> — Parallel Electric and Magnetic Fields</p>
 <p>When the electric field <span class="arithmatex">\( \vec{E} \)</span> is parallel to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>, the particle undergoes <strong>helical motion</strong>. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:</p>
 <div class="arithmatex">\[
@@ -298,7 +308,7 @@ $$</p>
 \]</div>
 <p>The circular motion remains in the plane perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
 <p>The particle gains speed along the field direction <span class="arithmatex">\( \hat{z} \)</span>, forming a helix.</p>
-<p>➡️ <strong>Case 3:</strong> </p>
+<h1 id="case-3">➡️ <strong>Case 3:</strong></h1>
 <p><span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> — Crossed Electric and Magnetic Fields</p>
 <p>In this configuration, the particle undergoes <strong>spiral motion</strong> while also drifting in the direction perpendicular to both <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span>. This drift is described by the <span class="arithmatex">\( \vec{E} \times \vec{B} \)</span> drift velocity:
 $$
@@ -453,8 +463,6 @@ plt.show()
 </code></pre>
 <p>Explanation:
 Helical motion arises due to the combination of the perpendicular velocity (circular motion) and the parallel velocity (drifting motion along the magnetic field).</p>
-<p>The drift velocity is caused by the electric field, which pushes the particle along the field direction 
-v_z = \frac{dz}{dt}</p>
 <p><img alt="alt text" src="../image-7.png"/></p>
 </div>
 </div><footer>
