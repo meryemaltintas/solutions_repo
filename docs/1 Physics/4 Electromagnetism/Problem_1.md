@@ -157,14 +157,11 @@ The motion still includes circular components due to \( \vec{B} \).
 
 The particle drifts in a straight line at constant speed \( \vec{v}_d \).
 
-#🧮 Parameter Effects
+# Parameter Effects
 
 Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
-
 Stronger Electric Field: Increases the drift speed in crossed fields.
-
 Heavier Particles: Larger mass means a larger radius and slower acceleration.
-
 Charge Sign: Positive/negative particles spiral in opposite directions.
 
 #📊 HTML Comparison Table
