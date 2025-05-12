@@ -273,52 +273,131 @@
 <li>A detailed explanation of the interference patterns observed for the chosen regular polygon with the goal of understanding wave superposition.</li>
 <li>Graphical representations of the water surface showing constructive and destructive interference regions.</li>
 </ul>
+<hr/>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p>✅ 1. One Point Source</p>
+<h1 id="interference-from-a-single-point-source">Interference from a single point source</h1>
+<p>Description: A single point source generates circular wavefronts radiating outward uniformly. No interference occurs, only basic wave propagation is visible.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-# Parameters
-A = 1  # Amplitude of the wave
-lambda_ = 1  # Wavelength
-f = 1  # Frequency
-omega = 2 * np.pi * f  # Angular frequency
-k = 2 * np.pi / lambda_  # Wave number
-r = 5  # Radius of the polygon (distance from center to vertices)
-n = 4  # Number of sources (vertices of the polygon, e.g., square = 4)
-phi = 0  # Initial phase
 
-# Calculate positions of sources (vertices of a regular polygon)
-angles = np.linspace(0, 2 * np.pi, n, endpoint=False)  # Evenly spaced angles
-sources = np.array([(r * np.cos(angle), r * np.sin(angle)) for angle in angles])
+A = 1
+lambda_ = 1
+k = 2 * np.pi / lambda_
+omega = 2 * np.pi
+phi = 0
+source = (0, 0)
 
-# Set up the grid for visualization (water surface)
 x_vals = np.linspace(-8, 8, 400)
 y_vals = np.linspace(-8, 8, 400)
 X, Y = np.meshgrid(x_vals, y_vals)
 
-# Function to calculate the displacement at a given point (x, y)
-def displacement(x, y, sources, A, k, omega, phi):
-    total_displacement = 0
-    for (x_s, y_s) in sources:
-        # Calculate the distance from the source to the point (x, y)
-        r_dist = np.sqrt((x - x_s)**2 + (y - y_s)**2)
-        total_displacement += A * np.sin(k * r_dist - omega * 0 + phi)
-    return total_displacement
+r = np.sqrt((X - source[0])**2 + (Y - source[1])**2)
+Z = A * np.sin(k * r + phi)
 
-# Compute the displacement at each grid point using a for loop (more efficient than np.vectorize in this case)
-Z = np.zeros(X.shape)
-for i in range(X.shape[0]):
-    for j in range(X.shape[1]):
-        Z[i, j] = displacement(X[i, j], Y[i, j], sources, A, k, omega, phi)
-
-# Plot the interference pattern using contour plots
-plt.figure(figsize=(8, 6))
-plt.contourf(X, Y, Z, levels=50, cmap='RdYlBu')  # Contour plot for interference pattern
-plt.colorbar(label='Displacement')  # Color bar showing displacement values
-plt.title(f'Interference Pattern for {n}-sided Polygon')
-plt.xlabel('x')
-plt.ylabel('y')
+plt.figure(figsize=(6, 5))
+plt.contourf(X, Y, Z, levels=50, cmap='viridis')
+plt.title("1 Source Interference Pattern")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.colorbar(label="Displacement")
 plt.show()
 </code></pre>
-<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<p>✅ 2. Two Point Sources</p>
+<h1 id="interference-from-two-coherent-point-sources">Interference from two coherent point sources</h1>
+<p>Description: Two coherent sources interfere to produce a classic pattern of alternating constructive and destructive interference — producing nodal and antinodal lines</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+A = 1
+lambda_ = 1
+k = 2 * np.pi / lambda_
+phi = 0
+sources = [(-2, 0), (2, 0)]
+
+x_vals = np.linspace(-8, 8, 400)
+y_vals = np.linspace(-8, 8, 400)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+Z = np.zeros_like(X)
+for (xs, ys) in sources:
+    r = np.sqrt((X - xs)**2 + (Y - ys)**2)
+    Z += A * np.sin(k * r + phi)
+
+plt.figure(figsize=(6, 5))
+plt.contourf(X, Y, Z, levels=50, cmap='plasma')
+plt.title("2 Sources Interference Pattern")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.colorbar(label="Displacement")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p>✅ 3. Three Point Sources (Equilateral Triangle)</p>
+<h1 id="interference-from-three-sources-in-an-equilateral-triangle">Interference from three sources in an equilateral triangle</h1>
+<p>Description: Three sources arranged in an equilateral triangle generate a more complex interference pattern with symmetry but additional regions of chaotic interaction.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+A = 1
+lambda_ = 1
+k = 2 * np.pi / lambda_
+phi = 0
+radius = 3
+angles = np.linspace(0, 2 * np.pi, 3, endpoint=False)
+sources = [(radius * np.cos(a), radius * np.sin(a)) for a in angles]
+
+x_vals = np.linspace(-8, 8, 400)
+y_vals = np.linspace(-8, 8, 400)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+Z = np.zeros_like(X)
+for (xs, ys) in sources:
+    r = np.sqrt((X - xs)**2 + (Y - ys)**2)
+    Z += A * np.sin(k * r + phi)
+
+plt.figure(figsize=(6, 5))
+plt.contourf(X, Y, Z, levels=50, cmap='coolwarm')
+plt.title("3 Sources Interference Pattern")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.colorbar(label="Displacement")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p>✅ 4. Four Point Sources (Square)</p>
+<h1 id="interference-from-four-sources-at-the-corners-of-a-square">Interference from four sources at the corners of a square</h1>
+<p>Description: Four sources placed at the corners of a square form an interference pattern exhibiting strong symmetry, with clear grid-like nodal and antinodal regions.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+A = 1
+lambda_ = 1
+k = 2 * np.pi / lambda_
+phi = 0
+radius = 3
+angles = np.linspace(0, 2 * np.pi, 4, endpoint=False)
+sources = [(radius * np.cos(a), radius * np.sin(a)) for a in angles]
+
+x_vals = np.linspace(-8, 8, 400)
+y_vals = np.linspace(-8, 8, 400)
+X, Y = np.meshgrid(x_vals, y_vals)
+
+Z = np.zeros_like(X)
+for (xs, ys) in sources:
+    r = np.sqrt((X - xs)**2 + (Y - ys)**2)
+    Z += A * np.sin(k * r + phi)
+
+plt.figure(figsize=(6, 5))
+plt.contourf(X, Y, Z, levels=50, cmap='RdYlBu')
+plt.title("4 Sources Interference Pattern (Square)")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.colorbar(label="Displacement")
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-5.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
