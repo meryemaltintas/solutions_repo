@@ -10,10 +10,15 @@ The **Lorentz force** governs the motion of charged particles under the influenc
 \]
 
 Where:
+
 - \( \vec{F} \) is the total force on the particle,
+
 - \( q \) is the electric charge,
+
 - \( \vec{E} \) is the electric field,
+
 - \( \vec{B} \) is the magnetic field,
+
 - \( \vec{v} \) is the velocity of the particle.
 
 By simulating this force, we gain intuition into how particles behave in controlled environments like cyclotrons or natural ones like the Earth’s magnetosphere.
