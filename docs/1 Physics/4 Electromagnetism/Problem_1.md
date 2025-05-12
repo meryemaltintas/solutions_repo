@@ -315,7 +315,8 @@ ax.set_title('Helical Motion with \( \vec{E} \parallel \vec{B} \)')
 plt.legend()
 plt.show()
 ```
-Explanation:
+
+#Explanation:
 Helical motion arises due to the combination of the perpendicular velocity (circular motion) and the parallel velocity (drifting motion along the magnetic field).
 
 ![alt text](image-7.png)
