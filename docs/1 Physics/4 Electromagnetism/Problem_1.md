@@ -106,7 +106,7 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
-#📈 Simulation Results and Interpretation
+# Simulation Results and Interpretation
 
 We visualize the results from each field configuration:
 
@@ -193,7 +193,9 @@ Charge Sign: Positive/negative particles spiral in opposite directions.
 </table>
 
 ---
-#1. Magnetic Field Only (Circular Motion)
+
+##1. Magnetic Field Only (Circular Motion)
+
 In this simulation, the particle moves in a circular path due to the magnetic field. The motion is governed by the Lorentz force, and the radius of the path is determined by the Larmor radius.
 ```python
 import numpy as np
