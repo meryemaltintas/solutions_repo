@@ -300,55 +300,6 @@ $$</p>
 </li>
 </ul>
 <p>This scenario produces <strong>uniform circular motion</strong> in the plane perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
-<h1 id="case-2">🌀 <strong>Case 2:</strong></h1>
-<p><span class="arithmatex">\( \vec{E} \parallel \vec{B} \)</span> — Parallel Electric and Magnetic Fields</p>
-<p>When the electric field <span class="arithmatex">\( \vec{E} \)</span> is parallel to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>, the particle undergoes <strong>helical motion</strong>. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:</p>
-<div class="arithmatex">\[
-\vec{v}(t) = v_\perp \hat{\theta}(t) + v_{\parallel}(t) \hat{z}
-\]</div>
-<p>The circular motion remains in the plane perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
-<p>The particle gains speed along the field direction <span class="arithmatex">\( \hat{z} \)</span>, forming a helix.</p>
-<h1 id="case-3">➡️ <strong>Case 3:</strong></h1>
-<p><span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> — Crossed Electric and Magnetic Fields</p>
-<p>In this configuration, the particle undergoes <strong>spiral motion</strong> while also drifting in the direction perpendicular to both <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span>. This drift is described by the <span class="arithmatex">\( \vec{E} \times \vec{B} \)</span> drift velocity:
-$$
-\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
-$$
-The motion still includes circular components due to <span class="arithmatex">\( \vec{B} \)</span>.</p>
-<p>The particle drifts in a straight line at constant speed <span class="arithmatex">\( \vec{v}_d \)</span>.</p>
-<h1 id="parameter-effects">Parameter Effects</h1>
-<p>Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
-Stronger Electric Field: Increases the drift speed in crossed fields.
-Heavier Particles: Larger mass means a larger radius and slower acceleration.
-Charge Sign: Positive/negative particles spiral in opposite directions.</p>
-<h1 id="html-comparison-table">📊 HTML Comparison Table</h1>
-<table border="1">
-<tr>
-<th>Case</th>
-<th>Fields</th>
-<th>Motion Type</th>
-<th>Observation</th>
-</tr>
-<tr>
-<td>1</td>
-<td>B ≠ 0, E = 0</td>
-<td>Circular</td>
-<td>Larmor radius motion</td>
-</tr>
-<tr>
-<td>2</td>
-<td>E ∥ B</td>
-<td>Helical</td>
-<td>Acceleration along B</td>
-</tr>
-<tr>
-<td>3</td>
-<td>E ⊥ B</td>
-<td>Drift + Spiral</td>
-<td>Classic E × B drift</td>
-</tr>
-</table>
-<hr/>
 <h2 id="1-magnetic-field-only-circular-motion">1. Magnetic Field Only (Circular Motion)</h2>
 <p>In this simulation, the particle moves in a circular path due to the magnetic field. The motion is governed by the Lorentz force, and the radius of the path is determined by the Larmor radius.</p>
 <pre><code class="language-python">import numpy as np
@@ -401,6 +352,14 @@ plt.show()
 <p>Larmor radius: Determines the radius of the circular path that the particle follows.</p>
 <p>The motion is purely circular since the magnetic force provides a centripetal force that keeps the particle in the plane perpendicular to the magnetic field.</p>
 <p>The position is updated over time to plot the circular path.</p>
+<h1 id="case-2">🌀 <strong>Case 2:</strong></h1>
+<p><span class="arithmatex">\( \vec{E} \parallel \vec{B} \)</span> — Parallel Electric and Magnetic Fields</p>
+<p>When the electric field <span class="arithmatex">\( \vec{E} \)</span> is parallel to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>, the particle undergoes <strong>helical motion</strong>. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:</p>
+<div class="arithmatex">\[
+\vec{v}(t) = v_\perp \hat{\theta}(t) + v_{\parallel}(t) \hat{z}
+\]</div>
+<p>The circular motion remains in the plane perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
+<p>The particle gains speed along the field direction <span class="arithmatex">\( \hat{z} \)</span>, forming a helix.</p>
 <h1 id="2-helical-motion">2. Helical Motion</h1>
 <p>In this case, the electric and magnetic fields are parallel. The particle undergoes helical motion, spiraling around the magnetic field while being accelerated by the electric field.</p>
 <pre><code class="language-python">import numpy as np
@@ -464,6 +423,14 @@ plt.show()
 <h1 id="explanation_1">Explanation:</h1>
 <p>Helical motion arises due to the combination of the perpendicular velocity (circular motion) and the parallel velocity (drifting motion along the magnetic field).</p>
 <p><img alt="alt text" src="../image-7.png"/></p>
+<h1 id="case-3">➡️ <strong>Case 3:</strong></h1>
+<p><span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> — Crossed Electric and Magnetic Fields</p>
+<p>In this configuration, the particle undergoes <strong>spiral motion</strong> while also drifting in the direction perpendicular to both <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span>. This drift is described by the <span class="arithmatex">\( \vec{E} \times \vec{B} \)</span> drift velocity:
+$$
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+$$
+The motion still includes circular components due to <span class="arithmatex">\( \vec{B} \)</span>.</p>
+<p>The particle drifts in a straight line at constant speed <span class="arithmatex">\( \vec{v}_d \)</span>.</p>
 <h1 id="3-crossed-electric-and-magnetic-fields-perpendicular">3. Crossed Electric and Magnetic Fields (Perpendicular)</h1>
 <p>In this configuration, the electric and magnetic fields are perpendicular to each other, and the particle undergoes a spiral motion with a drift along the direction perpendicular to both fields.</p>
 <pre><code class="language-python">import numpy as np
@@ -523,6 +490,39 @@ plt.show()
 <p>Magnetic force causes circular motion in the plane perpendicular to the magnetic field.</p>
 <p>Electric force induces a drift velocity in the direction perpendicular to both fields, resulting in spiral motion.</p>
 <p><img alt="alt text" src="../image-8.png"/></p>
+<h1 id="parameter-effects">Parameter Effects</h1>
+<p>Increasing Magnetic Field: Decreases the Larmor radius, tightens the spiral.
+Stronger Electric Field: Increases the drift speed in crossed fields.
+Heavier Particles: Larger mass means a larger radius and slower acceleration.
+Charge Sign: Positive/negative particles spiral in opposite directions.</p>
+<h1 id="html-comparison-table">📊 HTML Comparison Table</h1>
+<table border="1">
+<tr>
+<th>Case</th>
+<th>Fields</th>
+<th>Motion Type</th>
+<th>Observation</th>
+</tr>
+<tr>
+<td>1</td>
+<td>B ≠ 0, E = 0</td>
+<td>Circular</td>
+<td>Larmor radius motion</td>
+</tr>
+<tr>
+<td>2</td>
+<td>E ∥ B</td>
+<td>Helical</td>
+<td>Acceleration along B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>E ⊥ B</td>
+<td>Drift + Spiral</td>
+<td>Classic E × B drift</td>
+</tr>
+</table>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
