@@ -98,7 +98,6 @@ where **N** is the number of sources (vertices of the polygon).
 
 ---
 
-![alt text](image-1.png)
 
 #✅ 1. One Point Source
 # Interference from a single point source
