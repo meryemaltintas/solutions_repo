@@ -46,8 +46,11 @@ We simulate a charged particle’s motion under different configurations of elec
 \]
 
 We examine three primary scenarios:
+
 1. **Uniform magnetic field only**
+
 2. **Uniform electric and magnetic fields (parallel)**
+
 3. **Crossed electric and magnetic fields (perpendicular)**
 
 ---
