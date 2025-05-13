@@ -80,17 +80,14 @@ $$
 \text{Displacement}(r,t) = \sum_{i=1}^{N} A_i \sin(k r_i - \omega t + \phi_i)
 $$
 
-where
+### 5. Analyze Interference Patterns:
+Examine the resulting displacement \( D(x, y, t) \) as a function of position \( (x, y) \) and time \( t \). 
 
- **N** is the number of sources (vertices of the polygon).
+Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).
 
-5. **Analyze Interference Patterns**: Examine the resulting displacement 
+### 6. Visualization:
+Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
 
-**D(x, y, t)** as a function of position **(x, y)** and time **t**.
-
- Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).
-
-6. **Visualization**: Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
 
 ### Considerations
 
