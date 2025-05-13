@@ -276,7 +276,8 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 <img alt="alt text" src="../image-5.png"/></p>
 <h1 id="simulation-results-and-interpretation">Simulation Results and Interpretation</h1>
 <p>We visualize the results from each field configuration:</p>
-<h1 id="case-1-uniform-magnetic-field-only">🔁 Case 1: Uniform Magnetic Field Only</h1>
+<h1 id="case-1">🔁 Case 1:</h1>
+<h1 id="uniform-magnetic-field-only">Uniform Magnetic Field Only</h1>
 <p>The particle follows a circular path due to the influence of a magnetic field. This motion is described by the Larmor radius:
 $$
 r_L = \frac{m v_\perp}{q B}
@@ -353,7 +354,7 @@ plt.show()
 <p>The motion is purely circular since the magnetic force provides a centripetal force that keeps the particle in the plane perpendicular to the magnetic field.</p>
 <p>The position is updated over time to plot the circular path.</p>
 <h1 id="case-2">🌀 <strong>Case 2:</strong></h1>
-<p><span class="arithmatex">\( \vec{E} \parallel \vec{B} \)</span> — Parallel Electric and Magnetic Fields</p>
+<h1 id="vece-parallel-vecb-parallel-electric-and-magnetic-fields"><span class="arithmatex">\( \vec{E} \parallel \vec{B} \)</span> — Parallel Electric and Magnetic Fields</h1>
 <p>When the electric field <span class="arithmatex">\( \vec{E} \)</span> is parallel to the magnetic field <span class="arithmatex">\( \vec{B} \)</span>, the particle undergoes <strong>helical motion</strong>. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:</p>
 <div class="arithmatex">\[
 \vec{v}(t) = v_\perp \hat{\theta}(t) + v_{\parallel}(t) \hat{z}
@@ -424,7 +425,7 @@ plt.show()
 <p>Helical motion arises due to the combination of the perpendicular velocity (circular motion) and the parallel velocity (drifting motion along the magnetic field).</p>
 <p><img alt="alt text" src="../image-7.png"/></p>
 <h1 id="case-3">➡️ <strong>Case 3:</strong></h1>
-<p><span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> — Crossed Electric and Magnetic Fields</p>
+<h1 id="vece-perp-vecb-crossed-electric-and-magnetic-fields"><span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> — Crossed Electric and Magnetic Fields</h1>
 <p>In this configuration, the particle undergoes <strong>spiral motion</strong> while also drifting in the direction perpendicular to both <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span>. This drift is described by the <span class="arithmatex">\( \vec{E} \times \vec{B} \)</span> drift velocity:
 $$
 \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
