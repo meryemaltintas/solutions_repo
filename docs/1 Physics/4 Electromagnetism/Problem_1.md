@@ -110,7 +110,8 @@ plot_trajectory(trajectory_cross, "Trajectory in Crossed E and B Fields")
 
 We visualize the results from each field configuration:
 
-#🔁 Case 1: Uniform Magnetic Field Only
+#🔁 Case 1:
+# Uniform Magnetic Field Only
 
 The particle follows a circular path due to the influence of a magnetic field. This motion is described by the Larmor radius:
 $$
@@ -192,7 +193,7 @@ The position is updated over time to plot the circular path.
 
 #🌀 **Case 2:**  
 
-\( \vec{E} \parallel \vec{B} \) — Parallel Electric and Magnetic Fields
+#\( \vec{E} \parallel \vec{B} \) — Parallel Electric and Magnetic Fields
 
 When the electric field \( \vec{E} \) is parallel to the magnetic field \( \vec{B} \), the particle undergoes **helical motion**. It spirals along the direction of the magnetic field while simultaneously being accelerated by the electric field:
 
@@ -274,7 +275,7 @@ Helical motion arises due to the combination of the perpendicular velocity (circ
 
 #➡️ **Case 3:**  
 
-\( \vec{E} \perp \vec{B} \) — Crossed Electric and Magnetic Fields
+#\( \vec{E} \perp \vec{B} \) — Crossed Electric and Magnetic Fields
 
 In this configuration, the particle undergoes **spiral motion** while also drifting in the direction perpendicular to both \( \vec{E} \) and \( \vec{B} \). This drift is described by the \( \vec{E} \times \vec{B} \) drift velocity:
 $$
