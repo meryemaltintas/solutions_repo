@@ -80,26 +80,6 @@ $$
 \text{Displacement}(r,t) = \sum_{i=1}^{N} A_i \sin(k r_i - \omega t + \phi_i)
 $$
 
-### 5. Analyze Interference Patterns:
-Examine the resulting displacement \( D(x, y, t) \) as a function of position \( (x, y) \) and time \( t \). 
-
-Identify regions of constructive interference (wave amplification) and destructive interference (wave cancellation).
-
-### 6. Visualization:
-Present your findings graphically, illustrating the interference patterns for the chosen regular polygon.
-
-
-### Considerations
-
-- Assume all sources emit waves with the same amplitude, wavelength, and frequency.
-- The waves are coherent, maintaining a constant phase difference.
-- You may use simulation and visualization tools such as Python (with libraries like Matplotlib), or other graphical software to aid in your analysis.
-
-### Deliverables
-
-- A Markdown document with a Python script or notebook implementing the simulations.
-- A detailed explanation of the interference patterns observed for the chosen regular polygon with the goal of understanding wave superposition.
-- Graphical representations of the water surface showing constructive and destructive interference regions.
 
 ---
 
